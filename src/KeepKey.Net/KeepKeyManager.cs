@@ -131,6 +131,21 @@ namespace KeepKey.Net
                 throw new Exception("Error initializing Trezor. Features were not retrieved");
             }
         }
+
+        protected override bool IsButtonRequest(object response)
+        {
+            return response is ButtonRequest;
+        }
+
+        protected override bool IsPinMatrixRequest(object response)
+        {
+            return response is PinMatrixRequest;
+        }
+
+        protected override bool IsInitialize(object response)
+        {
+            return response is Initialize;
+        }
         #endregion
     }
 }
