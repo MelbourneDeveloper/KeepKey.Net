@@ -8,15 +8,23 @@ using Trezor.Manager;
 
 namespace KeepKey.Net
 {
+    /// <summary>
+    /// Manages communication with the KeepKey device
+    /// </summary>
     public class KeepKeyManager : TrezorManagerBase
     {
+        #region Private Constants
         private string LogSection = nameof(KeepKeyManager);
+        #endregion
 
+        #region Public Properties
         public Features Features { get; private set; }
+        #endregion
 
+        #region Protected Properties
         protected override bool HasFeatures => Features != null;
-
         protected override string ContractNamespace => "KeepKey.Net.Contracts";
+        #endregion
 
         #region Constructor
         public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
@@ -24,7 +32,19 @@ namespace KeepKey.Net
         }
         #endregion
 
-        #region Protected Overrides
+        #region Private Methods
+        private CoinType GetCoinType(string coinShortcut)
+        {
+            if (!HasFeatures)
+            {
+                throw new Exception("The Trezor has not been successfully initialised.");
+            }
+
+            return Features.Coins.FirstOrDefault(c => c.CoinShortcut == coinShortcut);
+        }
+        #endregion
+
+        #region Protected Override Methods
         protected override async Task<object> PinMatrixAckAsync(string pin)
         {
             var retVal = await SendMessageAsync(new PinMatrixAck { Pin = pin });
@@ -48,21 +68,11 @@ namespace KeepKey.Net
 
             return retVal;
         }
-
-        protected CoinType GetCoinType(string coinShortcut)
-        {
-            if (!HasFeatures)
-            {
-                throw new Exception("The Trezor has not been successfully initialised.");
-            }
-
-            return Features.Coins.FirstOrDefault(c => c.CoinShortcut == coinShortcut);
-        }
         #endregion
 
         #region Public Methods
         /// <summary>
-        /// Get the Trezor's public key at the specified index.
+        /// Get the KeepKey's public key at the specified index.
         /// </summary>
         public async Task<PublicKey> GetPublicKeyAsync(string coinShortcut, uint addressNumber)
         {
@@ -72,7 +82,7 @@ namespace KeepKey.Net
 
         #region Public Overrides
         /// <summary>
-        /// Get an address from the Trezor
+        /// Get an address from the KeepKey
         /// </summary>
         public override async Task<string> GetAddressAsync(string coinShortcut, uint coinNumber, uint account, bool isChange, uint index, bool showDisplay, AddressType addressType, bool? isSegwit)
         {
