@@ -4,12 +4,19 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.1.0</Version>
-    <Description>Placeholder
-Try KeepKeySharp  for now.</Description>
+    <Version>1.3.0</Version>
+    <Description>A cross platform library for communicating with the KeepKey hardware wallet
+
+Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for other platforms can be added with Hid.Net dependency injection</Description>
     <PackageLicenseUrl>https://github.com/MelbourneDeveloper/KeepKey.Net/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Copyright (c) 2018 Christian Findlay</Copyright>
 <LangVersion>latest</LangVersion>
+<Authors>Christian Findlay</Authors>
+<Company>Christian Findlay</Company>
+<PackageProjectUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</PackageProjectUrl>
+<RepositoryUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</RepositoryUrl>
+<PackageTags>Hid Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey</PackageTags>
+<PackageReleaseNotes>First KeepKey release but this library has been fairly well tested against the Trezor device.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
