@@ -813,6 +813,8 @@ public enum PinMatrixRequestType
     PinMatrixRequestTypeNewSecond = 3,
 }
 
+//Comment out the code that doesn't compile
+/*
 public static class Extensions
 {
     public static bool GetWireIn(this global::google.protobuf.EnumValueOptions obj)
@@ -840,4 +842,5 @@ public static class Extensions
         => global::ProtoBuf.Extensible.AppendValue<bool>(obj, 50005, value);
 
 }
+*/
 #pragma warning restore CS1591, CS0612, CS3021, IDE1006
