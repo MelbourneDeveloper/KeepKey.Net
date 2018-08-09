@@ -74,7 +74,7 @@ namespace KeepKey.Net
         /// <summary>
         /// Get an address from the Trezor
         /// </summary>
-        public override async Task<string> GetAddressAsync(string coinShortcut, uint coinNumber, bool isChange, uint index, bool showDisplay, AddressType addressType, bool? isSegwit)
+        public override async Task<string> GetAddressAsync(string coinShortcut, uint coinNumber, uint account, bool isChange, uint index, bool showDisplay, AddressType addressType, bool? isSegwit)
         {
             if (isSegwit == null)
             {
@@ -86,7 +86,7 @@ namespace KeepKey.Net
                 //ETH and ETC don't appear here so we have to hard code these not to be segwit
                 var coinType = Features.Coins.FirstOrDefault(c => c.CoinShortcut.ToLower() == coinShortcut.ToLower());
 
-                var path = GetAddressPath(isSegwit.Value, isChange, index, coinNumber);
+                var path = GetAddressPath(isSegwit.Value, account, isChange, index, coinNumber);
 
                 switch (addressType)
                 {
