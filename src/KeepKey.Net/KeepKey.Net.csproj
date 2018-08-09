@@ -9,10 +9,15 @@
 Try KeepKeySharp  for now.</Description>
     <PackageLicenseUrl>https://github.com/MelbourneDeveloper/KeepKey.Net/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>Copyright (c) 2018 Christian Findlay</Copyright>
+<LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>C:\GitRepos\KeepKey.Net\NuGet\</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="protobuf-net" Version="2.3.17" />
+  </ItemGroup>
 
 </Project>
