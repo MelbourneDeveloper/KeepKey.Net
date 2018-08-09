@@ -20,4 +20,8 @@ Try KeepKeySharp  for now.</Description>
     <PackageReference Include="protobuf-net" Version="2.3.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj" />
+  </ItemGroup>
+
 </Project>
