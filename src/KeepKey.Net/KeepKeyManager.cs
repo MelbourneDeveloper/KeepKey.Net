@@ -16,6 +16,8 @@ namespace KeepKey.Net
 
         protected override bool HasFeatures => Features != null;
 
+        protected override string ContractNamespace => nameof(KeepKey.Net.Contracts);
+
         #region Constructor
         public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
         {
