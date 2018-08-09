@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Trezor.Manager;
 
-namespace TrezorTestApp
+namespace KeepKeyTestApp
 {
     class Program
     {
@@ -51,29 +51,29 @@ namespace TrezorTestApp
         }
 
         /// <summary>
-        /// TODO: This should be made in to a unit test but it's annoying to add the UI for a unit test as the Trezor requires human intervention for the pin
+        /// TODO: This should be made in to a unit test but it's annoying to add the UI for a unit test as the KeepKey requires human intervention for the pin
         /// </summary>
         /// <returns></returns>
         private async static Task Go()
         {
-            using (var trezorHid = await Connect())
+            using (var keepKeyHid = await Connect())
             {
-                using (var trezorManager = new KeepKeyManager(GetPin, trezorHid))
+                using (var keepKeyManager = new KeepKeyManager(GetPin, keepKeyHid))
                 {
-                    await trezorManager.InitializeAsync();
+                    await keepKeyManager.InitializeAsync();
 
                     var tasks = new List<Task>();
 
                     for (var i = 0; i < 50; i++)
                     {
-                        tasks.Add(DoGetAddress(trezorManager, i));
+                        tasks.Add(DoGetAddress(keepKeyManager, i));
                     }
 
                     await Task.WhenAll(tasks);
 
                     for (var i = 0; i < 50; i++)
                     {
-                        var address = await GetAddress(trezorManager, i);
+                        var address = await GetAddress(keepKeyManager, i);
 
                         Console.WriteLine($"Index: {i} (No change) - Address: {address}");
 
@@ -90,20 +90,20 @@ namespace TrezorTestApp
             }
         }
 
-        private async static Task DoGetAddress(TrezorManagerBase trezorManager, int i)
+        private async static Task DoGetAddress(KeepKeyManager keepKeyManager, int i)
         {
-            var address = await GetAddress(trezorManager, i);
+            var address = await GetAddress(keepKeyManager, i);
             _Addresses[i] = address;
         }
 
-        private static async Task<string> GetAddress(TrezorManagerBase trezorManager, int i)
+        private static async Task<string> GetAddress(KeepKeyManager keepKeyManager, int i)
         {
-            return await trezorManager.GetAddressAsync("BTC", 0, 0, false, (uint)i, false, AddressType.Bitcoin, false);
+            return await keepKeyManager.GetAddressAsync("BTC", 0, 0, false, (uint)i, false, AddressType.Bitcoin, false);
         }
 
         private async static Task<string> GetPin()
         {
-            Console.WriteLine("Enter PIN based on Trezor values: ");
+            Console.WriteLine("Enter PIN based on KeepKey values: ");
             return Console.ReadLine().Trim();
         }
         #endregion
