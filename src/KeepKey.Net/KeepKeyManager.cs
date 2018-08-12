@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Trezor.Manager;
+using Trezor.Net;
 
 namespace KeepKey.Net
 {
@@ -96,7 +96,7 @@ namespace KeepKey.Net
                 //ETH and ETC don't appear here so we have to hard code these not to be segwit
                 var coinType = Features.Coins.FirstOrDefault(c => c.CoinShortcut.ToLower() == coinShortcut.ToLower());
 
-                var path = GetAddressPath(isSegwit.Value, account, isChange, index, coinNumber);
+                var path = ManagerHelpers.GetAddressPath(isSegwit.Value, account, isChange, index, coinNumber);
 
                 switch (addressType)
                 {
