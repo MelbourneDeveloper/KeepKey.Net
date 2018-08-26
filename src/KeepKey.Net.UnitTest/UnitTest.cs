@@ -3,13 +3,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Trezor.Net;
 
-namespace Trezor.Net
+namespace KeepKey.Net
 {
     [TestClass]
     public partial class UnitTest
     {
-        private static KeepKeyManager TrezorManager;
+        private static KeepKeyManager KeepKeyManager;
         private static readonly string[] _Addresses = new string[50];
 
         [TestMethod]
@@ -28,7 +29,7 @@ namespace Trezor.Net
 
             for (var i = 0; i < 50; i++)
             {
-                tasks.Add(DoGetAddress(TrezorManager, i));
+                tasks.Add(DoGetAddress(KeepKeyManager, i));
             }
 
             await Task.WhenAll(tasks);
@@ -48,22 +49,22 @@ namespace Trezor.Net
 
         private static async Task<string> GetAddress(int i, bool display)
         {
-            return await TrezorManager.GetAddressAsync("BTC", 0, false, (uint)i, display, AddressType.Bitcoin);
+            return await KeepKeyManager.GetAddressAsync("BTC", 0, false, (uint)i, display, AddressType.Bitcoin);
         }
 
         private async Task GetAndInitialize()
         {
-            if (TrezorManager != null)
+            if (KeepKeyManager != null)
             {
                 return;
             }
 
-            var trezorHidDevice = await Connect();
-            TrezorManager = new KeepKeyManager(GetPin, trezorHidDevice);
-            await TrezorManager.InitializeAsync();
+            var keepKeyHidDevice = await Connect();
+            KeepKeyManager = new KeepKeyManager(GetPin, keepKeyHidDevice);
+            await KeepKeyManager.InitializeAsync();
         }
 
-        private static async Task DoGetAddress(KeepKeyManager trezorManager, int i)
+        private static async Task DoGetAddress(KeepKeyManager keepKeyManager, int i)
         {
             var address = await GetAddress(i, false);
             _Addresses[i] = address;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Trezor.Net
+namespace KeepKey.Net
 {
     public partial class UnitTest
     {
@@ -18,13 +18,13 @@ namespace Trezor.Net
 
             retVal = new WindowsHidDevice();
 
-            Console.Write("Waiting for Trezor .");
+            Console.Write("Waiting for KeepKey .");
 
             while (trezorDeviceInformation == null)
             {
                 var devices = WindowsHidDevice.GetConnectedDeviceInformations();
-                var trezors = devices.Where(d => d.VendorId == 11044 && d.ProductId == 1).ToList();
-                trezorDeviceInformation = trezors.FirstOrDefault();
+                var keepKeys = devices.Where(d => d.VendorId == 11044 && d.ProductId == 1).ToList();
+                trezorDeviceInformation = keepKeys.FirstOrDefault();
 
                 if (trezorDeviceInformation != null)
                 {
