@@ -14,7 +14,12 @@ namespace KeepKey.Net
     public class KeepKeyManager : TrezorManagerBase
     {
         #region Private Constants
-        private string LogSection = nameof(KeepKeyManager);
+        private readonly string LogSection = nameof(KeepKeyManager);
+        #endregion
+
+        #region Public Constants
+        public const ushort VendorId = 11044;
+        public const ushort ProductId = 1;
         #endregion
 
         #region Public Properties

@@ -23,7 +23,7 @@ namespace KeepKey.Net
             while (trezorDeviceInformation == null)
             {
                 var devices = WindowsHidDevice.GetConnectedDeviceInformations();
-                var keepKeys = devices.Where(d => d.VendorId == 11044 && d.ProductId == 1).ToList();
+                var keepKeys = devices.Where(d => d.VendorId == KeepKeyManager.VendorId && d.ProductId == KeepKeyManager.ProductId).ToList();
                 trezorDeviceInformation = keepKeys.FirstOrDefault();
 
                 if (trezorDeviceInformation != null)

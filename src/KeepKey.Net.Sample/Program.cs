@@ -34,7 +34,7 @@ namespace KeepKeyTestApp
         private static async Task<IHidDevice> Connect()
         {
             var devices = WindowsHidDevice.GetConnectedDeviceInformations();
-            var keepKeyDeviceInformation = devices.FirstOrDefault(d => d.VendorId == 11044 && d.ProductId == 1);
+            var keepKeyDeviceInformation = devices.FirstOrDefault(d => d.VendorId == KeepKeyManager.VendorId && d.ProductId == KeepKeyManager.ProductId);
 
             if (keepKeyDeviceInformation == null)
             {
