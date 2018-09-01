@@ -1,5 +1,4 @@
-﻿using KeepKey.Net;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -27,14 +26,14 @@ namespace KeepKey.Net
 
             var tasks = new List<Task>();
 
-            for (var i = 0; i < 50; i++)
+            for (uint i = 0; i < 50; i++)
             {
                 tasks.Add(DoGetAddress(KeepKeyManager, i));
             }
 
             await Task.WhenAll(tasks);
 
-            for (var i = 0; i < 50; i++)
+            for (uint i = 0; i < 50; i++)
             {
                 var address = await GetAddress(i, false);
 
@@ -47,9 +46,9 @@ namespace KeepKey.Net
             }
         }
 
-        private static async Task<string> GetAddress(int i, bool display)
+        private static async Task<string> GetAddress(uint i, bool display)
         {
-            return await KeepKeyManager.GetAddressAsync("BTC", 0, false, (uint)i, display, AddressType.Bitcoin);
+            return await KeepKeyManager.GetAddressAsync("BTC", 0, 0, false, i,  display, AddressType.Bitcoin, true);
         }
 
         private async Task GetAndInitialize()
@@ -64,7 +63,7 @@ namespace KeepKey.Net
             await KeepKeyManager.InitializeAsync();
         }
 
-        private static async Task DoGetAddress(KeepKeyManager keepKeyManager, int i)
+        private static async Task DoGetAddress(KeepKeyManager keepKeyManager, uint i)
         {
             var address = await GetAddress(i, false);
             _Addresses[i] = address;

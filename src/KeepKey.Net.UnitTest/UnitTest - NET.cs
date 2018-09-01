@@ -36,6 +36,7 @@ namespace KeepKey.Net
             }
 
             retVal.DeviceInformation = keepKeyDeviceInformation;
+            retVal.DataHasExtraByte = false;
 
             await retVal.InitializeAsync();
 
