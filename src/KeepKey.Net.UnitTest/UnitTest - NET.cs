@@ -12,7 +12,7 @@ namespace KeepKey.Net
     {
         private async Task<IHidDevice> Connect()
         {
-            DeviceInformation trezorDeviceInformation = null;
+            DeviceInformation keepKeyDeviceInformation = null;
 
             WindowsHidDevice retVal = null;
 
@@ -20,13 +20,13 @@ namespace KeepKey.Net
 
             Console.Write("Waiting for KeepKey .");
 
-            while (trezorDeviceInformation == null)
+            while (keepKeyDeviceInformation == null)
             {
                 var devices = WindowsHidDevice.GetConnectedDeviceInformations();
                 var keepKeys = devices.Where(d => d.VendorId == KeepKeyManager.VendorId && d.ProductId == KeepKeyManager.ProductId).ToList();
-                trezorDeviceInformation = keepKeys.FirstOrDefault();
+                keepKeyDeviceInformation = keepKeys.FirstOrDefault();
 
-                if (trezorDeviceInformation != null)
+                if (keepKeyDeviceInformation != null)
                 {
                     break;
                 }
@@ -35,7 +35,7 @@ namespace KeepKey.Net
                 Console.Write(".");
             }
 
-            retVal.DeviceInformation = trezorDeviceInformation;
+            retVal.DeviceInformation = keepKeyDeviceInformation;
 
             await retVal.InitializeAsync();
 

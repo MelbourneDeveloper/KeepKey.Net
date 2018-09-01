@@ -42,7 +42,7 @@ namespace KeepKey.Net
         {
             if (!HasFeatures)
             {
-                throw new Exception("The Trezor has not been successfully initialised.");
+                throw new Exception("The KeepKey has not been successfully initialised.");
             }
 
             return Features.Coins.FirstOrDefault(c => c.CoinShortcut == coinShortcut);
@@ -131,13 +131,13 @@ namespace KeepKey.Net
             }
             catch (Exception ex)
             {
-                Logger.Log("Error Getting Trezor Address", ex, LogSection);
+                Logger.Log("Error Getting KeepKey Address", ex, LogSection);
                 throw;
             }
         }
 
         /// <summary>
-        /// Initialize the Trezor. Should only be called once.
+        /// Initialize the KeepKey. Should only be called once.
         /// </summary>
         public override async Task InitializeAsync()
         {
@@ -145,7 +145,7 @@ namespace KeepKey.Net
 
             if (Features == null)
             {
-                throw new Exception("Error initializing Trezor. Features were not retrieved");
+                throw new Exception("Error initializing KeepKey. Features were not retrieved");
             }
         }
 
