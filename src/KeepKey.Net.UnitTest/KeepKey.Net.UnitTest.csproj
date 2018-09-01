@@ -58,7 +58,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="Trezor.Net, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Trezor.Net.1.5.1\lib\net452\Trezor.Net.dll</HintPath>
+      <HintPath>..\packages\Trezor.Net.1.5.0\lib\net452\Trezor.Net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +67,9 @@
     <Compile Include="UnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Misc\GetPassword.exe">
