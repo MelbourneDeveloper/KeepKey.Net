@@ -7,8 +7,8 @@
     <ProjectGuid>{E228A094-964E-4CB1-9A35-4B52C20FEEA2}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trezor.Net.XamarinFormsSample.UWP</RootNamespace>
-    <AssemblyName>Trezor.Net.XamarinFormsSample.UWP</AssemblyName>
+    <RootNamespace>KeepKey.Net.XamarinFormsSample.UWP</RootNamespace>
+    <AssemblyName>KeepKey.Net.XamarinFormsSample.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
