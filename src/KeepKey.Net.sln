@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepKey.Net.XamarinFormsSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepKey.Net.XamarinFormsSample.Android", "KeepKey.Net.XamarinFormsSample\XFAS\KeepKey.Net.XamarinFormsSample.Android.csproj", "{4FCAC043-E704-4AED-A371-077E50A67DA4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trezor.Net", "..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj", "{E5EF07D5-D41A-432B-993F-57B68AB061BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,22 @@ Global
 		{4FCAC043-E704-4AED-A371-077E50A67DA4}.Release|x86.ActiveCfg = Release|Any CPU
 		{4FCAC043-E704-4AED-A371-077E50A67DA4}.Release|x86.Build.0 = Release|Any CPU
 		{4FCAC043-E704-4AED-A371-077E50A67DA4}.Release|x86.Deploy.0 = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|x64.Build.0 = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Debug|x86.Build.0 = Debug|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|ARM.Build.0 = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|x64.ActiveCfg = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|x64.Build.0 = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|x86.ActiveCfg = Release|Any CPU
+		{E5EF07D5-D41A-432B-993F-57B68AB061BA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

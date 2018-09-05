@@ -29,6 +29,8 @@ namespace KeepKey.Net
         #region Protected Properties
         protected override bool HasFeatures => Features != null;
         protected override string ContractNamespace => "KeepKey.Net.Contracts";
+
+        protected override Type MessageTypeType => typeof(MessageType);
         #endregion
 
         #region Constructor
@@ -162,6 +164,25 @@ namespace KeepKey.Net
         protected override bool IsInitialize(object response)
         {
             return response is Initialize;
+        }
+
+        protected override void CheckForFailure(object returnMessage)
+        {
+            if (returnMessage is Failure failure)
+            {
+                throw new FailureException<Failure>($"Error sending message to Trezor.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
+            }
+        }
+
+        protected override object GetEnumValue(string messageTypeString)
+        {
+            var isValid = Enum.TryParse(messageTypeString, out MessageType messageType);
+            if (!isValid)
+            {
+                throw new Exception($"{messageTypeString} is not a valid MessageType");
+            }
+
+            return messageType;
         }
         #endregion
     }
