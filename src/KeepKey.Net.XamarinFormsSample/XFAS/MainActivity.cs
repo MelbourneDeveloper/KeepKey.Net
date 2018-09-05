@@ -4,12 +4,24 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Hardware.Usb;
 using Android.OS;
+using Hid.Net;
 using Hid.Net.Android;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 namespace KeepKey.Net.XamarinFormsSample.Droid
 {
+    public class DebugTracer : ITracer
+    {
+        public string WriteSuffix { get; set; } = "KeepKeyIOWrite";
+        public string ReadSuffix { get; set; } = "KeepKeyIORead";
+
+        public void Trace(bool isWrite, byte[] data)
+        {
+            System.Diagnostics.Debug.WriteLine($"({string.Join(",", data)}) - {(isWrite ? WriteSuffix : ReadSuffix)} ({data.Length})");
+        }
+    }
+
     [IntentFilter(new[] { UsbManager.ActionUsbDeviceAttached })]
     [Activity(Label = "KeepKey.Net.XamarinFormsSample", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
@@ -24,6 +36,8 @@ namespace KeepKey.Net.XamarinFormsSample.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             _KeepKeyHidDevice = new AndroidHidDevice(GetSystemService(UsbService) as UsbManager, ApplicationContext, 3000, 64, KeepKeyManager.VendorId, KeepKeyManager.ProductId);
+
+            _KeepKeyHidDevice.Tracer = new DebugTracer();
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
