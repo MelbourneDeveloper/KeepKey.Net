@@ -27,7 +27,10 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
 
   <ItemGroup>
     <PackageReference Include="protobuf-net" Version="2.3.17" />
-    <PackageReference Include="Trezor.Net" Version="1.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj" />
   </ItemGroup>
 
 </Project>
