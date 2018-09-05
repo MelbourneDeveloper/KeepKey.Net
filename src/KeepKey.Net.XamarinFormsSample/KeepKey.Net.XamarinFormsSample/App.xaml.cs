@@ -39,7 +39,7 @@ namespace KeepKey.Net.XamarinFormsSample
             Device.BeginInvokeOnMainThread(async () =>
             {
                 await _KeepKeyManager.InitializeAsync();
-                Address = await _KeepKeyManager.GetAddressAsync("BTC", 0, 0, false, 0, false, AddressType.Bitcoin, true);
+                Address = await _KeepKeyManager.GetAddressAsync("BTC", 0, 0, false, 0, false, AddressType.Bitcoin, false);
                 GetAddress?.Invoke(this, new EventArgs());
             });
         }
