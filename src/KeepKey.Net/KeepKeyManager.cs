@@ -23,13 +23,12 @@ namespace KeepKey.Net
         #endregion
 
         #region Public Properties
+        public override bool IsInitialized => Features != null;
         public Features Features { get; private set; }
         #endregion
 
         #region Protected Properties
-        protected override bool HasFeatures => Features != null;
         protected override string ContractNamespace => "KeepKey.Net.Contracts";
-
         protected override Type MessageTypeType => typeof(MessageType);
         #endregion
 
@@ -42,7 +41,7 @@ namespace KeepKey.Net
         #region Private Methods
         private CoinType GetCoinType(string coinShortcut)
         {
-            if (!HasFeatures)
+            if (!IsInitialized)
             {
                 throw new Exception("The KeepKey has not been successfully initialised.");
             }
