@@ -20,6 +20,22 @@ namespace KeepKey.Net
         }
 
         [TestMethod]
+        public async Task GetBitcoinGoldAddress()
+        {
+            await GetAndInitialize();
+            var address = await KeepKeyManager.GetAddressAsync("BitcoinGold", 156, 0, false, 0, true, AddressType.Bitcoin, false);
+        }
+
+        //private int asdasd = 0x80000091;
+
+        [TestMethod]
+        public async Task GetBitcoinCashAddress()
+        {
+            await GetAndInitialize();
+            var address = await KeepKeyManager.GetAddressAsync("BitcoinCash", 145, 0, false, 0, true, AddressType.Bitcoin, false);
+        }
+
+        [TestMethod]
         public async Task TestThreadSafety()
         {
             await GetAndInitialize();
@@ -48,7 +64,7 @@ namespace KeepKey.Net
 
         private static async Task<string> GetAddress(uint i, bool display)
         {
-            return await KeepKeyManager.GetAddressAsync("BTC", 0, 0, false, i,  display, AddressType.Bitcoin, true);
+            return await KeepKeyManager.GetAddressAsync("BTC", 0, 0, false, i, display, AddressType.Bitcoin, true);
         }
 
         private async Task GetAndInitialize()

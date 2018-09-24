@@ -99,16 +99,13 @@ namespace KeepKey.Net
 
             try
             {
-                //ETH and ETC don't appear here so we have to hard code these not to be segwit
-                var coinType = Features.Coins.FirstOrDefault(c => c.CoinShortcut.ToLower() == coinShortcut.ToLower());
-
                 var path = ManagerHelpers.GetAddressPath(isSegwit.Value, account, isChange, index, coinNumber);
 
                 switch (addressType)
                 {
                     case AddressType.Bitcoin:
 
-                        return (await SendMessageAsync<Address, GetAddress>(new GetAddress { ShowDisplay = showDisplay, AddressNs = path, CoinName = GetCoinType(coinShortcut)?.CoinName, ScriptType = isSegwit.Value ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress })).address;
+                        return (await SendMessageAsync<Address, GetAddress>(new GetAddress { ShowDisplay = showDisplay, AddressNs = path, CoinName = coinShortcut, ScriptType = isSegwit.Value ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress })).address;
 
                     case AddressType.Ethereum:
 
