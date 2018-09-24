@@ -26,8 +26,6 @@ namespace KeepKey.Net
             var address = await KeepKeyManager.GetAddressAsync("BitcoinGold", 156, 0, false, 0, true, AddressType.Bitcoin, false);
         }
 
-        //private int asdasd = 0x80000091;
-
         [TestMethod]
         public async Task GetBitcoinCashAddress()
         {
