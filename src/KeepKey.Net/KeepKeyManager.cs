@@ -43,6 +43,10 @@ namespace KeepKey.Net
         public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
         {
         }
+
+        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice, ICoinUtility coinUtility) : base(enterPinCallback, trezorHidDevice, coinUtility)
+        {
+        }
         #endregion
 
         #region Protected Override Methods
