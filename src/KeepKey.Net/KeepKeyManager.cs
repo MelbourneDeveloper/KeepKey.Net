@@ -1,7 +1,9 @@
-﻿using Hid.Net;
+﻿using Hardwarewallets.Net.Model;
+using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Trezor.Net;
@@ -11,10 +13,15 @@ namespace KeepKey.Net
     /// <summary>
     /// Manages communication with the KeepKey device
     /// </summary>
-    public class KeepKeyManager : TrezorManagerBase
+    public class KeepKeyManager : TrezorManagerBase<MessageType>
     {
         #region Private Constants
         private readonly string LogSection = nameof(KeepKeyManager);
+        #endregion
+
+        #region Private Static Fields
+        private static Assembly[] _Assemblies;
+        private static readonly Dictionary<string, Type> _ContractsByName = new Dictionary<string, Type>();
         #endregion
 
         #region Public Constants
@@ -35,18 +42,6 @@ namespace KeepKey.Net
         #region Constructor
         public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
         {
-        }
-        #endregion
-
-        #region Private Methods
-        private CoinType GetCoinType(string coinShortcut)
-        {
-            if (!IsInitialized)
-            {
-                throw new Exception("The KeepKey has not been successfully initialised.");
-            }
-
-            return Features.Coins.FirstOrDefault(c => c.CoinShortcut == coinShortcut);
         }
         #endregion
 
@@ -74,6 +69,50 @@ namespace KeepKey.Net
 
             return retVal;
         }
+
+        protected override Type GetContractType(MessageType messageType, string typeName)
+        {
+            Type contractType;
+
+            lock (_ContractsByName)
+            {
+                if (!_ContractsByName.TryGetValue(typeName, out contractType))
+                {
+                    contractType = Type.GetType(typeName);
+
+                    if (contractType == null)
+                    {
+                        if (_Assemblies == null)
+                        {
+                            _Assemblies = AppDomain.CurrentDomain.GetAssemblies();
+                        }
+
+                        foreach (var assembly in _Assemblies)
+                        {
+                            foreach (var type in assembly.GetTypes())
+                            {
+                                if (type.FullName == typeName)
+                                {
+                                    contractType = type;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    if (contractType == null)
+                    {
+                        throw new Exception($"The device returned a message of {messageType}. There was no corresponding contract type at {typeName}");
+                    }
+                    else
+                    {
+                        _ContractsByName.Add(typeName, contractType);
+                    }
+                }
+            }
+
+            return contractType;
+        }
         #endregion
 
         #region Public Methods
@@ -87,49 +126,72 @@ namespace KeepKey.Net
         #endregion
 
         #region Public Overrides
-        /// <summary>
-        /// Get an address from the KeepKey
-        /// </summary>
-        public override async Task<string> GetAddressAsync(string coinShortcut, uint coinNumber, uint account, bool isChange, uint index, bool showDisplay, AddressType addressType, bool? isSegwit)
+        public override Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display)
         {
-            if (isSegwit == null)
+            if (CoinUtility == null)
             {
-                throw new ArgumentNullException(nameof(isSegwit));
+                throw new ManagerException($"A {nameof(CoinUtility)} must be specified if {nameof(AddressType)} is not specified.");
             }
 
+            var coinInfo = CoinUtility.GetCoinInfo(addressPath.CoinType);
+
+            return GetAddressAsync(addressPath, isPublicKey, display, coinInfo);
+        }
+
+        public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, CoinInfo coinInfo)
+        {
+            var inputScriptType = addressPath.Purpose == 49 ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
+
+            return GetAddressAsync(addressPath, isPublicKey, display, coinInfo.AddressType, inputScriptType, coinInfo.CoinName);
+        }
+
+        public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, AddressType addressType, InputScriptType inputScriptType)
+        {
+            return GetAddressAsync(addressPath, isPublicKey, display, addressType, inputScriptType, null);
+        }
+
+        public async Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, AddressType addressType, InputScriptType inputScriptType, string coinName)
+        {
             try
             {
-                var path = ManagerHelpers.GetAddressPath(isSegwit.Value, account, isChange, index, coinNumber);
+                var path = addressPath.ToHardenedArray();
 
-                switch (addressType)
+                if (isPublicKey)
                 {
-                    case AddressType.Bitcoin:
+                    var publicKey = await SendMessageAsync<PublicKey, GetPublicKey>(new GetPublicKey { AddressNs = path, ShowDisplay = display });
+                    return publicKey.Xpub;
+                }
+                else
+                {
+                    var isSegwit = addressPath.Purpose == 49;
 
-                        return (await SendMessageAsync<Address, GetAddress>(new GetAddress { ShowDisplay = showDisplay, AddressNs = path, CoinName = coinShortcut, ScriptType = isSegwit.Value ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress })).address;
+                    switch (addressType)
+                    {
+                        case AddressType.Bitcoin:
 
-                    case AddressType.Ethereum:
+                            return (await SendMessageAsync<Address, GetAddress>(new GetAddress { ShowDisplay = display, AddressNs = path, CoinName = coinName, ScriptType = inputScriptType })).address;
 
-                        var ethereumAddress = await SendMessageAsync<EthereumAddress, EthereumGetAddress>(new EthereumGetAddress { ShowDisplay = showDisplay, AddressNs = path });
+                        case AddressType.Ethereum:
 
-                        var sb = new StringBuilder();
-                        foreach (var b in ethereumAddress.Address)
-                        {
-                            sb.Append(b.ToString("X2").ToLower());
-                        }
+                            var ethereumAddress = await SendMessageAsync<EthereumAddress, EthereumGetAddress>(new EthereumGetAddress { ShowDisplay = display, AddressNs = path });
 
-                        var hexString = sb.ToString();
+                            var sb = new StringBuilder();
+                            foreach (var b in ethereumAddress.Address)
+                            {
+                                sb.Append(b.ToString("X2").ToLower());
+                            }
 
-                        return $"0x{hexString}";
+                            var hexString = sb.ToString();
 
-                    case AddressType.NEM:
-                        throw new NotImplementedException();
-                    default:
-                        throw new NotImplementedException();
+                            return $"0x{hexString}";
+                        default:
+                            throw new NotImplementedException();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Logger.Log("Error Getting KeepKey Address", ex, LogSection);
+                Logger.Log("Error Getting Trezor Address", ex, LogSection);
                 throw;
             }
         }
