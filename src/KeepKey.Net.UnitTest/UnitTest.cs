@@ -146,8 +146,15 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task GetCoinTable()
         {
+            var coinTables = new List<CoinTable>();
             await GetAndInitialize();
-            var coinTable = await KeepKeyManager.SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { Start = 0, End = 2 });
+            var coinTable = await KeepKeyManager.SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { });
+
+            for (uint i = 0; i < coinTable.NumCoins; i++)
+            {
+                coinTable = await KeepKeyManager.SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { Start = i, End = i+1 });
+                coinTables.Add(coinTable);
+            }
         }
 
         private async Task GetAndInitialize()
