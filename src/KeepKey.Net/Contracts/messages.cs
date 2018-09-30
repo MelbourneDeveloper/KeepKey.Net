@@ -213,6 +213,88 @@ namespace KeepKey.Net.Contracts
         public void ResetModel() => __pbn__Model = null;
         private string __pbn__Model;
 
+        [global::ProtoBuf.ProtoMember(22, Name = @"firmware_variant")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string FirmwareVariant
+        {
+            get { return __pbn__FirmwareVariant ?? ""; }
+            set { __pbn__FirmwareVariant = value; }
+        }
+        public bool ShouldSerializeFirmwareVariant() => __pbn__FirmwareVariant != null;
+        public void ResetFirmwareVariant() => __pbn__FirmwareVariant = null;
+        private string __pbn__FirmwareVariant;
+
+        [global::ProtoBuf.ProtoMember(23, Name = @"firmware_hash")]
+        public byte[] FirmwareHash
+        {
+            get { return __pbn__FirmwareHash; }
+            set { __pbn__FirmwareHash = value; }
+        }
+        public bool ShouldSerializeFirmwareHash() => __pbn__FirmwareHash != null;
+        public void ResetFirmwareHash() => __pbn__FirmwareHash = null;
+        private byte[] __pbn__FirmwareHash;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GetCoinTable : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"start")]
+        public uint Start
+        {
+            get { return __pbn__Start.GetValueOrDefault(); }
+            set { __pbn__Start = value; }
+        }
+        public bool ShouldSerializeStart() => __pbn__Start != null;
+        public void ResetStart() => __pbn__Start = null;
+        private uint? __pbn__Start;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"end")]
+        public uint End
+        {
+            get { return __pbn__End.GetValueOrDefault(); }
+            set { __pbn__End = value; }
+        }
+        public bool ShouldSerializeEnd() => __pbn__End != null;
+        public void ResetEnd() => __pbn__End = null;
+        private uint? __pbn__End;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CoinTable : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"table")]
+        public global::System.Collections.Generic.List<CoinType> Tables { get; } = new global::System.Collections.Generic.List<CoinType>();
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"num_coins")]
+        public uint NumCoins
+        {
+            get { return __pbn__NumCoins.GetValueOrDefault(); }
+            set { __pbn__NumCoins = value; }
+        }
+        public bool ShouldSerializeNumCoins() => __pbn__NumCoins != null;
+        public void ResetNumCoins() => __pbn__NumCoins = null;
+        private uint? __pbn__NumCoins;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"chunk_size")]
+        public uint ChunkSize
+        {
+            get { return __pbn__ChunkSize.GetValueOrDefault(); }
+            set { __pbn__ChunkSize = value; }
+        }
+        public bool ShouldSerializeChunkSize() => __pbn__ChunkSize != null;
+        public void ResetChunkSize() => __pbn__ChunkSize = null;
+        private uint? __pbn__ChunkSize;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -262,6 +344,26 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeUsePassphrase() => __pbn__UsePassphrase != null;
         public void ResetUsePassphrase() => __pbn__UsePassphrase = null;
         private bool? __pbn__UsePassphrase;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"auto_lock_delay_ms")]
+        public uint AutoLockDelayMs
+        {
+            get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
+            set { __pbn__AutoLockDelayMs = value; }
+        }
+        public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
+        public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
+        private uint? __pbn__AutoLockDelayMs;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"u2f_counter")]
+        public uint U2fCounter
+        {
+            get { return __pbn__U2fCounter.GetValueOrDefault(); }
+            set { __pbn__U2fCounter = value; }
+        }
+        public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
+        public void ResetU2fCounter() => __pbn__U2fCounter = null;
+        private uint? __pbn__U2fCounter;
 
     }
 
@@ -542,6 +644,28 @@ namespace KeepKey.Net.Contracts
         public void ResetShowDisplay() => __pbn__ShowDisplay = null;
         private bool? __pbn__ShowDisplay;
 
+        [global::ProtoBuf.ProtoMember(4, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"script_type")]
+        [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
+        public InputScriptType ScriptType
+        {
+            get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
+            set { __pbn__ScriptType = value; }
+        }
+        public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
+        public void ResetScriptType() => __pbn__ScriptType = null;
+        private InputScriptType? __pbn__ScriptType;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -742,6 +866,16 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeSkipChecksum() => __pbn__SkipChecksum != null;
         public void ResetSkipChecksum() => __pbn__SkipChecksum = null;
         private bool? __pbn__SkipChecksum;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"u2f_counter")]
+        public uint U2fCounter
+        {
+            get { return __pbn__U2fCounter.GetValueOrDefault(); }
+            set { __pbn__U2fCounter = value; }
+        }
+        public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
+        public void ResetU2fCounter() => __pbn__U2fCounter = null;
+        private uint? __pbn__U2fCounter;
 
     }
 
@@ -1025,6 +1159,17 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
         public void ResetCoinName() => __pbn__CoinName = null;
         private string __pbn__CoinName;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"script_type")]
+        [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
+        public InputScriptType ScriptType
+        {
+            get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
+            set { __pbn__ScriptType = value; }
+        }
+        public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
+        public void ResetScriptType() => __pbn__ScriptType = null;
+        private InputScriptType? __pbn__ScriptType;
 
     }
 
@@ -1456,6 +1601,26 @@ namespace KeepKey.Net.Contracts
         public void ResetLockTime() => __pbn__LockTime = null;
         private uint? __pbn__LockTime;
 
+        [global::ProtoBuf.ProtoMember(6, Name = @"expiry")]
+        public uint Expiry
+        {
+            get { return __pbn__Expiry.GetValueOrDefault(); }
+            set { __pbn__Expiry = value; }
+        }
+        public bool ShouldSerializeExpiry() => __pbn__Expiry != null;
+        public void ResetExpiry() => __pbn__Expiry = null;
+        private uint? __pbn__Expiry;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"overwintered")]
+        public bool Overwintered
+        {
+            get { return __pbn__Overwintered.GetValueOrDefault(); }
+            set { __pbn__Overwintered = value; }
+        }
+        public bool ShouldSerializeOverwintered() => __pbn__Overwintered != null;
+        public void ResetOverwintered() => __pbn__Overwintered = null;
+        private bool? __pbn__Overwintered;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1506,6 +1671,26 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeLockTime() => __pbn__LockTime != null;
         public void ResetLockTime() => __pbn__LockTime = null;
         private uint? __pbn__LockTime;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"expiry")]
+        public uint Expiry
+        {
+            get { return __pbn__Expiry.GetValueOrDefault(); }
+            set { __pbn__Expiry = value; }
+        }
+        public bool ShouldSerializeExpiry() => __pbn__Expiry != null;
+        public void ResetExpiry() => __pbn__Expiry = null;
+        private uint? __pbn__Expiry;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"overwintered")]
+        public bool Overwintered
+        {
+            get { return __pbn__Overwintered.GetValueOrDefault(); }
+            set { __pbn__Overwintered = value; }
+        }
+        public bool ShouldSerializeOverwintered() => __pbn__Overwintered != null;
+        public void ResetOverwintered() => __pbn__Overwintered = null;
+        private bool? __pbn__Overwintered;
 
     }
 
@@ -1666,6 +1851,47 @@ namespace KeepKey.Net.Contracts
         public void ResetChainId() => __pbn__ChainId = null;
         private uint? __pbn__ChainId;
 
+        [global::ProtoBuf.ProtoMember(100, Name = @"token_value")]
+        public byte[] TokenValue
+        {
+            get { return __pbn__TokenValue; }
+            set { __pbn__TokenValue = value; }
+        }
+        public bool ShouldSerializeTokenValue() => __pbn__TokenValue != null;
+        public void ResetTokenValue() => __pbn__TokenValue = null;
+        private byte[] __pbn__TokenValue;
+
+        [global::ProtoBuf.ProtoMember(101, Name = @"token_to")]
+        public byte[] TokenTo
+        {
+            get { return __pbn__TokenTo; }
+            set { __pbn__TokenTo = value; }
+        }
+        public bool ShouldSerializeTokenTo() => __pbn__TokenTo != null;
+        public void ResetTokenTo() => __pbn__TokenTo = null;
+        private byte[] __pbn__TokenTo;
+
+        [global::ProtoBuf.ProtoMember(102, Name = @"token_shortcut")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string TokenShortcut
+        {
+            get { return __pbn__TokenShortcut ?? ""; }
+            set { __pbn__TokenShortcut = value; }
+        }
+        public bool ShouldSerializeTokenShortcut() => __pbn__TokenShortcut != null;
+        public void ResetTokenShortcut() => __pbn__TokenShortcut = null;
+        private string __pbn__TokenShortcut;
+
+        [global::ProtoBuf.ProtoMember(103, Name = @"tx_type")]
+        public uint TxType
+        {
+            get { return __pbn__TxType.GetValueOrDefault(); }
+            set { __pbn__TxType = value; }
+        }
+        public bool ShouldSerializeTxType() => __pbn__TxType != null;
+        public void ResetTxType() => __pbn__TxType = null;
+        private uint? __pbn__TxType;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1753,6 +1979,89 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeDataChunk() => __pbn__DataChunk != null;
         public void ResetDataChunk() => __pbn__DataChunk = null;
         private byte[] __pbn__DataChunk;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumSignMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"message", IsRequired = true)]
+        public byte[] Message { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumVerifyMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public byte[] Address
+        {
+            get { return __pbn__Address; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private byte[] __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumMessageSignature : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public byte[] Address
+        {
+            get { return __pbn__Address; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private byte[] __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
 
     }
 
@@ -1849,6 +2158,160 @@ namespace KeepKey.Net.Contracts
 
         [global::ProtoBuf.ProtoMember(1, Name = @"policy")]
         public global::System.Collections.Generic.List<PolicyType> Policies { get; } = new global::System.Collections.Generic.List<PolicyType>();
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FlashHash : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public uint Address
+        {
+            get { return __pbn__Address.GetValueOrDefault(); }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private uint? __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"length")]
+        public uint Length
+        {
+            get { return __pbn__Length.GetValueOrDefault(); }
+            set { __pbn__Length = value; }
+        }
+        public bool ShouldSerializeLength() => __pbn__Length != null;
+        public void ResetLength() => __pbn__Length = null;
+        private uint? __pbn__Length;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"challenge")]
+        public byte[] Challenge
+        {
+            get { return __pbn__Challenge; }
+            set { __pbn__Challenge = value; }
+        }
+        public bool ShouldSerializeChallenge() => __pbn__Challenge != null;
+        public void ResetChallenge() => __pbn__Challenge = null;
+        private byte[] __pbn__Challenge;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FlashWrite : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public uint Address
+        {
+            get { return __pbn__Address.GetValueOrDefault(); }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private uint? __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"data")]
+        public byte[] Data
+        {
+            get { return __pbn__Data; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private byte[] __pbn__Data;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"erase")]
+        public bool Erase
+        {
+            get { return __pbn__Erase.GetValueOrDefault(); }
+            set { __pbn__Erase = value; }
+        }
+        public bool ShouldSerializeErase() => __pbn__Erase != null;
+        public void ResetErase() => __pbn__Erase = null;
+        private bool? __pbn__Erase;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FlashHashResponse : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"data")]
+        public byte[] Data
+        {
+            get { return __pbn__Data; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private byte[] __pbn__Data;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkFlashDump : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public uint Address
+        {
+            get { return __pbn__Address.GetValueOrDefault(); }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private uint? __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"length")]
+        public uint Length
+        {
+            get { return __pbn__Length.GetValueOrDefault(); }
+            set { __pbn__Length = value; }
+        }
+        public bool ShouldSerializeLength() => __pbn__Length != null;
+        public void ResetLength() => __pbn__Length = null;
+        private uint? __pbn__Length;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkFlashDumpResponse : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"data")]
+        public byte[] Data
+        {
+            get { return __pbn__Data; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private byte[] __pbn__Data;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class SoftReset : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
     }
 
@@ -2224,6 +2687,18 @@ namespace KeepKey.Net.Contracts
         MessageTypeRawTxAck = 82,
         [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ApplyPolicies")]
         MessageTypeApplyPolicies = 83,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashHash")]
+        MessageTypeFlashHash = 84,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashWrite")]
+        MessageTypeFlashWrite = 85,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashHashResponse")]
+        MessageTypeFlashHashResponse = 86,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFlashDump")]
+        MessageTypeDebugLinkFlashDump = 87,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFlashDumpResponse")]
+        MessageTypeDebugLinkFlashDumpResponse = 88,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SoftReset")]
+        MessageTypeSoftReset = 89,
         [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkDecision")]
         MessageTypeDebugLinkDecision = 100,
         [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkGetState")]
@@ -2236,6 +2711,16 @@ namespace KeepKey.Net.Contracts
         MessageTypeDebugLinkLog = 104,
         [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFillConfig")]
         MessageTypeDebugLinkFillConfig = 105,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetCoinTable")]
+        MessageTypeGetCoinTable = 106,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CoinTable")]
+        MessageTypeCoinTable = 107,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumSignMessage")]
+        MessageTypeEthereumSignMessage = 108,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumVerifyMessage")]
+        MessageTypeEthereumVerifyMessage = 109,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumMessageSignature")]
+        MessageTypeEthereumMessageSignature = 110,
     }
 
 #pragma warning restore CS1591, CS0612, CS3021, IDE1006
