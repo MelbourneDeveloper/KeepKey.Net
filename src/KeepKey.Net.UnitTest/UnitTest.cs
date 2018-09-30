@@ -1,11 +1,11 @@
 ﻿using Hardwarewallets.Net;
 using Hardwarewallets.Net.AddressManagement;
+using KeepKey.Net.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Trezor.Net;
-using Trezor.Net.Contracts.Ethereum;
 
 namespace KeepKey.Net
 {
@@ -143,6 +143,13 @@ namespace KeepKey.Net
             Assert.AreEqual(transaction.SignatureS.Length, 32);
         }
 
+        [TestMethod]
+        public async Task GetCoinTable()
+        {
+            await GetAndInitialize();
+            var coinTable = await KeepKeyManager.SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { Start = 0, End = 2 });
+        }
+
         private async Task GetAndInitialize()
         {
             if (KeepKeyManager != null)
@@ -151,7 +158,6 @@ namespace KeepKey.Net
             }
 
             var keepKeyDevice = await Connect();
-            throw new NotImplementedException("KeepKey doesn't have a default coin utility");
             KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice, null);
             await KeepKeyManager.InitializeAsync();
         }
