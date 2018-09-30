@@ -1,6 +1,6 @@
-﻿using Hid.Net;
+﻿using Hardwarewallets.Net.AddressManagement;
+using Hid.Net;
 using System;
-using Trezor.Net;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +25,8 @@ namespace KeepKey.Net.XamarinFormsSample
         #region Constructor
         public App(IHidDevice keepKeyHidDevice)
         {
-            _KeepKeyManager = new KeepKeyManager(KeepKeyPinPad.GetPin, keepKeyHidDevice);
+            throw new NotImplementedException("No default coin utility");
+            _KeepKeyManager = new KeepKeyManager(KeepKeyPinPad.GetPin, keepKeyHidDevice, null);
             InitializeComponent();
             keepKeyHidDevice.Connected += KeepKeyHidDevice_Connected;
             MainNavigationPage = new NavigationPage(new MainPage());
@@ -39,7 +40,7 @@ namespace KeepKey.Net.XamarinFormsSample
             Device.BeginInvokeOnMainThread(async () =>
             {
                 await _KeepKeyManager.InitializeAsync();
-                Address = await _KeepKeyManager.GetAddressAsync("BTC", 0, 0, false, 0, false, AddressType.Bitcoin, false);
+                Address = await _KeepKeyManager.GetAddressAsync(new AddressPath(true, 0, 0, false, 0), false, true);
                 GetAddress?.Invoke(this, new EventArgs());
             });
         }
