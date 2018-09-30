@@ -113,15 +113,39 @@ namespace KeepKey.Net
 
             return contractType;
         }
-        #endregion
 
-        #region Public Methods
-        /// <summary>
-        /// Get the KeepKey's public key at the specified index.
-        /// </summary>
-        public async Task<PublicKey> GetPublicKeyAsync(string coinShortcut, uint addressNumber)
+        protected override bool IsButtonRequest(object response)
         {
-            return await SendMessageAsync<PublicKey, GetPublicKey>(new GetPublicKey { AddressNs = new[] { addressNumber } });
+            return response is ButtonRequest;
+        }
+
+        protected override bool IsPinMatrixRequest(object response)
+        {
+            return response is PinMatrixRequest;
+        }
+
+        protected override bool IsInitialize(object response)
+        {
+            return response is Initialize;
+        }
+
+        protected override void CheckForFailure(object returnMessage)
+        {
+            if (returnMessage is Failure failure)
+            {
+                throw new FailureException<Failure>($"Error sending message to Trezor.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
+            }
+        }
+
+        protected override object GetEnumValue(string messageTypeString)
+        {
+            var isValid = Enum.TryParse(messageTypeString, out MessageType messageType);
+            if (!isValid)
+            {
+                throw new Exception($"{messageTypeString} is not a valid MessageType");
+            }
+
+            return messageType;
         }
         #endregion
 
@@ -207,40 +231,6 @@ namespace KeepKey.Net
             {
                 throw new Exception("Error initializing KeepKey. Features were not retrieved");
             }
-        }
-
-        protected override bool IsButtonRequest(object response)
-        {
-            return response is ButtonRequest;
-        }
-
-        protected override bool IsPinMatrixRequest(object response)
-        {
-            return response is PinMatrixRequest;
-        }
-
-        protected override bool IsInitialize(object response)
-        {
-            return response is Initialize;
-        }
-
-        protected override void CheckForFailure(object returnMessage)
-        {
-            if (returnMessage is Failure failure)
-            {
-                throw new FailureException<Failure>($"Error sending message to Trezor.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
-            }
-        }
-
-        protected override object GetEnumValue(string messageTypeString)
-        {
-            var isValid = Enum.TryParse(messageTypeString, out MessageType messageType);
-            if (!isValid)
-            {
-                throw new Exception($"{messageTypeString} is not a valid MessageType");
-            }
-
-            return messageType;
         }
         #endregion
     }
