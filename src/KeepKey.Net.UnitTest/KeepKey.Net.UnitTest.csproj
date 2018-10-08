@@ -60,9 +60,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="Trezor.Net, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Trezor.Net.2.0.1\lib\net452\Trezor.Net.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EthHelpers.cs" />
@@ -81,6 +78,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj">
+      <Project>{6d90ec25-d41c-4247-bbd4-ee98bd0aac37}</Project>
+      <Name>Trezor.Net</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KeepKey.Net\KeepKey.Net.csproj">
       <Project>{01a2d0e3-55a8-4adb-b2aa-aa1c80785a42}</Project>
       <Name>KeepKey.Net</Name>

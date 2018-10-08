@@ -4,6 +4,7 @@ using KeepKey.Net.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Trezor.Net;
 
@@ -142,19 +143,12 @@ namespace KeepKey.Net
             Assert.AreEqual(transaction.SignatureR.Length, 32);
             Assert.AreEqual(transaction.SignatureS.Length, 32);
         }
-
         [TestMethod]
         public async Task GetCoinTable()
         {
-            var coinTables = new List<CoinTable>();
+            var coinTables = new List<CoinInfo>();
             await GetAndInitialize();
-            var coinTable = await KeepKeyManager.SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { });
-
-            for (uint i = 0; i < coinTable.NumCoins; i++)
-            {
-                coinTable = await KeepKeyManager.SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { Start = i, End = i+1 });
-                coinTables.Add(coinTable);
-            }
+            var coinTable = await KeepKeyManager.GetCoinTable();
         }
 
         private async Task GetAndInitialize()
@@ -165,7 +159,7 @@ namespace KeepKey.Net
             }
 
             var keepKeyDevice = await Connect();
-            KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice, null);
+            KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice);
             await KeepKeyManager.InitializeAsync();
         }
 

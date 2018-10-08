@@ -1,8 +1,10 @@
-﻿using Hardwarewallets.Net.Model;
+﻿using Hardwarewallets.Net.AddressManagement;
+using Hardwarewallets.Net.Model;
 using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,10 +43,6 @@ namespace KeepKey.Net
 
         #region Constructor
         public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
-        {
-        }
-
-        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice, ICoinUtility coinUtility) : base(enterPinCallback, trezorHidDevice, coinUtility)
         {
         }
         #endregion
@@ -235,6 +233,23 @@ namespace KeepKey.Net
             {
                 throw new Exception("Error initializing KeepKey. Features were not retrieved");
             }
+        }
+        #endregion
+
+        #region Public Methods
+        public async Task<IEnumerable<CoinType>> GetCoinTable()
+        {
+            var coinInfos = new List<CoinType>();
+            var coinTable = await SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { });
+
+            for (uint i = 0; i < coinTable.NumCoins; i++)
+            {
+                coinTable = await SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { Start = i, End = i + 1 });
+                var coinType = coinTable.Tables.First();
+                coinInfos.Add(coinType);
+            }
+
+            return coinInfos;
         }
         #endregion
     }
