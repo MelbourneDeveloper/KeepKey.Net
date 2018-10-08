@@ -39,9 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hardwarewallets.Net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Hardwarewallets.Net.1.1.0\lib\net452\Hardwarewallets.Net.dll</HintPath>
-    </Reference>
     <Reference Include="Hid.Net, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hid.Net.1.3.0\lib\net452\Hid.Net.dll</HintPath>
     </Reference>
@@ -63,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EthHelpers.cs" />
+    <Compile Include="KeepKeyCoinUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest - NET.cs" />
     <Compile Include="UnitTest.cs" />
@@ -78,6 +76,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Hardwarewallets.Net\src\Hardwarewallets.Net\Hardwarewallets.Net.csproj">
+      <Project>{d9c49225-c63a-43ce-9714-f1df352a8df3}</Project>
+      <Name>Hardwarewallets.Net</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj">
       <Project>{6d90ec25-d41c-4247-bbd4-ee98bd0aac37}</Project>
       <Name>Trezor.Net</Name>

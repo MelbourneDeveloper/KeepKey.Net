@@ -26,7 +26,7 @@ namespace KeepKey.Net.XamarinFormsSample
         public App(IHidDevice keepKeyHidDevice)
         {
             throw new NotImplementedException("No default coin utility");
-            _KeepKeyManager = new KeepKeyManager(KeepKeyPinPad.GetPin, keepKeyHidDevice, null);
+            _KeepKeyManager = new KeepKeyManager(KeepKeyPinPad.GetPin, keepKeyHidDevice);
             InitializeComponent();
             keepKeyHidDevice.Connected += KeepKeyHidDevice_Connected;
             MainNavigationPage = new NavigationPage(new MainPage());
