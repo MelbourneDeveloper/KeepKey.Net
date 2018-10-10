@@ -77,6 +77,13 @@ namespace KeepKey.Net
         }
 
         [TestMethod]
+        public async Task GetLitecoinAddress()
+        {
+            await GetAndInitialize();
+            var address = await GetAddressAsync(false, 2, false, 0, false);
+        }
+
+        [TestMethod]
         public async Task DisplayBitcoinCashAddress()
         {
             await GetAndInitialize();
