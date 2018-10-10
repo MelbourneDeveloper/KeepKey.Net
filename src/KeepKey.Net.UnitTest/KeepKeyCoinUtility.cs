@@ -31,6 +31,7 @@ namespace KeepKey.Net
                 switch (coinType.AddressType)
                 {
                     case 0:
+                    case 38:
                         addressType = AddressType.Bitcoin;
                         break;
                     case 65536:

@@ -4,7 +4,6 @@ using KeepKey.Net.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Trezor.Net;
 
@@ -68,6 +67,13 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(false, 145, false, 0, false);
+        }
+
+        [TestMethod]
+        public async Task GetBitcoinGoldAddress()
+        {
+            await GetAndInitialize();
+            var address = await GetAddressAsync(false, 156, false, 0, false);
         }
 
         [TestMethod]
