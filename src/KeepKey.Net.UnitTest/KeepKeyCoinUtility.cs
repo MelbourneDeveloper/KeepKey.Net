@@ -1,39 +1,50 @@
 ﻿
+using Hardwarewallets.Net.AddressManagement;
 using KeepKey.Net.Contracts;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using Trezor.Net;
 
 namespace KeepKey.Net
 {
-    public class KeepKeyCoinUtility : ICoinUtility
+    public partial class KeepKeyCoinUtility : ICoinUtility
     {
-        private readonly Dictionary<uint, CoinType> _CoinTypesByCoinIndex = new Dictionary<uint, CoinType>();
+        private readonly Dictionary<uint, CoinInfo> _CoinInfoByCoinType = new Dictionary<uint, CoinInfo>();
+
+        public CoinInfo GetCoinInfo(uint coinNumber)
+        {
+            if (!_CoinInfoByCoinType.TryGetValue(coinNumber, out var retVal)) throw new ManagerException($"No coin info for coin {coinNumber}");
+            return retVal;
+        }
 
         public KeepKeyCoinUtility(IEnumerable<CoinType> coinTypes)
         {
             foreach (var coinType in coinTypes)
             {
-                _CoinTypesByCoinIndex.Add(Hardwarewallets.Net.AddressManagement.AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath), coinType);
+                var coinTypeIndex = AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath);
+
+                //Seems like there are some coins on the KeepKey with the wrong index. I.e. they are actually Ethereum?
+                if (_CoinInfoByCoinType.ContainsKey(coinTypeIndex)) continue;
+
+                AddressType addressType;
+
+                switch (coinType.AddressType)
+                {
+                    case 0:
+                        addressType = AddressType.Bitcoin;
+                        break;
+                    case 65536:
+                        addressType = AddressType.Ethereum;
+                        break;
+                    default:
+                        continue;
+
+                }
+
+                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType));
             }
         }
 
-        public CoinInfo GetCoinInfo(uint coinNumber)
-        {
-            switch (coinNumber)
-            {
-                case 0:
-                    return new CoinInfo(null, AddressType.Bitcoin);
-                case 60:
-                    return new CoinInfo(null, AddressType.Ethereum);
-                case 61:
-                    return new CoinInfo(null, AddressType.Ethereum);
-                case 145:
-                    return new CoinInfo("Bcash", AddressType.Bitcoin);
-                default:
-                    throw new NotImplementedException($"The coin number {coinNumber} has not been filled in for {nameof(DefaultCoinUtility)}. Please create a class that implements ICoinUtility, or call an overload that specifies coin information.");
-            }
-        }
+
     }
 }
-

@@ -149,6 +149,7 @@ namespace KeepKey.Net
             var coinTables = new List<CoinInfo>();
             await GetAndInitialize();
             var coinTable = await KeepKeyManager.GetCoinTable();
+            KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
         }
 
         private async Task GetAndInitialize()
@@ -161,6 +162,8 @@ namespace KeepKey.Net
             var keepKeyDevice = await Connect();
             KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice);
             await KeepKeyManager.InitializeAsync();
+            var coinTable = await KeepKeyManager.GetCoinTable();
+            KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
         }
 
         private static async Task DoGetAddress(uint i)
