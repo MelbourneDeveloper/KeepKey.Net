@@ -60,10 +60,13 @@ namespace KeepKeyTestApp
             {
                 using (var keepKeyHid = await Connect())
                 {
-                    throw new NotImplementedException("KeepKey doesn't have a default coin utility");
                     using (var keepKeyManager = new KeepKeyManager(GetPin, keepKeyHid))
                     {
                         await keepKeyManager.InitializeAsync();
+
+                        var cointTable = await keepKeyManager.GetCoinTable();
+
+                        keepKeyManager.CoinUtility = new KeepKeyCoinUtility(cointTable);
 
                         var tasks = new List<Task>();
 
