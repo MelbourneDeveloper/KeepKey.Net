@@ -1,21 +1,21 @@
-﻿using Hid.Net;
+﻿using Hardwarewallets.Net.AddressManagement;
+using Hid.Net;
 using KeepKey.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Trezor.Net;
 
 namespace KeepKeyTestApp
 {
-    class Program
+    internal class Program
     {
         #region Fields
         private static readonly string[] _Addresses = new string[50];
         #endregion
 
         #region Main
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             try
             {
@@ -54,56 +54,73 @@ namespace KeepKeyTestApp
         /// TODO: This should be made in to a unit test but it's annoying to add the UI for a unit test as the KeepKey requires human intervention for the pin
         /// </summary>
         /// <returns></returns>
-        private async static Task Go()
+        private static async Task Go()
         {
-            using (var keepKeyHid = await Connect())
+            try
             {
-                using (var keepKeyManager = new KeepKeyManager(GetPin, keepKeyHid))
+                using (var keepKeyHid = await Connect())
                 {
-                    await keepKeyManager.InitializeAsync();
-
-                    var tasks = new List<Task>();
-
-                    for (var i = 0; i < 50; i++)
+                    using (var keepKeyManager = new KeepKeyManager(GetPin, keepKeyHid))
                     {
-                        tasks.Add(DoGetAddress(keepKeyManager, i));
-                    }
+                        await keepKeyManager.InitializeAsync();
 
-                    await Task.WhenAll(tasks);
+                        var cointTable = await keepKeyManager.GetCoinTable();
 
-                    for (var i = 0; i < 50; i++)
-                    {
-                        var address = await GetAddress(keepKeyManager, i);
+                        keepKeyManager.CoinUtility = new KeepKeyCoinUtility(cointTable);
 
-                        Console.WriteLine($"Index: {i} (No change) - Address: {address}");
+                        var tasks = new List<Task>();
 
-                        if (address != _Addresses[i])
+                        for (uint i = 0; i < 50; i++)
                         {
-                            throw new Exception("The ordering got messed up");
+                            tasks.Add(DoGetAddress(keepKeyManager, i));
                         }
+
+                        await Task.WhenAll(tasks);
+
+                        for (uint i = 0; i < 50; i++)
+                        {
+                            var address = await GetAddress(keepKeyManager, i);
+
+                            Console.WriteLine($"Index: {i} (No change) - Address: {address}");
+
+                            if (address != _Addresses[i])
+                            {
+                                throw new Exception("The ordering got messed up");
+                            }
+                        }
+
+                        var addressPath = new AddressPath(false, 60, 0, false, 0);
+
+                        var ethAddress = await keepKeyManager.GetAddressAsync(addressPath, false, false);
+                        Console.WriteLine($"First ETH address: {ethAddress}");
+
+                        Console.WriteLine("All good");
+
+                        Console.ReadLine();
                     }
-
-                    Console.WriteLine("All good");
-
-                    Console.ReadLine();
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.ReadLine();
             }
         }
 
-        private async static Task DoGetAddress(KeepKeyManager keepKeyManager, int i)
+        private static async Task DoGetAddress(KeepKeyManager keepKeyManager, uint i)
         {
             var address = await GetAddress(keepKeyManager, i);
             _Addresses[i] = address;
         }
 
-        private static async Task<string> GetAddress(KeepKeyManager keepKeyManager, int i)
+        private static async Task<string> GetAddress(KeepKeyManager keepKeyManager, uint i)
         {
-            return await keepKeyManager.GetAddressAsync("BTC", 0, 0, false, (uint)i, false, AddressType.Bitcoin, false);
+            return await keepKeyManager.GetAddressAsync(new AddressPath(true, 0, 0, false, i), false, false);
         }
 
-        private async static Task<string> GetPin()
+        private static async Task<string> GetPin()
         {
-            Console.WriteLine("Enter PIN based on KeepKey values: ");
+            Console.WriteLine("Enter PIN based on values: ");
             return Console.ReadLine().Trim();
         }
         #endregion

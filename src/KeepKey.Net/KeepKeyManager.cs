@@ -1,7 +1,11 @@
-﻿using Hid.Net;
+﻿using Hardwarewallets.Net.AddressManagement;
+using Hardwarewallets.Net.Model;
+using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Trezor.Net;
@@ -11,10 +15,15 @@ namespace KeepKey.Net
     /// <summary>
     /// Manages communication with the KeepKey device
     /// </summary>
-    public class KeepKeyManager : TrezorManagerBase
+    public class KeepKeyManager : TrezorManagerBase<MessageType>
     {
         #region Private Constants
         private readonly string LogSection = nameof(KeepKeyManager);
+        #endregion
+
+        #region Private Static Fields
+        private static Assembly[] _Assemblies;
+        private static readonly Dictionary<string, Type> _ContractsByName = new Dictionary<string, Type>();
         #endregion
 
         #region Public Constants
@@ -35,18 +44,6 @@ namespace KeepKey.Net
         #region Constructor
         public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
         {
-        }
-        #endregion
-
-        #region Private Methods
-        private CoinType GetCoinType(string coinShortcut)
-        {
-            if (!IsInitialized)
-            {
-                throw new Exception("The KeepKey has not been successfully initialised.");
-            }
-
-            return Features.Coins.FirstOrDefault(c => c.CoinShortcut == coinShortcut);
         }
         #endregion
 
@@ -74,77 +71,49 @@ namespace KeepKey.Net
 
             return retVal;
         }
-        #endregion
 
-        #region Public Methods
-        /// <summary>
-        /// Get the KeepKey's public key at the specified index.
-        /// </summary>
-        public async Task<PublicKey> GetPublicKeyAsync(string coinShortcut, uint addressNumber)
+        protected override Type GetContractType(MessageType messageType, string typeName)
         {
-            return await SendMessageAsync<PublicKey, GetPublicKey>(new GetPublicKey { AddressNs = new[] { addressNumber } });
-        }
-        #endregion
+            Type contractType;
 
-        #region Public Overrides
-        /// <summary>
-        /// Get an address from the KeepKey
-        /// </summary>
-        public override async Task<string> GetAddressAsync(string coinShortcut, uint coinNumber, uint account, bool isChange, uint index, bool showDisplay, AddressType addressType, bool? isSegwit)
-        {
-            if (isSegwit == null)
+            lock (_ContractsByName)
             {
-                throw new ArgumentNullException(nameof(isSegwit));
-            }
-
-            try
-            {
-                var path = ManagerHelpers.GetAddressPath(isSegwit.Value, account, isChange, index, coinNumber);
-
-                switch (addressType)
+                if (!_ContractsByName.TryGetValue(typeName, out contractType))
                 {
-                    case AddressType.Bitcoin:
+                    contractType = Type.GetType(typeName);
 
-                        return (await SendMessageAsync<Address, GetAddress>(new GetAddress { ShowDisplay = showDisplay, AddressNs = path, CoinName = coinShortcut, ScriptType = isSegwit.Value ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress })).address;
-
-                    case AddressType.Ethereum:
-
-                        var ethereumAddress = await SendMessageAsync<EthereumAddress, EthereumGetAddress>(new EthereumGetAddress { ShowDisplay = showDisplay, AddressNs = path });
-
-                        var sb = new StringBuilder();
-                        foreach (var b in ethereumAddress.Address)
+                    if (contractType == null)
+                    {
+                        if (_Assemblies == null)
                         {
-                            sb.Append(b.ToString("X2").ToLower());
+                            _Assemblies = AppDomain.CurrentDomain.GetAssemblies();
                         }
 
-                        var hexString = sb.ToString();
+                        foreach (var assembly in _Assemblies)
+                        {
+                            foreach (var type in assembly.GetTypes())
+                            {
+                                if (type.FullName == typeName)
+                                {
+                                    contractType = type;
+                                    break;
+                                }
+                            }
+                        }
+                    }
 
-                        return $"0x{hexString}";
-
-                    case AddressType.NEM:
-                        throw new NotImplementedException();
-                    default:
-                        throw new NotImplementedException();
+                    if (contractType == null)
+                    {
+                        throw new Exception($"The device returned a message of {messageType}. There was no corresponding contract type at {typeName}");
+                    }
+                    else
+                    {
+                        _ContractsByName.Add(typeName, contractType);
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                Logger.Log("Error Getting KeepKey Address", ex, LogSection);
-                throw;
-            }
-        }
 
-        /// <summary>
-        /// Initialize the KeepKey. Should only be called once.
-        /// </summary>
-        public override async Task InitializeAsync()
-        {
-            Features = await SendMessageAsync<Features, Initialize>(new Initialize());
-
-            if (Features == null)
-            {
-                throw new Exception("Error initializing KeepKey. Features were not retrieved");
-            }
+            return contractType;
         }
 
         protected override bool IsButtonRequest(object response)
@@ -179,6 +148,108 @@ namespace KeepKey.Net
             }
 
             return messageType;
+        }
+        #endregion
+
+        #region Public Overrides
+        public override Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display)
+        {
+            if (CoinUtility == null)
+            {
+                throw new ManagerException($"A {nameof(CoinUtility)} must be specified if {nameof(AddressType)} is not specified.");
+            }
+
+            var coinInfo = CoinUtility.GetCoinInfo(addressPath.CoinType);
+
+            return GetAddressAsync(addressPath, isPublicKey, display, coinInfo);
+        }
+
+        public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, CoinInfo coinInfo)
+        {
+            var inputScriptType = addressPath.Purpose == 49 ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
+
+            return GetAddressAsync(addressPath, isPublicKey, display, coinInfo.AddressType, inputScriptType, coinInfo.CoinName);
+        }
+
+        public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, AddressType addressType, InputScriptType inputScriptType)
+        {
+            return GetAddressAsync(addressPath, isPublicKey, display, addressType, inputScriptType, null);
+        }
+
+        public async Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, AddressType addressType, InputScriptType inputScriptType, string coinName)
+        {
+            try
+            {
+                var path = addressPath.ToHardenedArray();
+
+                if (isPublicKey)
+                {
+                    var publicKey = await SendMessageAsync<PublicKey, GetPublicKey>(new GetPublicKey { AddressNs = path, ShowDisplay = display });
+                    return publicKey.Xpub;
+                }
+                else
+                {
+                    var isSegwit = addressPath.Purpose == 49;
+
+                    switch (addressType)
+                    {
+                        case AddressType.Bitcoin:
+
+                            return (await SendMessageAsync<Address, GetAddress>(new GetAddress { ShowDisplay = display, AddressNs = path, CoinName = coinName, ScriptType = inputScriptType })).address;
+
+                        case AddressType.Ethereum:
+
+                            var ethereumAddress = await SendMessageAsync<EthereumAddress, EthereumGetAddress>(new EthereumGetAddress { ShowDisplay = display, AddressNs = path });
+
+                            var sb = new StringBuilder();
+                            foreach (var b in ethereumAddress.Address)
+                            {
+                                sb.Append(b.ToString("X2").ToLower());
+                            }
+
+                            var hexString = sb.ToString();
+
+                            return $"0x{hexString}";
+                        default:
+                            throw new NotImplementedException();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Error Getting Trezor Address", ex, LogSection);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Initialize the KeepKey. Should only be called once.
+        /// </summary>
+        public override async Task InitializeAsync()
+        {
+            Features = await SendMessageAsync<Features, Initialize>(new Initialize());
+
+            if (Features == null)
+            {
+                throw new Exception("Error initializing KeepKey. Features were not retrieved");
+            }
+        }
+        #endregion
+
+        #region Public Methods
+        public async Task<IEnumerable<CoinType>> GetCoinTable()
+        {
+            var coinInfos = new List<CoinType>();
+            var coinTable = await SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { });
+
+            for (uint i = 0; i < coinTable.NumCoins; i++)
+            {
+                coinTable = await SendMessageAsync<CoinTable, GetCoinTable>(new GetCoinTable { Start = i, End = i + 1 });
+                var coinType = coinTable.Tables.First();
+                coinInfos.Add(coinType);
+            }
+
+            return coinInfos;
         }
         #endregion
     }

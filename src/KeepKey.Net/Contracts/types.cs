@@ -176,6 +176,151 @@ namespace KeepKey.Net.Contracts
         public void ResetForkid() => __pbn__Forkid = null;
         private uint? __pbn__Forkid;
 
+        [global::ProtoBuf.ProtoMember(13, Name = @"decimals")]
+        public uint Decimals
+        {
+            get { return __pbn__Decimals.GetValueOrDefault(); }
+            set { __pbn__Decimals = value; }
+        }
+        public bool ShouldSerializeDecimals() => __pbn__Decimals != null;
+        public void ResetDecimals() => __pbn__Decimals = null;
+        private uint? __pbn__Decimals;
+
+        [global::ProtoBuf.ProtoMember(14, Name = @"contract_address")]
+        public byte[] ContractAddress
+        {
+            get { return __pbn__ContractAddress; }
+            set { __pbn__ContractAddress = value; }
+        }
+        public bool ShouldSerializeContractAddress() => __pbn__ContractAddress != null;
+        public void ResetContractAddress() => __pbn__ContractAddress = null;
+        private byte[] __pbn__ContractAddress;
+
+        [global::ProtoBuf.ProtoMember(15, Name = @"gas_limit")]
+        public byte[] GasLimit
+        {
+            get { return __pbn__GasLimit; }
+            set { __pbn__GasLimit = value; }
+        }
+        public bool ShouldSerializeGasLimit() => __pbn__GasLimit != null;
+        public void ResetGasLimit() => __pbn__GasLimit = null;
+        private byte[] __pbn__GasLimit;
+
+        [global::ProtoBuf.ProtoMember(16, Name = @"xpub_magic")]
+        [global::System.ComponentModel.DefaultValue(76067358)]
+        public uint XpubMagic
+        {
+            get { return __pbn__XpubMagic ?? 76067358; }
+            set { __pbn__XpubMagic = value; }
+        }
+        public bool ShouldSerializeXpubMagic() => __pbn__XpubMagic != null;
+        public void ResetXpubMagic() => __pbn__XpubMagic = null;
+        private uint? __pbn__XpubMagic;
+
+        [global::ProtoBuf.ProtoMember(17, Name = @"xprv_magic")]
+        [global::System.ComponentModel.DefaultValue(76066276)]
+        public uint XprvMagic
+        {
+            get { return __pbn__XprvMagic ?? 76066276; }
+            set { __pbn__XprvMagic = value; }
+        }
+        public bool ShouldSerializeXprvMagic() => __pbn__XprvMagic != null;
+        public void ResetXprvMagic() => __pbn__XprvMagic = null;
+        private uint? __pbn__XprvMagic;
+
+        [global::ProtoBuf.ProtoMember(18, Name = @"segwit")]
+        public bool Segwit
+        {
+            get { return __pbn__Segwit.GetValueOrDefault(); }
+            set { __pbn__Segwit = value; }
+        }
+        public bool ShouldSerializeSegwit() => __pbn__Segwit != null;
+        public void ResetSegwit() => __pbn__Segwit = null;
+        private bool? __pbn__Segwit;
+
+        [global::ProtoBuf.ProtoMember(19, Name = @"force_bip143")]
+        public bool ForceBip143
+        {
+            get { return __pbn__ForceBip143.GetValueOrDefault(); }
+            set { __pbn__ForceBip143 = value; }
+        }
+        public bool ShouldSerializeForceBip143() => __pbn__ForceBip143 != null;
+        public void ResetForceBip143() => __pbn__ForceBip143 = null;
+        private bool? __pbn__ForceBip143;
+
+        [global::ProtoBuf.ProtoMember(20, Name = @"curve_name")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string CurveName
+        {
+            get { return __pbn__CurveName ?? ""; }
+            set { __pbn__CurveName = value; }
+        }
+        public bool ShouldSerializeCurveName() => __pbn__CurveName != null;
+        public void ResetCurveName() => __pbn__CurveName = null;
+        private string __pbn__CurveName;
+
+        [global::ProtoBuf.ProtoMember(21, Name = @"cashaddr_prefix")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string CashaddrPrefix
+        {
+            get { return __pbn__CashaddrPrefix ?? ""; }
+            set { __pbn__CashaddrPrefix = value; }
+        }
+        public bool ShouldSerializeCashaddrPrefix() => __pbn__CashaddrPrefix != null;
+        public void ResetCashaddrPrefix() => __pbn__CashaddrPrefix = null;
+        private string __pbn__CashaddrPrefix;
+
+        [global::ProtoBuf.ProtoMember(22, Name = @"bech32_prefix")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Bech32Prefix
+        {
+            get { return __pbn__Bech32Prefix ?? ""; }
+            set { __pbn__Bech32Prefix = value; }
+        }
+        public bool ShouldSerializeBech32Prefix() => __pbn__Bech32Prefix != null;
+        public void ResetBech32Prefix() => __pbn__Bech32Prefix = null;
+        private string __pbn__Bech32Prefix;
+
+        [global::ProtoBuf.ProtoMember(23, Name = @"decred")]
+        public bool Decred
+        {
+            get { return __pbn__Decred.GetValueOrDefault(); }
+            set { __pbn__Decred = value; }
+        }
+        public bool ShouldSerializeDecred() => __pbn__Decred != null;
+        public void ResetDecred() => __pbn__Decred = null;
+        private bool? __pbn__Decred;
+
+        [global::ProtoBuf.ProtoMember(24, Name = @"version_group_id")]
+        public uint VersionGroupId
+        {
+            get { return __pbn__VersionGroupId.GetValueOrDefault(); }
+            set { __pbn__VersionGroupId = value; }
+        }
+        public bool ShouldSerializeVersionGroupId() => __pbn__VersionGroupId != null;
+        public void ResetVersionGroupId() => __pbn__VersionGroupId = null;
+        private uint? __pbn__VersionGroupId;
+
+        [global::ProtoBuf.ProtoMember(25, Name = @"xpub_magic_segwit_p2sh")]
+        public uint XpubMagicSegwitP2sh
+        {
+            get { return __pbn__XpubMagicSegwitP2sh.GetValueOrDefault(); }
+            set { __pbn__XpubMagicSegwitP2sh = value; }
+        }
+        public bool ShouldSerializeXpubMagicSegwitP2sh() => __pbn__XpubMagicSegwitP2sh != null;
+        public void ResetXpubMagicSegwitP2sh() => __pbn__XpubMagicSegwitP2sh = null;
+        private uint? __pbn__XpubMagicSegwitP2sh;
+
+        [global::ProtoBuf.ProtoMember(26, Name = @"xpub_magic_segwit_native")]
+        public uint XpubMagicSegwitNative
+        {
+            get { return __pbn__XpubMagicSegwitNative.GetValueOrDefault(); }
+            set { __pbn__XpubMagicSegwitNative = value; }
+        }
+        public bool ShouldSerializeXpubMagicSegwitNative() => __pbn__XpubMagicSegwitNative != null;
+        public void ResetXpubMagicSegwitNative() => __pbn__XpubMagicSegwitNative = null;
+        private uint? __pbn__XpubMagicSegwitNative;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -264,6 +409,26 @@ namespace KeepKey.Net.Contracts
         public void ResetAmount() => __pbn__Amount = null;
         private ulong? __pbn__Amount;
 
+        [global::ProtoBuf.ProtoMember(9, Name = @"decred_tree")]
+        public uint DecredTree
+        {
+            get { return __pbn__DecredTree.GetValueOrDefault(); }
+            set { __pbn__DecredTree = value; }
+        }
+        public bool ShouldSerializeDecredTree() => __pbn__DecredTree != null;
+        public void ResetDecredTree() => __pbn__DecredTree = null;
+        private uint? __pbn__DecredTree;
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"decred_script_version")]
+        public uint DecredScriptVersion
+        {
+            get { return __pbn__DecredScriptVersion.GetValueOrDefault(); }
+            set { __pbn__DecredScriptVersion = value; }
+        }
+        public bool ShouldSerializeDecredScriptVersion() => __pbn__DecredScriptVersion != null;
+        public void ResetDecredScriptVersion() => __pbn__DecredScriptVersion = null;
+        private uint? __pbn__DecredScriptVersion;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -320,6 +485,16 @@ namespace KeepKey.Net.Contracts
         [global::ProtoBuf.ProtoMember(8, Name = @"exchange_type")]
         public ExchangeType ExchangeType { get; set; }
 
+        [global::ProtoBuf.ProtoMember(9, Name = @"decred_script_version")]
+        public uint DecredScriptVersion
+        {
+            get { return __pbn__DecredScriptVersion.GetValueOrDefault(); }
+            set { __pbn__DecredScriptVersion = value; }
+        }
+        public bool ShouldSerializeDecredScriptVersion() => __pbn__DecredScriptVersion != null;
+        public void ResetDecredScriptVersion() => __pbn__DecredScriptVersion = null;
+        private uint? __pbn__DecredScriptVersion;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -334,6 +509,16 @@ namespace KeepKey.Net.Contracts
 
         [global::ProtoBuf.ProtoMember(2, Name = @"script_pubkey", IsRequired = true)]
         public byte[] ScriptPubkey { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"decred_script_version")]
+        public uint DecredScriptVersion
+        {
+            get { return __pbn__DecredScriptVersion.GetValueOrDefault(); }
+            set { __pbn__DecredScriptVersion = value; }
+        }
+        public bool ShouldSerializeDecredScriptVersion() => __pbn__DecredScriptVersion != null;
+        public void ResetDecredScriptVersion() => __pbn__DecredScriptVersion = null;
+        private uint? __pbn__DecredScriptVersion;
 
     }
 
@@ -412,6 +597,26 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeExtraDataLen() => __pbn__ExtraDataLen != null;
         public void ResetExtraDataLen() => __pbn__ExtraDataLen = null;
         private uint? __pbn__ExtraDataLen;
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"expiry")]
+        public uint Expiry
+        {
+            get { return __pbn__Expiry.GetValueOrDefault(); }
+            set { __pbn__Expiry = value; }
+        }
+        public bool ShouldSerializeExpiry() => __pbn__Expiry != null;
+        public void ResetExpiry() => __pbn__Expiry = null;
+        private uint? __pbn__Expiry;
+
+        [global::ProtoBuf.ProtoMember(11, Name = @"overwintered")]
+        public bool Overwintered
+        {
+            get { return __pbn__Overwintered.GetValueOrDefault(); }
+            set { __pbn__Overwintered = value; }
+        }
+        public bool ShouldSerializeOverwintered() => __pbn__Overwintered != null;
+        public void ResetOverwintered() => __pbn__Overwintered = null;
+        private bool? __pbn__Overwintered;
 
     }
 
@@ -674,6 +879,8 @@ namespace KeepKey.Net.Contracts
         FailureNotEnoughFunds = 10,
         [global::ProtoBuf.ProtoEnum(Name = @"Failure_NotInitialized")]
         FailureNotInitialized = 11,
+        [global::ProtoBuf.ProtoEnum(Name = @"Failure_PinMismatch")]
+        FailurePinMismatch = 12,
         [global::ProtoBuf.ProtoEnum(Name = @"Failure_FirmwareError")]
         FailureFirmwareError = 99,
     }
@@ -818,7 +1025,7 @@ namespace KeepKey.Net.Contracts
     /*
     public static class Extensions
     {
-        public static bool GetWireIn(this global::google.protobuf.EnumValueOptions obj)
+        public static bool GetWireIn(this global::EnumValueOptions obj)
             => obj == null ? default : global::ProtoBuf.Extensible.GetValue<bool>(obj, 50002);
 
         public static void SetWireIn(this global::google.protobuf.EnumValueOptions obj, bool value)
@@ -843,7 +1050,7 @@ namespace KeepKey.Net.Contracts
             => global::ProtoBuf.Extensible.AppendValue<bool>(obj, 50005, value);
 
     }
-    */
+        */
 #pragma warning restore CS1591, CS0612, CS3021, IDE1006
 
 }

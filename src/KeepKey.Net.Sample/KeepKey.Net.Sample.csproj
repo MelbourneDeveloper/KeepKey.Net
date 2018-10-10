@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\KeepKey.Net.UnitTest\KeepKeyCoinUtility.cs" Link="KeepKeyCoinUtility.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardwarewallets.Net" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\KeepKey.Net\KeepKey.Net.csproj" />
   </ItemGroup>
 
