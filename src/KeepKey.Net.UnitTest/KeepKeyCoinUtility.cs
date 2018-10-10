@@ -33,6 +33,7 @@ namespace KeepKey.Net
                     case 0:
                     case 38:
                     case 48:
+                    case 76:
                         addressType = AddressType.Bitcoin;
                         break;
                     case 65536:
