@@ -25,7 +25,6 @@ namespace KeepKey.Net.XamarinFormsSample
         #region Constructor
         public App(IHidDevice keepKeyHidDevice)
         {
-            throw new NotImplementedException("No default coin utility");
             _KeepKeyManager = new KeepKeyManager(KeepKeyPinPad.GetPin, keepKeyHidDevice);
             InitializeComponent();
             keepKeyHidDevice.Connected += KeepKeyHidDevice_Connected;
@@ -40,6 +39,8 @@ namespace KeepKey.Net.XamarinFormsSample
             Device.BeginInvokeOnMainThread(async () =>
             {
                 await _KeepKeyManager.InitializeAsync();
+                var coinTable = await _KeepKeyManager.GetCoinTable();
+                _KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
                 Address = await _KeepKeyManager.GetAddressAsync(new AddressPath(true, 0, 0, false, 0), false, true);
                 GetAddress?.Invoke(this, new EventArgs());
             });

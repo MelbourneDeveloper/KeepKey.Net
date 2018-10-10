@@ -10,6 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\KeepKey.Net.UnitTest\KeepKeyCoinUtility.cs" Link="KeepKeyCoinUtility.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardwarewallets.Net" Version="1.1.0" />
     <PackageReference Include="Hid.Net" Version="1.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
   </ItemGroup>
