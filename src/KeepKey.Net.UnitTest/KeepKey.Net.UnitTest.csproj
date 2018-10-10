@@ -76,14 +76,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Hardwarewallets.Net\src\Hardwarewallets.Net\Hardwarewallets.Net.csproj">
-      <Project>{d9c49225-c63a-43ce-9714-f1df352a8df3}</Project>
-      <Name>Hardwarewallets.Net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj">
-      <Project>{6d90ec25-d41c-4247-bbd4-ee98bd0aac37}</Project>
-      <Name>Trezor.Net</Name>
-    </ProjectReference>
     <ProjectReference Include="..\KeepKey.Net\KeepKey.Net.csproj">
       <Project>{01a2d0e3-55a8-4adb-b2aa-aa1c80785a42}</Project>
       <Name>KeepKey.Net</Name>
