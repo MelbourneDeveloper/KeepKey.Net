@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.5.2</Version>
+    <Version>2.1.0</Version>
     <Description>A cross platform library for communicating with the KeepKey hardwarewallet
 
 Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for other platforms can be added with Hid.Net dependency injection</Description>
@@ -17,8 +17,8 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
 <RepositoryUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</RepositoryUrl>
 <PackageTags>Hid Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey Cryptocurrency security</PackageTags>
 <PackageReleaseNotes></PackageReleaseNotes>
-<AssemblyVersion>1.5.2.0</AssemblyVersion>
-<FileVersion>1.5.2.0</FileVersion>
+<AssemblyVersion>2.1.0.0</AssemblyVersion>
+<FileVersion>2.1.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
