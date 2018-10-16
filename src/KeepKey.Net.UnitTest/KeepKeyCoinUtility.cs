@@ -31,22 +31,15 @@ namespace KeepKey.Net
                 //TODO: Is this a good way to do this? How can we tell which coins are Bitcoin?
                 switch (coinType.AddressType)
                 {
-                    case 0:
-                    case 38:
-                    case 48:
-                    case 76:
-                    case 30:
-                        addressType = AddressType.Bitcoin;
-                        break;
                     case 65536:
                         addressType = AddressType.Ethereum;
                         break;
                     default:
-                        continue;
-
+                        addressType = AddressType.Bitcoin;
+                        break;
                 }
 
-                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType));
+                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType, coinType.Segwit, AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath)));
             }
         }
 

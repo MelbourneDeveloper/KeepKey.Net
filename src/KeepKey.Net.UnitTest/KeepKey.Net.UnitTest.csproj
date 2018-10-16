@@ -60,8 +60,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="Trezor.Net, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Trezor.Net.2.1.0\lib\net452\Trezor.Net.dll</HintPath>
+    <Reference Include="Trezor.Net, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Trezor.Net.2.3.0\lib\net452\Trezor.Net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
