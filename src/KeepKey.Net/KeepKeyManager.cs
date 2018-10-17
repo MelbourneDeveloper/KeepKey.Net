@@ -1,5 +1,4 @@
-﻿using Hardwarewallets.Net.AddressManagement;
-using Hardwarewallets.Net.Model;
+﻿using Hardwarewallets.Net.Model;
 using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
@@ -184,7 +183,7 @@ namespace KeepKey.Net
 
                 if (isPublicKey)
                 {
-                    var publicKey = await SendMessageAsync<PublicKey, GetPublicKey>(new GetPublicKey { AddressNs = path, ShowDisplay = display });
+                    var publicKey = await SendMessageAsync<PublicKey, GetPublicKey>(new GetPublicKey { AddressNs = path, ShowDisplay = display, ScriptType = inputScriptType });
                     return publicKey.Xpub;
                 }
                 else
