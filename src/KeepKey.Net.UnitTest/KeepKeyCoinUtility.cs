@@ -31,7 +31,7 @@ namespace KeepKey.Net
                 //TODO: Is this a good way to do this? How can we tell which coins are Bitcoin?
                 switch (coinType.AddressType)
                 {
-                    case 65536:
+                    case 65535:
                         addressType = AddressType.Ethereum;
                         break;
                     default:
