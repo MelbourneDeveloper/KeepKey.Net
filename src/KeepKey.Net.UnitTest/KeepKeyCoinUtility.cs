@@ -39,7 +39,7 @@ namespace KeepKey.Net
                         break;
                 }
 
-                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType, false, AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath)));
+                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType, coinType.Segwit, AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath)));
             }
         }
 

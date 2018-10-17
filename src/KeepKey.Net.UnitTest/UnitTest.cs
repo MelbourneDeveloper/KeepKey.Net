@@ -20,10 +20,13 @@ namespace KeepKey.Net
             return await GetAddressAsync(0, false, index, false);
         }
 
-        private static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false)
+        /// <summary>
+        /// Note assumes we are looking for non segwit legacy addresses
+        /// </summary>
+        private static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
         {
             var coinInfo = KeepKeyManager.CoinUtility.GetCoinInfo(coinNumber);
-            var addressPath = new AddressPath(coinInfo.IsSegwit, coinNumber, 0, isChange, index);
+            var addressPath = new AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);
             return KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display);
         }
 
