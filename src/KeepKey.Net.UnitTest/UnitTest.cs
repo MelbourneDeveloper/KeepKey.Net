@@ -17,12 +17,16 @@ namespace KeepKey.Net
 
         private static async Task<string> GetAddressAsync(uint index)
         {
-            return await GetAddressAsync(true, 0, false, index, false);
+            return await GetAddressAsync(0, false, index, false);
         }
 
-        private static Task<string> GetAddressAsync(bool isSegwit, uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false)
+        /// <summary>
+        /// Note assumes we are looking for non segwit legacy addresses
+        /// </summary>
+        private static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
         {
-            var addressPath = new AddressPath(isSegwit, coinNumber, 0, isChange, index);
+            var coinInfo = KeepKeyManager.CoinUtility.GetCoinInfo(coinNumber);
+            var addressPath = new AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);
             return KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display);
         }
 
@@ -30,14 +34,14 @@ namespace KeepKey.Net
         public async Task DisplayBitcoinAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(true, 0, false, 0, true);
+            var address = await GetAddressAsync(0, false, 0, true);
         }
 
         [TestMethod]
         public async Task GetBitcoinAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(true, 0, false, 0, false);
+            var address = await GetAddressAsync(0, false, 0, false);
         }
 
         [TestMethod]
@@ -66,42 +70,42 @@ namespace KeepKey.Net
         public async Task GetBitcoinCashAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(false, 145, false, 0, false);
+            var address = await GetAddressAsync(145, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetBitcoinGoldAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(false, 156, false, 0, false);
+            var address = await GetAddressAsync(156, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetLitecoinAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(false, 2, false, 0, false);
+            var address = await GetAddressAsync(2, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetDashAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(false, 5, false, 0, false);
+            var address = await GetAddressAsync(5, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetDogeAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(false, 3, false, 0, false);
+            var address = await GetAddressAsync(3, false, 0, false);
         }
 
         [TestMethod]
         public async Task DisplayDogeAddress()
         {
             await GetAndInitialize();
-            var address = await GetAddressAsync(false, 3, false, 0, true);
+            var address = await GetAddressAsync(3, false, 0, true);
         }
 
         [TestMethod]
@@ -109,7 +113,7 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             //Coin name must be specified when displaying the address for most coins
-            var address = await GetAddressAsync(false, 145, false, 0, true);
+            var address = await GetAddressAsync(145, false, 0, true);
         }
 
         [TestMethod]
@@ -117,7 +121,15 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
-            var address = await GetAddressAsync(false, 60, false, 0, true);
+            var address = await GetAddressAsync(60, false, 0, true);
+        }
+
+        [TestMethod]
+        public async Task GetEthereumAddress()
+        {
+            await GetAndInitialize();
+            //Ethereum coins don't need the coin name
+            var address = await GetAddressAsync(60, false, 0, false);
         }
 
         [TestMethod]
@@ -125,7 +137,7 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
-            var address = await GetAddressAsync(false, 61, false, 0, true);
+            var address = await GetAddressAsync(61, false, 0, true);
         }
 
         [TestMethod]
