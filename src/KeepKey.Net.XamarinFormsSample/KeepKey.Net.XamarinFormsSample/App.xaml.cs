@@ -41,7 +41,7 @@ namespace KeepKey.Net.XamarinFormsSample
                 await _KeepKeyManager.InitializeAsync();
                 var coinTable = await _KeepKeyManager.GetCoinTable();
                 _KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
-                Address = await _KeepKeyManager.GetAddressAsync(new AddressPath(true, 0, 0, false, 0), false, true);
+                Address = await _KeepKeyManager.GetAddressAsync(new AddressPath(false, 0, 0, false, 0), false, true);
                 GetAddress?.Invoke(this, new EventArgs());
             });
         }
