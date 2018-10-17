@@ -125,6 +125,14 @@ namespace KeepKey.Net
         }
 
         [TestMethod]
+        public async Task GetEthereumAddress()
+        {
+            await GetAndInitialize();
+            //Ethereum coins don't need the coin name
+            var address = await GetAddressAsync(60, false, 0, false);
+        }
+
+        [TestMethod]
         public async Task DisplayEthereumClassicAddress()
         {
             await GetAndInitialize();
