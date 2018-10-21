@@ -2,15 +2,21 @@
 using Hardwarewallets.Net.AddressManagement;
 using KeepKey.Net.Contracts;
 using System.Collections.Generic;
-using System.Linq;
 using Trezor.Net;
 
 namespace KeepKey.Net
 {
     public partial class KeepKeyCoinUtility : ICoinUtility
     {
+        #region Fields
         private readonly Dictionary<uint, CoinInfo> _CoinInfoByCoinType = new Dictionary<uint, CoinInfo>();
+        #endregion
 
+        #region Public Properties
+        public bool IsLegacy { get; set; } = true;
+        #endregion
+
+        #region Public Methods
         public CoinInfo GetCoinInfo(uint coinNumber)
         {
             if (!_CoinInfoByCoinType.TryGetValue(coinNumber, out var retVal)) throw new ManagerException($"No coin info for coin {coinNumber}");
@@ -39,10 +45,9 @@ namespace KeepKey.Net
                         break;
                 }
 
-                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType, coinType.Segwit, AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath)));
+                _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType, !IsLegacy && coinType.Segwit, AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath)));
             }
         }
-
-
+        #endregion
     }
 }
