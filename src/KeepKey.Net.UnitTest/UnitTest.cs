@@ -30,7 +30,7 @@ namespace KeepKey.Net
         private static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
         {
             var coinInfo = KeepKeyManager.CoinUtility.GetCoinInfo(coinNumber);
-            var addressPath = new AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);
+            var addressPath = new BIP44AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);
             return KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display);
         }
 
@@ -53,7 +53,7 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
 
-            var addressManager = new AddressManager(KeepKeyManager, new AddressPathFactory(true, 0));
+            var addressManager = new AddressManager(KeepKeyManager, new BIP44AddressPathFactory(true, 0));
 
             //Get 10 addresses with all the trimming
             const int numberOfAddresses = 3;
