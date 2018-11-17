@@ -158,14 +158,16 @@ namespace KeepKey.Net
                 throw new ManagerException($"A {nameof(CoinUtility)} must be specified if {nameof(AddressType)} is not specified.");
             }
 
-            var coinInfo = CoinUtility.GetCoinInfo(addressPath.CoinType);
+            var cointType = addressPath.AddressPathElements.Count > 1 ? addressPath.AddressPathElements[1].UnhardenedValue : throw new ManagerException("The first element of the address path is considered to be the coin type. This was not specified so no coin information is available. Please use an overload that specifies CoinInfo.");
+
+            var coinInfo = CoinUtility.GetCoinInfo(cointType);
 
             return GetAddressAsync(addressPath, isPublicKey, display, coinInfo);
         }
 
         public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, CoinInfo coinInfo)
         {
-            var inputScriptType = addressPath.Purpose == 49 ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
+            var inputScriptType = coinInfo.IsSegwit ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
 
             return GetAddressAsync(addressPath, isPublicKey, display, coinInfo.AddressType, inputScriptType, coinInfo.CoinName);
         }
