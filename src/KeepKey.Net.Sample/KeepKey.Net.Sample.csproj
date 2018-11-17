@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hardwarewallets.Net" Version="1.1.0" />
+    <PackageReference Include="Hardwarewallets.Net" Version="100.0.0" />
   </ItemGroup>
 
   <ItemGroup>

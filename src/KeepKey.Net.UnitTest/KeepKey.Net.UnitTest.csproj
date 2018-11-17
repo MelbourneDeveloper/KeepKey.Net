@@ -42,8 +42,8 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.2.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Hardwarewallets.Net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Hardwarewallets.Net.1.1.0\lib\net452\Hardwarewallets.Net.dll</HintPath>
+    <Reference Include="Hardwarewallets.Net, Version=100.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardwarewallets.Net.100.0.0\lib\net452\Hardwarewallets.Net.dll</HintPath>
     </Reference>
     <Reference Include="Hid.Net, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hid.Net.1.3.0\lib\net452\Hid.Net.dll</HintPath>
@@ -121,8 +121,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ServiceModel" />
-    <Reference Include="Trezor.Net, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Trezor.Net.2.4.0\lib\net452\Trezor.Net.dll</HintPath>
+    <Reference Include="Trezor.Net, Version=100.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Trezor.Net.100.0.0\lib\net452\Trezor.Net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
