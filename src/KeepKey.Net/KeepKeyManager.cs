@@ -179,7 +179,7 @@ namespace KeepKey.Net
         {
             try
             {
-                var path = addressPath.ToHardenedArray();
+                var path = addressPath.ToArray();
 
                 if (isPublicKey)
                 {
@@ -188,8 +188,6 @@ namespace KeepKey.Net
                 }
                 else
                 {
-                    var isSegwit = addressPath.Purpose == 49;
-
                     switch (addressType)
                     {
                         case AddressType.Bitcoin:
