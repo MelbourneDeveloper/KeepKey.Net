@@ -41,7 +41,7 @@ namespace KeepKey.Net
         #endregion
 
         #region Constructor
-        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
+        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice keepKeyDevice) : base(enterPinCallback, keepKeyDevice)
         {
         }
         #endregion
@@ -134,7 +134,7 @@ namespace KeepKey.Net
         {
             if (returnMessage is Failure failure)
             {
-                throw new FailureException<Failure>($"Error sending message to Trezor.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
+                throw new FailureException<Failure>($"Error sending message to KeepKey.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
             }
         }
 
@@ -216,7 +216,7 @@ namespace KeepKey.Net
             }
             catch (Exception ex)
             {
-                Logger.Log("Error Getting Trezor Address", ex, LogSection);
+                Logger.Log("Error Getting KeepKey Address", ex, LogSection);
                 throw;
             }
         }
