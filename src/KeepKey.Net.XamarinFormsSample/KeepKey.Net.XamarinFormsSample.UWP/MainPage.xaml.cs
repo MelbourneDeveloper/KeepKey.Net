@@ -1,6 +1,5 @@
-﻿using Hid.Net;
-using Hid.Net.UWP;
-using System.Threading.Tasks;
+﻿using Hid.Net.UWP;
+using System;
 using app = KeepKey.Net.XamarinFormsSample.App;
 
 namespace KeepKey.Net.XamarinFormsSample.UWP
@@ -8,20 +7,24 @@ namespace KeepKey.Net.XamarinFormsSample.UWP
     public sealed partial class MainPage
     {
         private UWPHidDevicePoller poller;
+        private UWPHidDevice _KeepKeyHidDevice;
 
         public MainPage()
         {
             InitializeComponent();
-
-            var taskCompletionSource = new TaskCompletionSource<IHidDevice>();
-            var keepKeyHidDevice = new UWPHidDevice();
-            keepKeyHidDevice.DataHasExtraByte = false;
-            keepKeyHidDevice.Connected += KeepKeyHidDevice_Connected;
-            poller = new UWPHidDevicePoller(KeepKeyManager.ProductId, KeepKeyManager.VendorId, keepKeyHidDevice);
-            LoadApplication(new app(keepKeyHidDevice));
+            _KeepKeyHidDevice = new UWPHidDevice();
+            LoadApplication(new app(_KeepKeyHidDevice));
+            Loaded += MainPage_Loaded;
         }
 
-        private void KeepKeyHidDevice_Connected(object sender, System.EventArgs e)
+        private async void MainPage_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            _KeepKeyHidDevice.DataHasExtraByte = false;
+            _KeepKeyHidDevice.Connected += KeepKeyHidDevice_Connected;
+            poller = new UWPHidDevicePoller(KeepKeyManager.ProductId, KeepKeyManager.VendorId, _KeepKeyHidDevice);
+        }
+
+        private void KeepKeyHidDevice_Connected(object sender, EventArgs e)
         {
             poller.Stop();
         }
