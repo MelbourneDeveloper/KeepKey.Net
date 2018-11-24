@@ -30,8 +30,4 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
     <PackageReference Include="Trezor.Net" Version="2.6.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Hid.Net\Hid.Net\Hid.Net.csproj" />
-  </ItemGroup>
-
 </Project>
