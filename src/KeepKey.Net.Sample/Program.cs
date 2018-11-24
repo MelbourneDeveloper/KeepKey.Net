@@ -89,7 +89,7 @@ namespace KeepKeyTestApp
                             }
                         }
 
-                        var addressPath = new AddressPath(false, 60, 0, false, 0);
+                        var addressPath = new BIP44AddressPath(false, 60, 0, false, 0);
 
                         var ethAddress = await keepKeyManager.GetAddressAsync(addressPath, false, false);
                         Console.WriteLine($"First ETH address: {ethAddress}");
@@ -115,7 +115,7 @@ namespace KeepKeyTestApp
 
         private static async Task<string> GetAddress(KeepKeyManager keepKeyManager, uint i)
         {
-            return await keepKeyManager.GetAddressAsync(new AddressPath(true, 0, 0, false, i), false, false);
+            return await keepKeyManager.GetAddressAsync(new BIP44AddressPath(true, 0, 0, false, i), false, false);
         }
 
         private static async Task<string> GetPin()

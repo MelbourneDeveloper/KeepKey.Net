@@ -41,7 +41,7 @@ namespace KeepKey.Net
         #endregion
 
         #region Constructor
-        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice trezorHidDevice) : base(enterPinCallback, trezorHidDevice)
+        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice keepKeyDevice) : base(enterPinCallback, keepKeyDevice)
         {
         }
         #endregion
@@ -134,7 +134,7 @@ namespace KeepKey.Net
         {
             if (returnMessage is Failure failure)
             {
-                throw new FailureException<Failure>($"Error sending message to Trezor.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
+                throw new FailureException<Failure>($"Error sending message to KeepKey.\r\nCode: {failure.Code} Message: {failure.Message}", failure);
             }
         }
 
@@ -158,14 +158,16 @@ namespace KeepKey.Net
                 throw new ManagerException($"A {nameof(CoinUtility)} must be specified if {nameof(AddressType)} is not specified.");
             }
 
-            var coinInfo = CoinUtility.GetCoinInfo(addressPath.CoinType);
+            var cointType = addressPath.AddressPathElements.Count > 1 ? addressPath.AddressPathElements[1].Value : throw new ManagerException("The first element of the address path is considered to be the coin type. This was not specified so no coin information is available. Please use an overload that specifies CoinInfo.");
+
+            var coinInfo = CoinUtility.GetCoinInfo(cointType);
 
             return GetAddressAsync(addressPath, isPublicKey, display, coinInfo);
         }
 
         public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, CoinInfo coinInfo)
         {
-            var inputScriptType = addressPath.Purpose == 49 ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
+            var inputScriptType = coinInfo.IsSegwit ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
 
             return GetAddressAsync(addressPath, isPublicKey, display, coinInfo.AddressType, inputScriptType, coinInfo.CoinName);
         }
@@ -179,7 +181,7 @@ namespace KeepKey.Net
         {
             try
             {
-                var path = addressPath.ToHardenedArray();
+                var path = addressPath.ToArray();
 
                 if (isPublicKey)
                 {
@@ -188,8 +190,6 @@ namespace KeepKey.Net
                 }
                 else
                 {
-                    var isSegwit = addressPath.Purpose == 49;
-
                     switch (addressType)
                     {
                         case AddressType.Bitcoin:
@@ -216,7 +216,7 @@ namespace KeepKey.Net
             }
             catch (Exception ex)
             {
-                Logger.Log("Error Getting Trezor Address", ex, LogSection);
+                Logger.Log("Error Getting KeepKey Address", ex, LogSection);
                 throw;
             }
         }
