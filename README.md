@@ -1,5 +1,8 @@
 # KeepKey.Net
 
+Join us on Slack:
+https://hardwarewallets.slack.com
+
 ## Getting Started
 
 - Clone the repo and open the solution
