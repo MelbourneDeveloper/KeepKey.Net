@@ -27,11 +27,13 @@ namespace KeepKey.Net
         /// <summary>
         /// Note assumes we are looking for non segwit legacy addresses
         /// </summary>
-        private static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
+        private async static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
         {
             var coinInfo = KeepKeyManager.CoinUtility.GetCoinInfo(coinNumber);
             var addressPath = new BIP44AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);
-            return KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display);
+            var address = await KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display);
+            Assert.IsNotNull(address);
+            return address;
         }
 
         [TestMethod]
@@ -39,8 +41,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(0, false, 0, true);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -48,8 +48,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(0, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -79,8 +77,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(145, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -88,8 +84,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(156, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -97,8 +91,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(2, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -106,8 +98,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(5, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -115,8 +105,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(3, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -124,8 +112,6 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(3, false, 0, true);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -134,8 +120,6 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Coin name must be specified when displaying the address for most coins
             var address = await GetAddressAsync(145, false, 0, true);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -144,8 +128,6 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(60, false, 0, true);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -154,8 +136,6 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(60, false, 0, false);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -164,8 +144,6 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(61, false, 0, true);
-
-            Assert.IsNotNull(address);
         }
 
         [TestMethod]
