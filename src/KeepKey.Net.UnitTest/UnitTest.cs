@@ -39,6 +39,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(0, false, 0, true);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -46,6 +48,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(0, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -75,6 +79,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(145, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -82,6 +88,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(156, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -89,6 +97,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(2, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -96,6 +106,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(5, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -103,6 +115,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(3, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -110,6 +124,8 @@ namespace KeepKey.Net
         {
             await GetAndInitialize();
             var address = await GetAddressAsync(3, false, 0, true);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -118,6 +134,8 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Coin name must be specified when displaying the address for most coins
             var address = await GetAddressAsync(145, false, 0, true);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -126,6 +144,8 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(60, false, 0, true);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -134,6 +154,8 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(60, false, 0, false);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
@@ -142,6 +164,8 @@ namespace KeepKey.Net
             await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(61, false, 0, true);
+
+            Assert.IsNotNull(address);
         }
 
         [TestMethod]
