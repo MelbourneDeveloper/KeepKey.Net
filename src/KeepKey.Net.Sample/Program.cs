@@ -60,6 +60,18 @@ namespace KeepKeyTestApp
             {
                 using (var keepKeyHid = await Connect())
                 {
+                    Console.WriteLine();
+                    Console.WriteLine("PIN CHALLENGE!!");
+                    Console.WriteLine("┌───┬───┬───┐");
+                    Console.WriteLine("│ 7 │ 8 │ 9 │");
+                    Console.WriteLine("├───┼───┼───┤");
+                    Console.WriteLine("│ 4 │ 5 │ 6 │");
+                    Console.WriteLine("├───┼───┼───┤");
+                    Console.WriteLine("│ 1 │ 2 │ 3 │");
+                    Console.WriteLine("└───┴───┴───┘");
+                    Console.WriteLine("Match the device screen with the above and enter the numbers of your scrambled pin below, press <enter> to send.");
+                    Console.WriteLine();
+
                     using (var keepKeyManager = new KeepKeyManager(GetPin, keepKeyHid))
                     {
                         await keepKeyManager.InitializeAsync();
