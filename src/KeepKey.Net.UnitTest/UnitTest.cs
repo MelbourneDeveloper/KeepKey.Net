@@ -19,6 +19,12 @@ namespace KeepKey.Net
         private static KeepKeyManager KeepKeyManager;
         private static readonly string[] _Addresses = new string[50];
 
+        [TestInitialize]
+        public async Task SetUp()
+        {
+            await GetAndInitialize();
+        }
+
         private static async Task<string> GetAddressAsync(uint index)
         {
             return await GetAddressAsync(0, false, index, false);
@@ -39,22 +45,18 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task DisplayBitcoinAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(0, false, 0, true);
         }
 
         [TestMethod]
         public async Task GetBitcoinAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(0, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetBitcoinAddresses()
         {
-            await GetAndInitialize();
-
             var addressManager = new AddressManager(KeepKeyManager, new BIP44AddressPathFactory(true, 0));
 
             //Get 10 addresses with all the trimming
@@ -75,49 +77,42 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task GetBitcoinCashAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(145, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetBitcoinGoldAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(156, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetLitecoinAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(2, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetDashAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(5, false, 0, false);
         }
 
         [TestMethod]
         public async Task GetDogeAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(3, false, 0, false);
         }
 
         [TestMethod]
         public async Task DisplayDogeAddress()
         {
-            await GetAndInitialize();
             var address = await GetAddressAsync(3, false, 0, true);
         }
 
         [TestMethod]
         public async Task DisplayBitcoinCashAddress()
         {
-            await GetAndInitialize();
             //Coin name must be specified when displaying the address for most coins
             var address = await GetAddressAsync(145, false, 0, true);
         }
@@ -125,7 +120,6 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task DisplayEthereumAddress()
         {
-            await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(60, false, 0, true);
         }
@@ -133,7 +127,6 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task GetEthereumAddress()
         {
-            await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(60, false, 0, false);
         }
@@ -141,7 +134,6 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task DisplayEthereumClassicAddress()
         {
-            await GetAndInitialize();
             //Ethereum coins don't need the coin name
             var address = await GetAddressAsync(61, false, 0, true);
         }
@@ -149,8 +141,6 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task TestThreadSafety()
         {
-            await GetAndInitialize();
-
             var tasks = new List<Task>();
 
             for (uint i = 0; i < 50; i++)
@@ -176,8 +166,6 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task SignEthereumTransaction()
         {
-            await GetAndInitialize();
-
             var txMessage = new EthereumSignTx
             {
                 Nonce = 10.ToBytesForRLPEncoding().ToHex().ToHexBytes(),
