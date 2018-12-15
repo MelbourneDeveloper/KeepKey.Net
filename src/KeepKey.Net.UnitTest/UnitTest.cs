@@ -16,15 +16,29 @@ namespace KeepKey.Net
     [TestClass]
     public partial class UnitTest
     {
+        #region Static Fields
         private static KeepKeyManager KeepKeyManager;
         private static readonly string[] _Addresses = new string[50];
+        #endregion
 
+        #region Initialization
         [TestInitialize]
-        public async Task SetUp()
+        public async Task GetAndInitialize()
         {
-            await GetAndInitialize();
-        }
+            if (KeepKeyManager != null)
+            {
+                return;
+            }
 
+            var keepKeyDevice = await Connect();
+            KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice);
+            await KeepKeyManager.InitializeAsync();
+            var coinTable = await KeepKeyManager.GetCoinTable();
+            KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
+        }
+        #endregion
+
+        #region Helpers
         private static async Task<string> GetAddressAsync(uint index)
         {
             return await GetAddressAsync(0, false, index, false);
@@ -42,6 +56,14 @@ namespace KeepKey.Net
             return address;
         }
 
+        private static async Task DoGetAddress(uint i)
+        {
+            var address = await GetAddressAsync(i);
+            _Addresses[i] = address;
+        }
+        #endregion
+
+        #region Tests
         [TestMethod]
         public async Task DisplayBitcoinAddress()
         {
@@ -190,25 +212,6 @@ namespace KeepKey.Net
             var coinTable = await KeepKeyManager.GetCoinTable();
             KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
         }
-
-        private async Task GetAndInitialize()
-        {
-            if (KeepKeyManager != null)
-            {
-                return;
-            }
-
-            var keepKeyDevice = await Connect();
-            KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice);
-            await KeepKeyManager.InitializeAsync();
-            var coinTable = await KeepKeyManager.GetCoinTable();
-            KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
-        }
-
-        private static async Task DoGetAddress(uint i)
-        {
-            var address = await GetAddressAsync(i);
-            _Addresses[i] = address;
-        }
+        #endregion
     }
 }
