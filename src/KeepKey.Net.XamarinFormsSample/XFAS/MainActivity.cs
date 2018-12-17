@@ -4,7 +4,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Hardware.Usb;
 using Android.OS;
-using Hid.Net.Android;
+using Usb.Net.Android;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -26,7 +26,7 @@ namespace KeepKey.Net.XamarinFormsSample.Droid
     public class MainActivity : FormsAppCompatActivity
     {
         #region Fields
-        private AndroidHidDevice _KeepKeyHidDevice;
+        private AndroidUsbDevice _KeepKeyHidDevice;
         private UsbDeviceAttachedReceiver _KeepKeyUsbDeviceAttachedReceiver;
         private UsbDeviceDetachedReceiver _KeepKeyUsbDeviceDetachedReceiver;
         private readonly object _ReceiverLock = new object();
@@ -34,7 +34,7 @@ namespace KeepKey.Net.XamarinFormsSample.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            _KeepKeyHidDevice = new AndroidHidDevice(GetSystemService(UsbService) as UsbManager, ApplicationContext, 3000, 64, KeepKeyManager.VendorId, KeepKeyManager.ProductId);
+            _KeepKeyHidDevice = new AndroidUsbDevice(GetSystemService(UsbService) as UsbManager, ApplicationContext, 3000, 64, KeepKeyManager.VendorId, KeepKeyManager.ProductId);
 
             _KeepKeyHidDevice.Tracer = new DebugTracer();
 
