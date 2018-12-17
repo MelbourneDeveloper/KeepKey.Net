@@ -1,5 +1,5 @@
-﻿using Hardwarewallets.Net.AddressManagement;
-using Hid.Net;
+﻿using Device.Net;
+using Hardwarewallets.Net.AddressManagement;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,7 +23,7 @@ namespace KeepKey.Net.XamarinFormsSample
         #endregion
 
         #region Constructor
-        public App(IHidDevice keepKeyHidDevice)
+        public App(IDevice keepKeyHidDevice)
         {
             _KeepKeyManager = new KeepKeyManager(KeepKeyPinPad.GetPin, keepKeyHidDevice);
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace KeepKey.Net.XamarinFormsSample
         #region Event Handlers
         private void KeepKeyHidDevice_Connected(object sender, System.EventArgs e)
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () =>
             {
                 await _KeepKeyManager.InitializeAsync();
                 var coinTable = await _KeepKeyManager.GetCoinTable();

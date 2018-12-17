@@ -1,4 +1,5 @@
-﻿using Hardwarewallets.Net.Model;
+﻿using Device.Net;
+using Hardwarewallets.Net.Model;
 using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
@@ -41,7 +42,7 @@ namespace KeepKey.Net
         #endregion
 
         #region Constructor
-        public KeepKeyManager(EnterPinArgs enterPinCallback, IHidDevice keepKeyDevice) : base(enterPinCallback, keepKeyDevice)
+        public KeepKeyManager(EnterPinArgs enterPinCallback, IDevice keepKeyDevice) : base(enterPinCallback, keepKeyDevice)
         {
         }
         #endregion

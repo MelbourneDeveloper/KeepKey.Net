@@ -1,4 +1,5 @@
-﻿using Hardwarewallets.Net.AddressManagement;
+﻿using Device.Net;
+using Hardwarewallets.Net.AddressManagement;
 using Hid.Net.Windows;
 using KeepKey.Net;
 using System;
@@ -31,7 +32,7 @@ namespace KeepKeyTestApp
         #endregion
 
         #region Private  Methods
-        private static async Task<IHidDevice> Connect()
+        private static async Task<IDevice> Connect()
         {
             var devices = WindowsHidDevice.GetConnectedDeviceInformations();
             var keepKeyDeviceInformation = devices.FirstOrDefault(d => d.VendorId == KeepKeyManager.VendorId && d.ProductId == KeepKeyManager.ProductId);

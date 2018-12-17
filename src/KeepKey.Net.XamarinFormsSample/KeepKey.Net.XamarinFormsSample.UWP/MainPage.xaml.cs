@@ -1,5 +1,4 @@
-﻿using Hid.Net.UWP;
-using System;
+﻿using System;
 using app = KeepKey.Net.XamarinFormsSample.App;
 
 namespace KeepKey.Net.XamarinFormsSample.UWP

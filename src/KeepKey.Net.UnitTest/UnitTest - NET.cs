@@ -1,4 +1,5 @@
-﻿using Hid.Net;
+﻿using Device.Net;
+using Hid.Net.Windows;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -10,9 +11,9 @@ namespace KeepKey.Net
 {
     public partial class UnitTest
     {
-        private async Task<IHidDevice> Connect()
+        private async Task<IDevice> Connect()
         {
-            DeviceInformation keepKeyDeviceInformation = null;
+            WindowsHidDeviceInformation keepKeyDeviceInformation = null;
 
             WindowsHidDevice retVal = null;
 

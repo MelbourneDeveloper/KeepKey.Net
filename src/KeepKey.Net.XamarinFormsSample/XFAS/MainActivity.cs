@@ -4,14 +4,13 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Hardware.Usb;
 using Android.OS;
-using Hid.Net;
 using Hid.Net.Android;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 namespace KeepKey.Net.XamarinFormsSample.Droid
 {
-    public class DebugTracer : ITracer
+    public class DebugTracer : Device.Net.ITracer
     {
         public string WriteSuffix { get; set; } = "KeepKeyIOWrite";
         public string ReadSuffix { get; set; } = "KeepKeyIORead";
