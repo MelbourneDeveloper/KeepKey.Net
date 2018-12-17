@@ -1,5 +1,5 @@
 ﻿using Hardwarewallets.Net.AddressManagement;
-using Hid.Net;
+using Hid.Net.Windows;
 using KeepKey.Net;
 using System;
 using System.Collections.Generic;
