@@ -1,6 +1,5 @@
 ﻿using Device.Net;
 using Hardwarewallets.Net.Model;
-using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
 using System.Collections.Generic;
@@ -24,11 +23,6 @@ namespace KeepKey.Net
         #region Private Static Fields
         private static Assembly[] _Assemblies;
         private static readonly Dictionary<string, Type> _ContractsByName = new Dictionary<string, Type>();
-        #endregion
-
-        #region Public Constants
-        public const ushort VendorId = 11044;
-        public const ushort ProductId = 1;
         #endregion
 
         #region Public Properties
