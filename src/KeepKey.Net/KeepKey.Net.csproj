@@ -15,7 +15,7 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
 <Company>Christian Findlay</Company>
 <PackageProjectUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</PackageProjectUrl>
 <RepositoryUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</RepositoryUrl>
-<PackageTags>Hid Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey Cryptocurrency security</PackageTags>
+<PackageTags>Hid USB Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey Cryptocurrency security</PackageTags>
 <PackageReleaseNotes>Introducing KeepKeyManagerBroker which handles connection, disconnection and initialization of devices across all platforms seamlessly. Some breaking changes</PackageReleaseNotes>
 <AssemblyVersion>3.0.0.0</AssemblyVersion>
 <FileVersion>3.0.0.0</FileVersion>
