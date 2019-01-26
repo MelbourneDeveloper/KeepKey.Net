@@ -31,11 +31,7 @@ namespace KeepKey.Net
                 return;
             }
 
-            var keepKeyDevice = await Connect();
-            KeepKeyManager = new KeepKeyManager(GetPin, keepKeyDevice);
-            await KeepKeyManager.InitializeAsync();
-            var coinTable = await KeepKeyManager.GetCoinTable();
-            KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
+            KeepKeyManager = await ConnectAsync();
         }
         #endregion
 
@@ -48,7 +44,7 @@ namespace KeepKey.Net
         /// <summary>
         /// Note assumes we are looking for non segwit legacy addresses
         /// </summary>
-        private async static Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
+        private static async Task<string> GetAddressAsync(uint coinNumber, bool isChange, uint index, bool display, bool isPublicKey = false, bool isLegacy = true)
         {
             var coinInfo = KeepKeyManager.CoinUtility.GetCoinInfo(coinNumber);
             var addressPath = new BIP44AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);

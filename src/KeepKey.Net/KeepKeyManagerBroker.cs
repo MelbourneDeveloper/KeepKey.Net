@@ -1,14 +1,16 @@
 ﻿using Device.Net;
-using KeepKey.Net;
 using KeepKey.Net.Contracts;
+using System;
 using System.Collections.Generic;
+using Trezor.Net;
+using Trezor.Net.Manager;
 
-namespace Trezor.Net.Manager
+namespace KeepKey.Net
 {
-    public class KeepKeyManagerBroker : TrezorManagerBrokerBase<KeepKeyManager, MessageType>
+    public class KeepKeyManagerBroker : TrezorManagerBrokerBase<KeepKeyManager, MessageType>, IDisposable
     {
         #region Constructor
-        public KeepKeyManagerBroker(EnterPinArgs enterPinArgs, int? pollInterval, ICoinUtility coinUtility) : base(enterPinArgs, pollInterval, coinUtility)
+        public KeepKeyManagerBroker(EnterPinArgs enterPinArgs, int? pollInterval) : base(enterPinArgs, pollInterval, null)
         {
         }
         #endregion
