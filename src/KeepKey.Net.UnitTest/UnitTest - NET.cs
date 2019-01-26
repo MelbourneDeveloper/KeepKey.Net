@@ -19,14 +19,12 @@ namespace KeepKey.Net
             //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
             WindowsHidDeviceFactory.Register();
 
-            using (var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000))
-            {
-                var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
-                await keepKeyManager.InitializeAsync();
-                var coinTable = await keepKeyManager.GetCoinTable();
-                keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
-                return keepKeyManager;
-            }
+            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000);
+            var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
+            await keepKeyManager.InitializeAsync();
+            var coinTable = await keepKeyManager.GetCoinTable();
+            keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
+            return keepKeyManager;
         }
 
         private async Task<string> GetPin()

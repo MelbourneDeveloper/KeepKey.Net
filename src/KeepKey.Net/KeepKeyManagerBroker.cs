@@ -24,6 +24,9 @@ namespace KeepKey.Net
 
         protected override KeepKeyManager CreateTrezorManager(IDevice device)
         {
+            var asdasd = (dynamic) device;
+            asdasd.DataHasExtraByte = false;
+
             return new KeepKeyManager(EnterPinArgs, device);
         }
         #endregion
