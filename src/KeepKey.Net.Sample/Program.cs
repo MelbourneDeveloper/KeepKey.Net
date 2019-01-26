@@ -1,11 +1,10 @@
-﻿using Device.Net;
-using Hardwarewallets.Net.AddressManagement;
-using Hid.Net;
+﻿using Hardwarewallets.Net.AddressManagement;
+using Hid.Net.Windows;
 using KeepKey.Net;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Usb.Net.Windows;
 
 namespace KeepKeyTestApp
 {
@@ -32,7 +31,7 @@ namespace KeepKeyTestApp
         #endregion
 
         #region Private  Methods
-        private static async Task<KeepKeyManager> Connect()
+        private static async Task<KeepKeyManager> ConnectAsync()
         {
             //This only needs to be done once.
             //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
@@ -43,7 +42,6 @@ namespace KeepKeyTestApp
 
             var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000);
             var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
-            await keepKeyManager.InitializeAsync();
             var coinTable = await keepKeyManager.GetCoinTable();
             keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
             return keepKeyManager;
@@ -57,46 +55,37 @@ namespace KeepKeyTestApp
         {
             try
             {
-                using (var keepKeyHid = await Connect())
+                using (var keepKeyManager = await ConnectAsync())
                 {
-                    using (var keepKeyManager = new KeepKeyManager(GetPin, keepKeyHid))
+                    var tasks = new List<Task>();
+
+                    for (uint i = 0; i < 50; i++)
                     {
-                        await keepKeyManager.InitializeAsync();
-
-                        var cointTable = await keepKeyManager.GetCoinTable();
-
-                        keepKeyManager.CoinUtility = new KeepKeyCoinUtility(cointTable);
-
-                        var tasks = new List<Task>();
-
-                        for (uint i = 0; i < 50; i++)
-                        {
-                            tasks.Add(DoGetAddress(keepKeyManager, i));
-                        }
-
-                        await Task.WhenAll(tasks);
-
-                        for (uint i = 0; i < 50; i++)
-                        {
-                            var address = await GetAddress(keepKeyManager, i);
-
-                            Console.WriteLine($"Index: {i} (No change) - Address: {address}");
-
-                            if (address != _Addresses[i])
-                            {
-                                throw new Exception("The ordering got messed up");
-                            }
-                        }
-
-                        var addressPath = new BIP44AddressPath(false, 60, 0, false, 0);
-
-                        var ethAddress = await keepKeyManager.GetAddressAsync(addressPath, false, false);
-                        Console.WriteLine($"First ETH address: {ethAddress}");
-
-                        Console.WriteLine("All good");
-
-                        Console.ReadLine();
+                        tasks.Add(DoGetAddress(keepKeyManager, i));
                     }
+
+                    await Task.WhenAll(tasks);
+
+                    for (uint i = 0; i < 50; i++)
+                    {
+                        var address = await GetAddress(keepKeyManager, i);
+
+                        Console.WriteLine($"Index: {i} (No change) - Address: {address}");
+
+                        if (address != _Addresses[i])
+                        {
+                            throw new Exception("The ordering got messed up");
+                        }
+                    }
+
+                    var addressPath = new BIP44AddressPath(false, 60, 0, false, 0);
+
+                    var ethAddress = await keepKeyManager.GetAddressAsync(addressPath, false, false);
+                    Console.WriteLine($"First ETH address: {ethAddress}");
+
+                    Console.WriteLine("All good");
+
+                    Console.ReadLine();
                 }
             }
             catch (Exception ex)
