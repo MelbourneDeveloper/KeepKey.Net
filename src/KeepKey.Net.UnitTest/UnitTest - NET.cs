@@ -11,7 +11,7 @@ namespace KeepKey.Net
 {
     public partial class UnitTest
     {
-        private async Task<IDevice> Connect()
+        private async Task<KeepKeyManager> Connect()
         {
             WindowsHidDeviceInformation keepKeyDeviceInformation = null;
 

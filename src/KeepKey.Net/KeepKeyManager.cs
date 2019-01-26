@@ -25,11 +25,6 @@ namespace KeepKey.Net
         private static readonly Dictionary<string, Type> _ContractsByName = new Dictionary<string, Type>();
         #endregion
 
-        #region Public Constants
-        public const ushort VendorId = 11044;
-        public const ushort ProductId = 1;
-        #endregion
-
         #region Public Properties
         public override bool IsInitialized => Features != null;
         public Features Features { get; private set; }
