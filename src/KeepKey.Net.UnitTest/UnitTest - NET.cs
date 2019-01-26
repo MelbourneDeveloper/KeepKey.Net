@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Hid.Net.Windows;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using Usb.Net.Windows;
 
 namespace KeepKey.Net
 {
@@ -10,6 +12,13 @@ namespace KeepKey.Net
     {
         private async Task<KeepKeyManager> ConnectAsync()
         {
+            //This only needs to be done once.
+            //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
+            WindowsUsbDeviceFactory.Register();
+
+            //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
+            WindowsHidDeviceFactory.Register();
+
             using (var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000))
             {
                 var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();

@@ -127,6 +127,9 @@
     <Reference Include="Trezor.Net, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Trezor.Net.3.0.0\lib\net46\Trezor.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Usb.Net, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Usb.Net.2.3.0\lib\net46\Usb.Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EthHelpers.cs" />
