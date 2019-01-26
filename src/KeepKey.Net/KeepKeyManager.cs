@@ -1,6 +1,5 @@
 ﻿using Device.Net;
 using Hardwarewallets.Net.Model;
-using Hid.Net;
 using KeepKey.Net.Contracts;
 using System;
 using System.Collections.Generic;
