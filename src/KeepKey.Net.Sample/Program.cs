@@ -1,6 +1,6 @@
 ﻿using Device.Net;
 using Hardwarewallets.Net.AddressManagement;
-using Hid.Net.Windows;
+using Hid.Net;
 using KeepKey.Net;
 using System;
 using System.Collections.Generic;
@@ -32,23 +32,21 @@ namespace KeepKeyTestApp
         #endregion
 
         #region Private  Methods
-        private static async Task<IDevice> Connect()
+        private static async Task<KeepKeyManager> Connect()
         {
-            var devices = WindowsHidDevice.GetConnectedDeviceInformations();
-            var keepKeyDeviceInformation = devices.FirstOrDefault(d => d.VendorId == KeepKeyManager.VendorId && d.ProductId == KeepKeyManager.ProductId);
+            //This only needs to be done once.
+            //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
+            WindowsUsbDeviceFactory.Register();
 
-            if (keepKeyDeviceInformation == null)
-            {
-                throw new Exception("No KeepKey is not connected or USB access was not granted to this application.");
-            }
+            //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
+            WindowsHidDeviceFactory.Register();
 
-            var keepKeyHidDevice = new WindowsHidDevice(keepKeyDeviceInformation);
-
-            keepKeyHidDevice.DataHasExtraByte = false;
-
-            await keepKeyHidDevice.InitializeAsync();
-
-            return keepKeyHidDevice;
+            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000);
+            var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
+            await keepKeyManager.InitializeAsync();
+            var coinTable = await keepKeyManager.GetCoinTable();
+            keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
+            return keepKeyManager;
         }
 
         /// <summary>
