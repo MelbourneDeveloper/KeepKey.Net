@@ -1,43 +1,40 @@
-﻿using Xamarin.Forms;
+﻿using Hardwarewallets.Net.AddressManagement;
+using Xamarin.Forms;
 
 namespace KeepKey.Net.XamarinFormsSample
 {
     public partial class MainPage : ContentPage
     {
+        #region Fields
+        private KeepKeyManagerBroker KeepKeyManagerBroker;
+        private bool _IsDisplayed;
+        #endregion
+
         #region Constructor
         public MainPage()
         {
             InitializeComponent();
-            App.GetAddress += App_GetAddress;
         }
         #endregion
 
-        #region Protected Overrides
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            if (!string.IsNullOrEmpty(App.Address))
+            if (_IsDisplayed) return;
+            _IsDisplayed = true;
+
+            KeepKeyManagerBroker = new KeepKeyManagerBroker(KeepKeyPinPad.GetPin, 2000);
+            var keepKeyManager = await KeepKeyManagerBroker.WaitForFirstTrezorAsync();
+            var coinTable = await keepKeyManager.GetCoinTable();
+            keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
+
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(async () =>
             {
-                DisplayAddress();
-            }
+                var address = await keepKeyManager.GetAddressAsync(new BIP44AddressPath(false, 0, 0, false, 0), false, true);
+                TheLabel.Text = $"First Bitcoin Address: {address}";
+                TheActivityIndicator.IsRunning = false;
+            });
         }
-        #endregion
-
-        #region Event Handlers
-        private void App_GetAddress(object sender, System.EventArgs e)
-        {
-            DisplayAddress();
-        }
-        #endregion
-
-        #region Private Methods
-
-        private void DisplayAddress()
-        {
-            TheLabel.Text = $"First Bitcoin Address: {App.Address}";
-            TheActivityIndicator.IsRunning = false;
-        }
-        #endregion
     }
 }
