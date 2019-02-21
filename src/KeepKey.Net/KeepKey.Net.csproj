@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <Description>A cross platform library for communicating with the KeepKey hardwarewallet
 
 Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for other platforms can be added with Hid.Net dependency injection</Description>
@@ -16,9 +16,9 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
 <PackageProjectUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</PackageProjectUrl>
 <RepositoryUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</RepositoryUrl>
 <PackageTags>Hid USB Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey Cryptocurrency security</PackageTags>
-<PackageReleaseNotes>Introducing KeepKeyManagerBroker which handles connection, disconnection and initialization of devices across all platforms seamlessly. Some breaking changes</PackageReleaseNotes>
-<AssemblyVersion>3.0.0.0</AssemblyVersion>
-<FileVersion>3.0.0.0</FileVersion>
+<PackageReleaseNotes>Upgrade Usb.Net, and Hid.Net</PackageReleaseNotes>
+<AssemblyVersion>3.1.0.0</AssemblyVersion>
+<FileVersion>3.1.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -27,7 +27,7 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
 
   <ItemGroup>
     <PackageReference Include="protobuf-net" Version="2.3.17" />
-    <PackageReference Include="Trezor.Net" Version="3.0.0" />
+    <PackageReference Include="Trezor.Net" Version="3.1.0" />
   </ItemGroup>
 
 </Project>

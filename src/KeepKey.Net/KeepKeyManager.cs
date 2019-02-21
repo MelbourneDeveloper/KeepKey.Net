@@ -211,7 +211,7 @@ namespace KeepKey.Net
             }
             catch (Exception ex)
             {
-                Logger.Log("Error Getting KeepKey Address", ex, LogSection);
+                Logger.Log("Error Getting KeepKey Address", LogSection, ex, LogLevel.Error);
                 throw;
             }
         }
