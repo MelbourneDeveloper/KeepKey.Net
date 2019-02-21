@@ -31,7 +31,7 @@ namespace KeepKey.Net.XamarinFormsSample.Droid
 
                 base.OnCreate(savedInstanceState);
                 Forms.Init(this, savedInstanceState);
-                LoadApplication(new App());
+                LoadApplication(new KeepKey.Net.XamarinFormsSample.App());
             }
             catch(Exception ex)
             {
