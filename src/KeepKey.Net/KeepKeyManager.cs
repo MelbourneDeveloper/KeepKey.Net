@@ -87,7 +87,7 @@ namespace KeepKey.Net
                         {
                             foreach (var type in assembly.GetTypes())
                             {
-                                if (type.FullName == typeName)
+                                if (string.Equals(type.FullName, typeName, StringComparison.Ordinal))
                                 {
                                     contractType = type;
                                     break;
@@ -98,7 +98,7 @@ namespace KeepKey.Net
 
                     if (contractType == null)
                     {
-                        throw new Exception($"The device returned a message of {messageType}. There was no corresponding contract type at {typeName}");
+                        throw new ManagerException($"The device returned a message of {messageType}. There was no corresponding contract type at {typeName}");
                     }
                     else
                     {
@@ -138,7 +138,7 @@ namespace KeepKey.Net
             var isValid = Enum.TryParse(messageTypeString, out MessageType messageType);
             if (!isValid)
             {
-                throw new Exception($"{messageTypeString} is not a valid MessageType");
+                throw new ManagerException($"{messageTypeString} is not a valid MessageType");
             }
 
             return messageType;
@@ -225,7 +225,7 @@ namespace KeepKey.Net
 
             if (Features == null)
             {
-                throw new Exception("Error initializing KeepKey. Features were not retrieved");
+                throw new ManagerException("Error initializing KeepKey. Features were not retrieved");
             }
         }
         #endregion
