@@ -148,6 +148,8 @@ namespace KeepKey.Net
         #region Public Overrides
         public override Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display)
         {
+            if (addressPath == null) throw new ArgumentNullException(nameof(addressPath));
+
             if (CoinUtility == null)
             {
                 throw new ManagerException($"A {nameof(CoinUtility)} must be specified if {nameof(AddressType)} is not specified.");
@@ -162,6 +164,8 @@ namespace KeepKey.Net
 
         public Task<string> GetAddressAsync(IAddressPath addressPath, bool isPublicKey, bool display, CoinInfo coinInfo)
         {
+            if (coinInfo == null) throw new ArgumentNullException(nameof(coinInfo));
+
             var inputScriptType = coinInfo.IsSegwit ? InputScriptType.Spendp2shwitness : InputScriptType.Spendaddress;
 
             return GetAddressAsync(addressPath, isPublicKey, display, coinInfo.AddressType, inputScriptType, coinInfo.CoinName);
@@ -176,6 +180,8 @@ namespace KeepKey.Net
         {
             try
             {
+                if (addressPath == null) throw new ArgumentNullException(nameof(addressPath));
+
                 var path = addressPath.ToArray();
 
                 if (isPublicKey)

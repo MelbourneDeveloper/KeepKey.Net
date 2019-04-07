@@ -27,6 +27,8 @@ namespace KeepKey.Net
 
         protected override KeepKeyManager CreateTrezorManager(IDevice device)
         {
+            if (device == null) throw new ArgumentNullException(nameof(device));
+
             //TODO: This a hack for Hid.Net. This problem should go away when KeepKey switches over to USB instead of Hid
             var dataHasExtraByteProperty = device.GetType().GetProperty("DataHasExtraByte");
             if (dataHasExtraByteProperty != null) dataHasExtraByteProperty.SetValue(device, false);
