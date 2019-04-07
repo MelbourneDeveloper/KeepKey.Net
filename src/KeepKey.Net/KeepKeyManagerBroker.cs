@@ -1,5 +1,4 @@
 ﻿using Device.Net;
-using KeepKey.Net.Contracts;
 using System;
 using System.Collections.Generic;
 using Trezor.Net;
