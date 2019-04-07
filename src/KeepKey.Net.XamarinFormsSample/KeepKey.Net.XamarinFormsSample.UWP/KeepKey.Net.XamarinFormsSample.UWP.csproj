@@ -153,10 +153,6 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.7" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\KeepKey.Net\KeepKey.Net.csproj">
-      <Project>{01a2d0e3-55a8-4adb-b2aa-aa1c80785a42}</Project>
-      <Name>KeepKey.Net</Name>
-    </ProjectReference>
     <ProjectReference Include="..\KeepKey.Net.XamarinFormsSample\KeepKey.Net.XamarinFormsSample.csproj">
       <Project>{fdb10b36-a693-4984-855a-0db4e5c58c25}</Project>
       <Name>KeepKey.Net.XamarinFormsSample</Name>
