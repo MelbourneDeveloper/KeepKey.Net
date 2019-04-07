@@ -1,6 +1,5 @@
 ﻿using Hardwarewallets.Net;
 using Hardwarewallets.Net.AddressManagement;
-using KeepKey.Net.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NBitcoin;
 using Nethereum.Hex.HexConvertors.Extensions;

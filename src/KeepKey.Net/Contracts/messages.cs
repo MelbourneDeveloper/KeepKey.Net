@@ -3,2768 +3,2773 @@
 // Input: messages.proto
 
 #pragma warning disable
-[global::ProtoBuf.ProtoContract()]
-public partial class Initialize : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class GetFeatures : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Features : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"vendor")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Vendor
-    {
-        get { return __pbn__Vendor ?? ""; }
-        set { __pbn__Vendor = value; }
-    }
-    public bool ShouldSerializeVendor() => __pbn__Vendor != null;
-    public void ResetVendor() => __pbn__Vendor = null;
-    private string __pbn__Vendor;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"major_version")]
-    public uint MajorVersion
-    {
-        get { return __pbn__MajorVersion.GetValueOrDefault(); }
-        set { __pbn__MajorVersion = value; }
-    }
-    public bool ShouldSerializeMajorVersion() => __pbn__MajorVersion != null;
-    public void ResetMajorVersion() => __pbn__MajorVersion = null;
-    private uint? __pbn__MajorVersion;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"minor_version")]
-    public uint MinorVersion
-    {
-        get { return __pbn__MinorVersion.GetValueOrDefault(); }
-        set { __pbn__MinorVersion = value; }
-    }
-    public bool ShouldSerializeMinorVersion() => __pbn__MinorVersion != null;
-    public void ResetMinorVersion() => __pbn__MinorVersion = null;
-    private uint? __pbn__MinorVersion;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"patch_version")]
-    public uint PatchVersion
-    {
-        get { return __pbn__PatchVersion.GetValueOrDefault(); }
-        set { __pbn__PatchVersion = value; }
-    }
-    public bool ShouldSerializePatchVersion() => __pbn__PatchVersion != null;
-    public void ResetPatchVersion() => __pbn__PatchVersion = null;
-    private uint? __pbn__PatchVersion;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"bootloader_mode")]
-    public bool BootloaderMode
-    {
-        get { return __pbn__BootloaderMode.GetValueOrDefault(); }
-        set { __pbn__BootloaderMode = value; }
-    }
-    public bool ShouldSerializeBootloaderMode() => __pbn__BootloaderMode != null;
-    public void ResetBootloaderMode() => __pbn__BootloaderMode = null;
-    private bool? __pbn__BootloaderMode;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"device_id")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string DeviceId
-    {
-        get { return __pbn__DeviceId ?? ""; }
-        set { __pbn__DeviceId = value; }
-    }
-    public bool ShouldSerializeDeviceId() => __pbn__DeviceId != null;
-    public void ResetDeviceId() => __pbn__DeviceId = null;
-    private string __pbn__DeviceId;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"pin_protection")]
-    public bool PinProtection
-    {
-        get { return __pbn__PinProtection.GetValueOrDefault(); }
-        set { __pbn__PinProtection = value; }
-    }
-    public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
-    public void ResetPinProtection() => __pbn__PinProtection = null;
-    private bool? __pbn__PinProtection;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"passphrase_protection")]
-    public bool PassphraseProtection
-    {
-        get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
-        set { __pbn__PassphraseProtection = value; }
-    }
-    public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
-    public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
-    private bool? __pbn__PassphraseProtection;
-
-    [global::ProtoBuf.ProtoMember(9, Name = @"language")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Language
-    {
-        get { return __pbn__Language ?? ""; }
-        set { __pbn__Language = value; }
-    }
-    public bool ShouldSerializeLanguage() => __pbn__Language != null;
-    public void ResetLanguage() => __pbn__Language = null;
-    private string __pbn__Language;
-
-    [global::ProtoBuf.ProtoMember(10, Name = @"label")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Label
-    {
-        get { return __pbn__Label ?? ""; }
-        set { __pbn__Label = value; }
-    }
-    public bool ShouldSerializeLabel() => __pbn__Label != null;
-    public void ResetLabel() => __pbn__Label = null;
-    private string __pbn__Label;
-
-    [global::ProtoBuf.ProtoMember(11, Name = @"coins")]
-    public global::System.Collections.Generic.List<CoinType> Coins { get; } = new global::System.Collections.Generic.List<CoinType>();
-
-    [global::ProtoBuf.ProtoMember(12, Name = @"initialized")]
-    public bool Initialized
-    {
-        get { return __pbn__Initialized.GetValueOrDefault(); }
-        set { __pbn__Initialized = value; }
-    }
-    public bool ShouldSerializeInitialized() => __pbn__Initialized != null;
-    public void ResetInitialized() => __pbn__Initialized = null;
-    private bool? __pbn__Initialized;
-
-    [global::ProtoBuf.ProtoMember(13, Name = @"revision")]
-    public byte[] Revision
-    {
-        get { return __pbn__Revision; }
-        set { __pbn__Revision = value; }
-    }
-    public bool ShouldSerializeRevision() => __pbn__Revision != null;
-    public void ResetRevision() => __pbn__Revision = null;
-    private byte[] __pbn__Revision;
-
-    [global::ProtoBuf.ProtoMember(14, Name = @"bootloader_hash")]
-    public byte[] BootloaderHash
-    {
-        get { return __pbn__BootloaderHash; }
-        set { __pbn__BootloaderHash = value; }
-    }
-    public bool ShouldSerializeBootloaderHash() => __pbn__BootloaderHash != null;
-    public void ResetBootloaderHash() => __pbn__BootloaderHash = null;
-    private byte[] __pbn__BootloaderHash;
-
-    [global::ProtoBuf.ProtoMember(15, Name = @"imported")]
-    public bool Imported
-    {
-        get { return __pbn__Imported.GetValueOrDefault(); }
-        set { __pbn__Imported = value; }
-    }
-    public bool ShouldSerializeImported() => __pbn__Imported != null;
-    public void ResetImported() => __pbn__Imported = null;
-    private bool? __pbn__Imported;
-
-    [global::ProtoBuf.ProtoMember(16, Name = @"pin_cached")]
-    public bool PinCached
-    {
-        get { return __pbn__PinCached.GetValueOrDefault(); }
-        set { __pbn__PinCached = value; }
-    }
-    public bool ShouldSerializePinCached() => __pbn__PinCached != null;
-    public void ResetPinCached() => __pbn__PinCached = null;
-    private bool? __pbn__PinCached;
-
-    [global::ProtoBuf.ProtoMember(17, Name = @"passphrase_cached")]
-    public bool PassphraseCached
-    {
-        get { return __pbn__PassphraseCached.GetValueOrDefault(); }
-        set { __pbn__PassphraseCached = value; }
-    }
-    public bool ShouldSerializePassphraseCached() => __pbn__PassphraseCached != null;
-    public void ResetPassphraseCached() => __pbn__PassphraseCached = null;
-    private bool? __pbn__PassphraseCached;
-
-    [global::ProtoBuf.ProtoMember(18, Name = @"policies")]
-    public global::System.Collections.Generic.List<PolicyType> Policies { get; } = new global::System.Collections.Generic.List<PolicyType>();
-
-    [global::ProtoBuf.ProtoMember(21, Name = @"model")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Model
-    {
-        get { return __pbn__Model ?? ""; }
-        set { __pbn__Model = value; }
-    }
-    public bool ShouldSerializeModel() => __pbn__Model != null;
-    public void ResetModel() => __pbn__Model = null;
-    private string __pbn__Model;
-
-    [global::ProtoBuf.ProtoMember(22, Name = @"firmware_variant")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string FirmwareVariant
-    {
-        get { return __pbn__FirmwareVariant ?? ""; }
-        set { __pbn__FirmwareVariant = value; }
-    }
-    public bool ShouldSerializeFirmwareVariant() => __pbn__FirmwareVariant != null;
-    public void ResetFirmwareVariant() => __pbn__FirmwareVariant = null;
-    private string __pbn__FirmwareVariant;
-
-    [global::ProtoBuf.ProtoMember(23, Name = @"firmware_hash")]
-    public byte[] FirmwareHash
-    {
-        get { return __pbn__FirmwareHash; }
-        set { __pbn__FirmwareHash = value; }
-    }
-    public bool ShouldSerializeFirmwareHash() => __pbn__FirmwareHash != null;
-    public void ResetFirmwareHash() => __pbn__FirmwareHash = null;
-    private byte[] __pbn__FirmwareHash;
-
-    [global::ProtoBuf.ProtoMember(24, Name = @"no_backup")]
-    public bool NoBackup
-    {
-        get { return __pbn__NoBackup.GetValueOrDefault(); }
-        set { __pbn__NoBackup = value; }
-    }
-    public bool ShouldSerializeNoBackup() => __pbn__NoBackup != null;
-    public void ResetNoBackup() => __pbn__NoBackup = null;
-    private bool? __pbn__NoBackup;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class GetCoinTable : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"start")]
-    public uint Start
-    {
-        get { return __pbn__Start.GetValueOrDefault(); }
-        set { __pbn__Start = value; }
-    }
-    public bool ShouldSerializeStart() => __pbn__Start != null;
-    public void ResetStart() => __pbn__Start = null;
-    private uint? __pbn__Start;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"end")]
-    public uint End
-    {
-        get { return __pbn__End.GetValueOrDefault(); }
-        set { __pbn__End = value; }
-    }
-    public bool ShouldSerializeEnd() => __pbn__End != null;
-    public void ResetEnd() => __pbn__End = null;
-    private uint? __pbn__End;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class CoinTable : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"table")]
-    public global::System.Collections.Generic.List<CoinType> Tables { get; } = new global::System.Collections.Generic.List<CoinType>();
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"num_coins")]
-    public uint NumCoins
-    {
-        get { return __pbn__NumCoins.GetValueOrDefault(); }
-        set { __pbn__NumCoins = value; }
-    }
-    public bool ShouldSerializeNumCoins() => __pbn__NumCoins != null;
-    public void ResetNumCoins() => __pbn__NumCoins = null;
-    private uint? __pbn__NumCoins;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"chunk_size")]
-    public uint ChunkSize
-    {
-        get { return __pbn__ChunkSize.GetValueOrDefault(); }
-        set { __pbn__ChunkSize = value; }
-    }
-    public bool ShouldSerializeChunkSize() => __pbn__ChunkSize != null;
-    public void ResetChunkSize() => __pbn__ChunkSize = null;
-    private uint? __pbn__ChunkSize;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ClearSession : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ApplySettings : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"language")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Language
-    {
-        get { return __pbn__Language ?? ""; }
-        set { __pbn__Language = value; }
-    }
-    public bool ShouldSerializeLanguage() => __pbn__Language != null;
-    public void ResetLanguage() => __pbn__Language = null;
-    private string __pbn__Language;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"label")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Label
-    {
-        get { return __pbn__Label ?? ""; }
-        set { __pbn__Label = value; }
-    }
-    public bool ShouldSerializeLabel() => __pbn__Label != null;
-    public void ResetLabel() => __pbn__Label = null;
-    private string __pbn__Label;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"use_passphrase")]
-    public bool UsePassphrase
-    {
-        get { return __pbn__UsePassphrase.GetValueOrDefault(); }
-        set { __pbn__UsePassphrase = value; }
-    }
-    public bool ShouldSerializeUsePassphrase() => __pbn__UsePassphrase != null;
-    public void ResetUsePassphrase() => __pbn__UsePassphrase = null;
-    private bool? __pbn__UsePassphrase;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"auto_lock_delay_ms")]
-    public uint AutoLockDelayMs
-    {
-        get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
-        set { __pbn__AutoLockDelayMs = value; }
-    }
-    public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
-    public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
-    private uint? __pbn__AutoLockDelayMs;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"u2f_counter")]
-    public uint U2fCounter
-    {
-        get { return __pbn__U2fCounter.GetValueOrDefault(); }
-        set { __pbn__U2fCounter = value; }
-    }
-    public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
-    public void ResetU2fCounter() => __pbn__U2fCounter = null;
-    private uint? __pbn__U2fCounter;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ChangePin : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"remove")]
-    public bool Remove
-    {
-        get { return __pbn__Remove.GetValueOrDefault(); }
-        set { __pbn__Remove = value; }
-    }
-    public bool ShouldSerializeRemove() => __pbn__Remove != null;
-    public void ResetRemove() => __pbn__Remove = null;
-    private bool? __pbn__Remove;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Ping : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"message")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Message
-    {
-        get { return __pbn__Message ?? ""; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private string __pbn__Message;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"button_protection")]
-    public bool ButtonProtection
-    {
-        get { return __pbn__ButtonProtection.GetValueOrDefault(); }
-        set { __pbn__ButtonProtection = value; }
-    }
-    public bool ShouldSerializeButtonProtection() => __pbn__ButtonProtection != null;
-    public void ResetButtonProtection() => __pbn__ButtonProtection = null;
-    private bool? __pbn__ButtonProtection;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"pin_protection")]
-    public bool PinProtection
-    {
-        get { return __pbn__PinProtection.GetValueOrDefault(); }
-        set { __pbn__PinProtection = value; }
-    }
-    public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
-    public void ResetPinProtection() => __pbn__PinProtection = null;
-    private bool? __pbn__PinProtection;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"passphrase_protection")]
-    public bool PassphraseProtection
-    {
-        get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
-        set { __pbn__PassphraseProtection = value; }
-    }
-    public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
-    public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
-    private bool? __pbn__PassphraseProtection;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Success : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"message")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Message
-    {
-        get { return __pbn__Message ?? ""; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private string __pbn__Message;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Failure : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"code")]
-    [global::System.ComponentModel.DefaultValue(FailureType.FailureUnexpectedMessage)]
-    public FailureType Code
-    {
-        get { return __pbn__Code ?? FailureType.FailureUnexpectedMessage; }
-        set { __pbn__Code = value; }
-    }
-    public bool ShouldSerializeCode() => __pbn__Code != null;
-    public void ResetCode() => __pbn__Code = null;
-    private FailureType? __pbn__Code;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"message")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Message
-    {
-        get { return __pbn__Message ?? ""; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private string __pbn__Message;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ButtonRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"code")]
-    [global::System.ComponentModel.DefaultValue(ButtonRequestType.ButtonRequestOther)]
-    public ButtonRequestType Code
-    {
-        get { return __pbn__Code ?? ButtonRequestType.ButtonRequestOther; }
-        set { __pbn__Code = value; }
-    }
-    public bool ShouldSerializeCode() => __pbn__Code != null;
-    public void ResetCode() => __pbn__Code = null;
-    private ButtonRequestType? __pbn__Code;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"data")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Data
-    {
-        get { return __pbn__Data ?? ""; }
-        set { __pbn__Data = value; }
-    }
-    public bool ShouldSerializeData() => __pbn__Data != null;
-    public void ResetData() => __pbn__Data = null;
-    private string __pbn__Data;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ButtonAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class PinMatrixRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"type")]
-    [global::System.ComponentModel.DefaultValue(PinMatrixRequestType.PinMatrixRequestTypeCurrent)]
-    public PinMatrixRequestType Type
-    {
-        get { return __pbn__Type ?? PinMatrixRequestType.PinMatrixRequestTypeCurrent; }
-        set { __pbn__Type = value; }
-    }
-    public bool ShouldSerializeType() => __pbn__Type != null;
-    public void ResetType() => __pbn__Type = null;
-    private PinMatrixRequestType? __pbn__Type;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class PinMatrixAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"pin", IsRequired = true)]
-    public string Pin { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Cancel : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class PassphraseRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class PassphraseAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"passphrase", IsRequired = true)]
-    public string Passphrase { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class GetEntropy : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"size", IsRequired = true)]
-    public uint Size { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Entropy : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true)]
-    public byte[] entropy { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class GetPublicKey : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"ecdsa_curve_name")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string EcdsaCurveName
-    {
-        get { return __pbn__EcdsaCurveName ?? ""; }
-        set { __pbn__EcdsaCurveName = value; }
-    }
-    public bool ShouldSerializeEcdsaCurveName() => __pbn__EcdsaCurveName != null;
-    public void ResetEcdsaCurveName() => __pbn__EcdsaCurveName = null;
-    private string __pbn__EcdsaCurveName;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"show_display")]
-    public bool ShowDisplay
-    {
-        get { return __pbn__ShowDisplay.GetValueOrDefault(); }
-        set { __pbn__ShowDisplay = value; }
-    }
-    public bool ShouldSerializeShowDisplay() => __pbn__ShowDisplay != null;
-    public void ResetShowDisplay() => __pbn__ShowDisplay = null;
-    private bool? __pbn__ShowDisplay;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"script_type")]
-    [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
-    public InputScriptType ScriptType
-    {
-        get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
-        set { __pbn__ScriptType = value; }
-    }
-    public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
-    public void ResetScriptType() => __pbn__ScriptType = null;
-    private InputScriptType? __pbn__ScriptType;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class PublicKey : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"node", IsRequired = true)]
-    public HDNodeType Node { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"xpub")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Xpub
-    {
-        get { return __pbn__Xpub ?? ""; }
-        set { __pbn__Xpub = value; }
-    }
-    public bool ShouldSerializeXpub() => __pbn__Xpub != null;
-    public void ResetXpub() => __pbn__Xpub = null;
-    private string __pbn__Xpub;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class GetAddress : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"show_display")]
-    public bool ShowDisplay
-    {
-        get { return __pbn__ShowDisplay.GetValueOrDefault(); }
-        set { __pbn__ShowDisplay = value; }
-    }
-    public bool ShouldSerializeShowDisplay() => __pbn__ShowDisplay != null;
-    public void ResetShowDisplay() => __pbn__ShowDisplay = null;
-    private bool? __pbn__ShowDisplay;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"multisig")]
-    public MultisigRedeemScriptType Multisig { get; set; }
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"script_type")]
-    [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
-    public InputScriptType ScriptType
-    {
-        get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
-        set { __pbn__ScriptType = value; }
-    }
-    public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
-    public void ResetScriptType() => __pbn__ScriptType = null;
-    private InputScriptType? __pbn__ScriptType;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumGetAddress : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"show_display")]
-    public bool ShowDisplay
-    {
-        get { return __pbn__ShowDisplay.GetValueOrDefault(); }
-        set { __pbn__ShowDisplay = value; }
-    }
-    public bool ShouldSerializeShowDisplay() => __pbn__ShowDisplay != null;
-    public void ResetShowDisplay() => __pbn__ShowDisplay = null;
-    private bool? __pbn__ShowDisplay;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class Address : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, IsRequired = true)]
-    public string address { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumAddress : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address", IsRequired = true)]
-    public byte[] Address { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"address_str")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string AddressStr
-    {
-        get { return __pbn__AddressStr ?? ""; }
-        set { __pbn__AddressStr = value; }
-    }
-    public bool ShouldSerializeAddressStr() => __pbn__AddressStr != null;
-    public void ResetAddressStr() => __pbn__AddressStr = null;
-    private string __pbn__AddressStr;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class WipeDevice : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class LoadDevice : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"mnemonic")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Mnemonic
-    {
-        get { return __pbn__Mnemonic ?? ""; }
-        set { __pbn__Mnemonic = value; }
-    }
-    public bool ShouldSerializeMnemonic() => __pbn__Mnemonic != null;
-    public void ResetMnemonic() => __pbn__Mnemonic = null;
-    private string __pbn__Mnemonic;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"node")]
-    public HDNodeType Node { get; set; }
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"pin")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Pin
-    {
-        get { return __pbn__Pin ?? ""; }
-        set { __pbn__Pin = value; }
-    }
-    public bool ShouldSerializePin() => __pbn__Pin != null;
-    public void ResetPin() => __pbn__Pin = null;
-    private string __pbn__Pin;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"passphrase_protection")]
-    public bool PassphraseProtection
-    {
-        get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
-        set { __pbn__PassphraseProtection = value; }
-    }
-    public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
-    public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
-    private bool? __pbn__PassphraseProtection;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"language")]
-    [global::System.ComponentModel.DefaultValue(@"english")]
-    public string Language
-    {
-        get { return __pbn__Language ?? @"english"; }
-        set { __pbn__Language = value; }
-    }
-    public bool ShouldSerializeLanguage() => __pbn__Language != null;
-    public void ResetLanguage() => __pbn__Language = null;
-    private string __pbn__Language;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"label")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Label
-    {
-        get { return __pbn__Label ?? ""; }
-        set { __pbn__Label = value; }
-    }
-    public bool ShouldSerializeLabel() => __pbn__Label != null;
-    public void ResetLabel() => __pbn__Label = null;
-    private string __pbn__Label;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"skip_checksum")]
-    public bool SkipChecksum
-    {
-        get { return __pbn__SkipChecksum.GetValueOrDefault(); }
-        set { __pbn__SkipChecksum = value; }
-    }
-    public bool ShouldSerializeSkipChecksum() => __pbn__SkipChecksum != null;
-    public void ResetSkipChecksum() => __pbn__SkipChecksum = null;
-    private bool? __pbn__SkipChecksum;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"u2f_counter")]
-    public uint U2fCounter
-    {
-        get { return __pbn__U2fCounter.GetValueOrDefault(); }
-        set { __pbn__U2fCounter = value; }
-    }
-    public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
-    public void ResetU2fCounter() => __pbn__U2fCounter = null;
-    private uint? __pbn__U2fCounter;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ResetDevice : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"display_random")]
-    public bool DisplayRandom
-    {
-        get { return __pbn__DisplayRandom.GetValueOrDefault(); }
-        set { __pbn__DisplayRandom = value; }
-    }
-    public bool ShouldSerializeDisplayRandom() => __pbn__DisplayRandom != null;
-    public void ResetDisplayRandom() => __pbn__DisplayRandom = null;
-    private bool? __pbn__DisplayRandom;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"strength")]
-    [global::System.ComponentModel.DefaultValue(256)]
-    public uint Strength
-    {
-        get { return __pbn__Strength ?? 256; }
-        set { __pbn__Strength = value; }
-    }
-    public bool ShouldSerializeStrength() => __pbn__Strength != null;
-    public void ResetStrength() => __pbn__Strength = null;
-    private uint? __pbn__Strength;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"passphrase_protection")]
-    public bool PassphraseProtection
-    {
-        get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
-        set { __pbn__PassphraseProtection = value; }
-    }
-    public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
-    public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
-    private bool? __pbn__PassphraseProtection;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"pin_protection")]
-    public bool PinProtection
-    {
-        get { return __pbn__PinProtection.GetValueOrDefault(); }
-        set { __pbn__PinProtection = value; }
-    }
-    public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
-    public void ResetPinProtection() => __pbn__PinProtection = null;
-    private bool? __pbn__PinProtection;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"language")]
-    [global::System.ComponentModel.DefaultValue(@"english")]
-    public string Language
-    {
-        get { return __pbn__Language ?? @"english"; }
-        set { __pbn__Language = value; }
-    }
-    public bool ShouldSerializeLanguage() => __pbn__Language != null;
-    public void ResetLanguage() => __pbn__Language = null;
-    private string __pbn__Language;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"label")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Label
-    {
-        get { return __pbn__Label ?? ""; }
-        set { __pbn__Label = value; }
-    }
-    public bool ShouldSerializeLabel() => __pbn__Label != null;
-    public void ResetLabel() => __pbn__Label = null;
-    private string __pbn__Label;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"no_backup")]
-    public bool NoBackup
-    {
-        get { return __pbn__NoBackup.GetValueOrDefault(); }
-        set { __pbn__NoBackup = value; }
-    }
-    public bool ShouldSerializeNoBackup() => __pbn__NoBackup != null;
-    public void ResetNoBackup() => __pbn__NoBackup = null;
-    private bool? __pbn__NoBackup;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"auto_lock_delay_ms")]
-    public uint AutoLockDelayMs
-    {
-        get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
-        set { __pbn__AutoLockDelayMs = value; }
-    }
-    public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
-    public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
-    private uint? __pbn__AutoLockDelayMs;
-
-    [global::ProtoBuf.ProtoMember(9, Name = @"u2f_counter")]
-    public uint U2fCounter
-    {
-        get { return __pbn__U2fCounter.GetValueOrDefault(); }
-        set { __pbn__U2fCounter = value; }
-    }
-    public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
-    public void ResetU2fCounter() => __pbn__U2fCounter = null;
-    private uint? __pbn__U2fCounter;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EntropyRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EntropyAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"entropy")]
-    public byte[] Entropy
-    {
-        get { return __pbn__Entropy; }
-        set { __pbn__Entropy = value; }
-    }
-    public bool ShouldSerializeEntropy() => __pbn__Entropy != null;
-    public void ResetEntropy() => __pbn__Entropy = null;
-    private byte[] __pbn__Entropy;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class RecoveryDevice : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"word_count")]
-    public uint WordCount
-    {
-        get { return __pbn__WordCount.GetValueOrDefault(); }
-        set { __pbn__WordCount = value; }
-    }
-    public bool ShouldSerializeWordCount() => __pbn__WordCount != null;
-    public void ResetWordCount() => __pbn__WordCount = null;
-    private uint? __pbn__WordCount;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"passphrase_protection")]
-    public bool PassphraseProtection
-    {
-        get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
-        set { __pbn__PassphraseProtection = value; }
-    }
-    public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
-    public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
-    private bool? __pbn__PassphraseProtection;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"pin_protection")]
-    public bool PinProtection
-    {
-        get { return __pbn__PinProtection.GetValueOrDefault(); }
-        set { __pbn__PinProtection = value; }
-    }
-    public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
-    public void ResetPinProtection() => __pbn__PinProtection = null;
-    private bool? __pbn__PinProtection;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"language")]
-    [global::System.ComponentModel.DefaultValue(@"english")]
-    public string Language
-    {
-        get { return __pbn__Language ?? @"english"; }
-        set { __pbn__Language = value; }
-    }
-    public bool ShouldSerializeLanguage() => __pbn__Language != null;
-    public void ResetLanguage() => __pbn__Language = null;
-    private string __pbn__Language;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"label")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Label
-    {
-        get { return __pbn__Label ?? ""; }
-        set { __pbn__Label = value; }
-    }
-    public bool ShouldSerializeLabel() => __pbn__Label != null;
-    public void ResetLabel() => __pbn__Label = null;
-    private string __pbn__Label;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"enforce_wordlist")]
-    public bool EnforceWordlist
-    {
-        get { return __pbn__EnforceWordlist.GetValueOrDefault(); }
-        set { __pbn__EnforceWordlist = value; }
-    }
-    public bool ShouldSerializeEnforceWordlist() => __pbn__EnforceWordlist != null;
-    public void ResetEnforceWordlist() => __pbn__EnforceWordlist = null;
-    private bool? __pbn__EnforceWordlist;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"use_character_cipher")]
-    public bool UseCharacterCipher
-    {
-        get { return __pbn__UseCharacterCipher.GetValueOrDefault(); }
-        set { __pbn__UseCharacterCipher = value; }
-    }
-    public bool ShouldSerializeUseCharacterCipher() => __pbn__UseCharacterCipher != null;
-    public void ResetUseCharacterCipher() => __pbn__UseCharacterCipher = null;
-    private bool? __pbn__UseCharacterCipher;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"auto_lock_delay_ms")]
-    public uint AutoLockDelayMs
-    {
-        get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
-        set { __pbn__AutoLockDelayMs = value; }
-    }
-    public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
-    public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
-    private uint? __pbn__AutoLockDelayMs;
-
-    [global::ProtoBuf.ProtoMember(9, Name = @"u2f_counter")]
-    public uint U2fCounter
-    {
-        get { return __pbn__U2fCounter.GetValueOrDefault(); }
-        set { __pbn__U2fCounter = value; }
-    }
-    public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
-    public void ResetU2fCounter() => __pbn__U2fCounter = null;
-    private uint? __pbn__U2fCounter;
-
-    [global::ProtoBuf.ProtoMember(10, Name = @"dry_run")]
-    public bool DryRun
-    {
-        get { return __pbn__DryRun.GetValueOrDefault(); }
-        set { __pbn__DryRun = value; }
-    }
-    public bool ShouldSerializeDryRun() => __pbn__DryRun != null;
-    public void ResetDryRun() => __pbn__DryRun = null;
-    private bool? __pbn__DryRun;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class WordRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class WordAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"word", IsRequired = true)]
-    public string Word { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class CharacterRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"word_pos", IsRequired = true)]
-    public uint WordPos { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"character_pos", IsRequired = true)]
-    public uint CharacterPos { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class CharacterAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"character")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Character
-    {
-        get { return __pbn__Character ?? ""; }
-        set { __pbn__Character = value; }
-    }
-    public bool ShouldSerializeCharacter() => __pbn__Character != null;
-    public void ResetCharacter() => __pbn__Character = null;
-    private string __pbn__Character;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"delete")]
-    public bool Delete
-    {
-        get { return __pbn__Delete.GetValueOrDefault(); }
-        set { __pbn__Delete = value; }
-    }
-    public bool ShouldSerializeDelete() => __pbn__Delete != null;
-    public void ResetDelete() => __pbn__Delete = null;
-    private bool? __pbn__Delete;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"done")]
-    public bool Done
-    {
-        get { return __pbn__Done.GetValueOrDefault(); }
-        set { __pbn__Done = value; }
-    }
-    public bool ShouldSerializeDone() => __pbn__Done != null;
-    public void ResetDone() => __pbn__Done = null;
-    private bool? __pbn__Done;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class SignMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"message", IsRequired = true)]
-    public byte[] Message { get; set; }
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"script_type")]
-    [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
-    public InputScriptType ScriptType
-    {
-        get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
-        set { __pbn__ScriptType = value; }
-    }
-    public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
-    public void ResetScriptType() => __pbn__ScriptType = null;
-    private InputScriptType? __pbn__ScriptType;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class VerifyMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Address
-    {
-        get { return __pbn__Address ?? ""; }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private string __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
-    public byte[] Signature
-    {
-        get { return __pbn__Signature; }
-        set { __pbn__Signature = value; }
-    }
-    public bool ShouldSerializeSignature() => __pbn__Signature != null;
-    public void ResetSignature() => __pbn__Signature = null;
-    private byte[] __pbn__Signature;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"message")]
-    public byte[] Message
-    {
-        get { return __pbn__Message; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private byte[] __pbn__Message;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class MessageSignature : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Address
-    {
-        get { return __pbn__Address ?? ""; }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private string __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
-    public byte[] Signature
-    {
-        get { return __pbn__Signature; }
-        set { __pbn__Signature = value; }
-    }
-    public bool ShouldSerializeSignature() => __pbn__Signature != null;
-    public void ResetSignature() => __pbn__Signature = null;
-    private byte[] __pbn__Signature;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EncryptMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"pubkey")]
-    public byte[] Pubkey
-    {
-        get { return __pbn__Pubkey; }
-        set { __pbn__Pubkey = value; }
-    }
-    public bool ShouldSerializePubkey() => __pbn__Pubkey != null;
-    public void ResetPubkey() => __pbn__Pubkey = null;
-    private byte[] __pbn__Pubkey;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"message")]
-    public byte[] Message
-    {
-        get { return __pbn__Message; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private byte[] __pbn__Message;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"display_only")]
-    public bool DisplayOnly
-    {
-        get { return __pbn__DisplayOnly.GetValueOrDefault(); }
-        set { __pbn__DisplayOnly = value; }
-    }
-    public bool ShouldSerializeDisplayOnly() => __pbn__DisplayOnly != null;
-    public void ResetDisplayOnly() => __pbn__DisplayOnly = null;
-    private bool? __pbn__DisplayOnly;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EncryptedMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"nonce")]
-    public byte[] Nonce
-    {
-        get { return __pbn__Nonce; }
-        set { __pbn__Nonce = value; }
-    }
-    public bool ShouldSerializeNonce() => __pbn__Nonce != null;
-    public void ResetNonce() => __pbn__Nonce = null;
-    private byte[] __pbn__Nonce;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"message")]
-    public byte[] Message
-    {
-        get { return __pbn__Message; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private byte[] __pbn__Message;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"hmac")]
-    public byte[] Hmac
-    {
-        get { return __pbn__Hmac; }
-        set { __pbn__Hmac = value; }
-    }
-    public bool ShouldSerializeHmac() => __pbn__Hmac != null;
-    public void ResetHmac() => __pbn__Hmac = null;
-    private byte[] __pbn__Hmac;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DecryptMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"nonce")]
-    public byte[] Nonce
-    {
-        get { return __pbn__Nonce; }
-        set { __pbn__Nonce = value; }
-    }
-    public bool ShouldSerializeNonce() => __pbn__Nonce != null;
-    public void ResetNonce() => __pbn__Nonce = null;
-    private byte[] __pbn__Nonce;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"message")]
-    public byte[] Message
-    {
-        get { return __pbn__Message; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private byte[] __pbn__Message;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"hmac")]
-    public byte[] Hmac
-    {
-        get { return __pbn__Hmac; }
-        set { __pbn__Hmac = value; }
-    }
-    public bool ShouldSerializeHmac() => __pbn__Hmac != null;
-    public void ResetHmac() => __pbn__Hmac = null;
-    private byte[] __pbn__Hmac;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DecryptedMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"message")]
-    public byte[] Message
-    {
-        get { return __pbn__Message; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private byte[] __pbn__Message;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"address")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Address
-    {
-        get { return __pbn__Address ?? ""; }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private string __pbn__Address;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class CipherKeyValue : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"key")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Key
-    {
-        get { return __pbn__Key ?? ""; }
-        set { __pbn__Key = value; }
-    }
-    public bool ShouldSerializeKey() => __pbn__Key != null;
-    public void ResetKey() => __pbn__Key = null;
-    private string __pbn__Key;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"value")]
-    public byte[] Value
-    {
-        get { return __pbn__Value; }
-        set { __pbn__Value = value; }
-    }
-    public bool ShouldSerializeValue() => __pbn__Value != null;
-    public void ResetValue() => __pbn__Value = null;
-    private byte[] __pbn__Value;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"encrypt")]
-    public bool Encrypt
-    {
-        get { return __pbn__Encrypt.GetValueOrDefault(); }
-        set { __pbn__Encrypt = value; }
-    }
-    public bool ShouldSerializeEncrypt() => __pbn__Encrypt != null;
-    public void ResetEncrypt() => __pbn__Encrypt = null;
-    private bool? __pbn__Encrypt;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"ask_on_encrypt")]
-    public bool AskOnEncrypt
-    {
-        get { return __pbn__AskOnEncrypt.GetValueOrDefault(); }
-        set { __pbn__AskOnEncrypt = value; }
-    }
-    public bool ShouldSerializeAskOnEncrypt() => __pbn__AskOnEncrypt != null;
-    public void ResetAskOnEncrypt() => __pbn__AskOnEncrypt = null;
-    private bool? __pbn__AskOnEncrypt;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"ask_on_decrypt")]
-    public bool AskOnDecrypt
-    {
-        get { return __pbn__AskOnDecrypt.GetValueOrDefault(); }
-        set { __pbn__AskOnDecrypt = value; }
-    }
-    public bool ShouldSerializeAskOnDecrypt() => __pbn__AskOnDecrypt != null;
-    public void ResetAskOnDecrypt() => __pbn__AskOnDecrypt = null;
-    private bool? __pbn__AskOnDecrypt;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"iv")]
-    public byte[] Iv
-    {
-        get { return __pbn__Iv; }
-        set { __pbn__Iv = value; }
-    }
-    public bool ShouldSerializeIv() => __pbn__Iv != null;
-    public void ResetIv() => __pbn__Iv = null;
-    private byte[] __pbn__Iv;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class CipheredKeyValue : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"value")]
-    public byte[] Value
-    {
-        get { return __pbn__Value; }
-        set { __pbn__Value = value; }
-    }
-    public bool ShouldSerializeValue() => __pbn__Value != null;
-    public void ResetValue() => __pbn__Value = null;
-    private byte[] __pbn__Value;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EstimateTxSize : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"outputs_count", IsRequired = true)]
-    public uint OutputsCount { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"inputs_count", IsRequired = true)]
-    public uint InputsCount { get; set; }
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class TxSize : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1)]
-    public uint tx_size
-    {
-        get { return __pbn__tx_size.GetValueOrDefault(); }
-        set { __pbn__tx_size = value; }
-    }
-    public bool ShouldSerializetx_size() => __pbn__tx_size != null;
-    public void Resettx_size() => __pbn__tx_size = null;
-    private uint? __pbn__tx_size;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class SignTx : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"outputs_count", IsRequired = true)]
-    public uint OutputsCount { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"inputs_count", IsRequired = true)]
-    public uint InputsCount { get; set; }
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"coin_name")]
-    [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
-    public string CoinName
-    {
-        get { return __pbn__CoinName ?? @"Bitcoin"; }
-        set { __pbn__CoinName = value; }
-    }
-    public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
-    public void ResetCoinName() => __pbn__CoinName = null;
-    private string __pbn__CoinName;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"version")]
-    [global::System.ComponentModel.DefaultValue(1)]
-    public uint Version
-    {
-        get { return __pbn__Version ?? 1; }
-        set { __pbn__Version = value; }
-    }
-    public bool ShouldSerializeVersion() => __pbn__Version != null;
-    public void ResetVersion() => __pbn__Version = null;
-    private uint? __pbn__Version;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"lock_time")]
-    [global::System.ComponentModel.DefaultValue(0)]
-    public uint LockTime
-    {
-        get { return __pbn__LockTime ?? 0; }
-        set { __pbn__LockTime = value; }
-    }
-    public bool ShouldSerializeLockTime() => __pbn__LockTime != null;
-    public void ResetLockTime() => __pbn__LockTime = null;
-    private uint? __pbn__LockTime;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"expiry")]
-    public uint Expiry
-    {
-        get { return __pbn__Expiry.GetValueOrDefault(); }
-        set { __pbn__Expiry = value; }
-    }
-    public bool ShouldSerializeExpiry() => __pbn__Expiry != null;
-    public void ResetExpiry() => __pbn__Expiry = null;
-    private uint? __pbn__Expiry;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"overwintered")]
-    public bool Overwintered
-    {
-        get { return __pbn__Overwintered.GetValueOrDefault(); }
-        set { __pbn__Overwintered = value; }
-    }
-    public bool ShouldSerializeOverwintered() => __pbn__Overwintered != null;
-    public void ResetOverwintered() => __pbn__Overwintered = null;
-    private bool? __pbn__Overwintered;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"version_group_id")]
-    public uint VersionGroupId
-    {
-        get { return __pbn__VersionGroupId.GetValueOrDefault(); }
-        set { __pbn__VersionGroupId = value; }
-    }
-    public bool ShouldSerializeVersionGroupId() => __pbn__VersionGroupId != null;
-    public void ResetVersionGroupId() => __pbn__VersionGroupId = null;
-    private uint? __pbn__VersionGroupId;
-
-    [global::ProtoBuf.ProtoMember(10, Name = @"branch_id")]
-    public uint BranchId
-    {
-        get { return __pbn__BranchId.GetValueOrDefault(); }
-        set { __pbn__BranchId = value; }
-    }
-    public bool ShouldSerializeBranchId() => __pbn__BranchId != null;
-    public void ResetBranchId() => __pbn__BranchId = null;
-    private uint? __pbn__BranchId;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class TxRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"request_type")]
-    [global::System.ComponentModel.DefaultValue(RequestType.Txinput)]
-    public RequestType RequestType
-    {
-        get { return __pbn__RequestType ?? RequestType.Txinput; }
-        set { __pbn__RequestType = value; }
-    }
-    public bool ShouldSerializeRequestType() => __pbn__RequestType != null;
-    public void ResetRequestType() => __pbn__RequestType = null;
-    private RequestType? __pbn__RequestType;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"details")]
-    public TxRequestDetailsType Details { get; set; }
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"serialized")]
-    public TxRequestSerializedType Serialized { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class TxAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"tx")]
-    public TransactionType Tx { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class RawTxAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"tx")]
-    public RawTransactionType Tx { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumSignTx : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"nonce")]
-    public byte[] Nonce
-    {
-        get { return __pbn__Nonce; }
-        set { __pbn__Nonce = value; }
-    }
-    public bool ShouldSerializeNonce() => __pbn__Nonce != null;
-    public void ResetNonce() => __pbn__Nonce = null;
-    private byte[] __pbn__Nonce;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"gas_price")]
-    public byte[] GasPrice
-    {
-        get { return __pbn__GasPrice; }
-        set { __pbn__GasPrice = value; }
-    }
-    public bool ShouldSerializeGasPrice() => __pbn__GasPrice != null;
-    public void ResetGasPrice() => __pbn__GasPrice = null;
-    private byte[] __pbn__GasPrice;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"gas_limit")]
-    public byte[] GasLimit
-    {
-        get { return __pbn__GasLimit; }
-        set { __pbn__GasLimit = value; }
-    }
-    public bool ShouldSerializeGasLimit() => __pbn__GasLimit != null;
-    public void ResetGasLimit() => __pbn__GasLimit = null;
-    private byte[] __pbn__GasLimit;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"to")]
-    public byte[] To
-    {
-        get { return __pbn__To; }
-        set { __pbn__To = value; }
-    }
-    public bool ShouldSerializeTo() => __pbn__To != null;
-    public void ResetTo() => __pbn__To = null;
-    private byte[] __pbn__To;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"value")]
-    public byte[] Value
-    {
-        get { return __pbn__Value; }
-        set { __pbn__Value = value; }
-    }
-    public bool ShouldSerializeValue() => __pbn__Value != null;
-    public void ResetValue() => __pbn__Value = null;
-    private byte[] __pbn__Value;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"data_initial_chunk")]
-    public byte[] DataInitialChunk
-    {
-        get { return __pbn__DataInitialChunk; }
-        set { __pbn__DataInitialChunk = value; }
-    }
-    public bool ShouldSerializeDataInitialChunk() => __pbn__DataInitialChunk != null;
-    public void ResetDataInitialChunk() => __pbn__DataInitialChunk = null;
-    private byte[] __pbn__DataInitialChunk;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"data_length")]
-    public uint DataLength
-    {
-        get { return __pbn__DataLength.GetValueOrDefault(); }
-        set { __pbn__DataLength = value; }
-    }
-    public bool ShouldSerializeDataLength() => __pbn__DataLength != null;
-    public void ResetDataLength() => __pbn__DataLength = null;
-    private uint? __pbn__DataLength;
-
-    [global::ProtoBuf.ProtoMember(9, Name = @"to_address_n")]
-    public uint[] ToAddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(10, Name = @"address_type")]
-    [global::System.ComponentModel.DefaultValue(OutputAddressType.Spend)]
-    public OutputAddressType AddressType
-    {
-        get { return __pbn__AddressType ?? OutputAddressType.Spend; }
-        set { __pbn__AddressType = value; }
-    }
-    public bool ShouldSerializeAddressType() => __pbn__AddressType != null;
-    public void ResetAddressType() => __pbn__AddressType = null;
-    private OutputAddressType? __pbn__AddressType;
-
-    [global::ProtoBuf.ProtoMember(11, Name = @"exchange_type")]
-    public ExchangeType ExchangeType { get; set; }
-
-    [global::ProtoBuf.ProtoMember(12, Name = @"chain_id")]
-    public uint ChainId
-    {
-        get { return __pbn__ChainId.GetValueOrDefault(); }
-        set { __pbn__ChainId = value; }
-    }
-    public bool ShouldSerializeChainId() => __pbn__ChainId != null;
-    public void ResetChainId() => __pbn__ChainId = null;
-    private uint? __pbn__ChainId;
-
-    [global::ProtoBuf.ProtoMember(100, Name = @"token_value")]
-    public byte[] TokenValue
-    {
-        get { return __pbn__TokenValue; }
-        set { __pbn__TokenValue = value; }
-    }
-    public bool ShouldSerializeTokenValue() => __pbn__TokenValue != null;
-    public void ResetTokenValue() => __pbn__TokenValue = null;
-    private byte[] __pbn__TokenValue;
-
-    [global::ProtoBuf.ProtoMember(101, Name = @"token_to")]
-    public byte[] TokenTo
-    {
-        get { return __pbn__TokenTo; }
-        set { __pbn__TokenTo = value; }
-    }
-    public bool ShouldSerializeTokenTo() => __pbn__TokenTo != null;
-    public void ResetTokenTo() => __pbn__TokenTo = null;
-    private byte[] __pbn__TokenTo;
-
-    [global::ProtoBuf.ProtoMember(102, Name = @"token_shortcut")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string TokenShortcut
-    {
-        get { return __pbn__TokenShortcut ?? ""; }
-        set { __pbn__TokenShortcut = value; }
-    }
-    public bool ShouldSerializeTokenShortcut() => __pbn__TokenShortcut != null;
-    public void ResetTokenShortcut() => __pbn__TokenShortcut = null;
-    private string __pbn__TokenShortcut;
-
-    [global::ProtoBuf.ProtoMember(103, Name = @"tx_type")]
-    public uint TxType
-    {
-        get { return __pbn__TxType.GetValueOrDefault(); }
-        set { __pbn__TxType = value; }
-    }
-    public bool ShouldSerializeTxType() => __pbn__TxType != null;
-    public void ResetTxType() => __pbn__TxType = null;
-    private uint? __pbn__TxType;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumTxRequest : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"data_length")]
-    public uint DataLength
-    {
-        get { return __pbn__DataLength.GetValueOrDefault(); }
-        set { __pbn__DataLength = value; }
-    }
-    public bool ShouldSerializeDataLength() => __pbn__DataLength != null;
-    public void ResetDataLength() => __pbn__DataLength = null;
-    private uint? __pbn__DataLength;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"signature_v")]
-    public uint SignatureV
-    {
-        get { return __pbn__SignatureV.GetValueOrDefault(); }
-        set { __pbn__SignatureV = value; }
-    }
-    public bool ShouldSerializeSignatureV() => __pbn__SignatureV != null;
-    public void ResetSignatureV() => __pbn__SignatureV = null;
-    private uint? __pbn__SignatureV;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"signature_r")]
-    public byte[] SignatureR
-    {
-        get { return __pbn__SignatureR; }
-        set { __pbn__SignatureR = value; }
-    }
-    public bool ShouldSerializeSignatureR() => __pbn__SignatureR != null;
-    public void ResetSignatureR() => __pbn__SignatureR = null;
-    private byte[] __pbn__SignatureR;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"signature_s")]
-    public byte[] SignatureS
-    {
-        get { return __pbn__SignatureS; }
-        set { __pbn__SignatureS = value; }
-    }
-    public bool ShouldSerializeSignatureS() => __pbn__SignatureS != null;
-    public void ResetSignatureS() => __pbn__SignatureS = null;
-    private byte[] __pbn__SignatureS;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"hash")]
-    public byte[] Hash
-    {
-        get { return __pbn__Hash; }
-        set { __pbn__Hash = value; }
-    }
-    public bool ShouldSerializeHash() => __pbn__Hash != null;
-    public void ResetHash() => __pbn__Hash = null;
-    private byte[] __pbn__Hash;
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"signature_der")]
-    public byte[] SignatureDer
-    {
-        get { return __pbn__SignatureDer; }
-        set { __pbn__SignatureDer = value; }
-    }
-    public bool ShouldSerializeSignatureDer() => __pbn__SignatureDer != null;
-    public void ResetSignatureDer() => __pbn__SignatureDer = null;
-    private byte[] __pbn__SignatureDer;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumTxAck : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"data_chunk")]
-    public byte[] DataChunk
-    {
-        get { return __pbn__DataChunk; }
-        set { __pbn__DataChunk = value; }
-    }
-    public bool ShouldSerializeDataChunk() => __pbn__DataChunk != null;
-    public void ResetDataChunk() => __pbn__DataChunk = null;
-    private byte[] __pbn__DataChunk;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumSignMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
-    public uint[] AddressNs { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"message", IsRequired = true)]
-    public byte[] Message { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumVerifyMessage : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    public byte[] Address
-    {
-        get { return __pbn__Address; }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private byte[] __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
-    public byte[] Signature
-    {
-        get { return __pbn__Signature; }
-        set { __pbn__Signature = value; }
-    }
-    public bool ShouldSerializeSignature() => __pbn__Signature != null;
-    public void ResetSignature() => __pbn__Signature = null;
-    private byte[] __pbn__Signature;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"message")]
-    public byte[] Message
-    {
-        get { return __pbn__Message; }
-        set { __pbn__Message = value; }
-    }
-    public bool ShouldSerializeMessage() => __pbn__Message != null;
-    public void ResetMessage() => __pbn__Message = null;
-    private byte[] __pbn__Message;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class EthereumMessageSignature : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    public byte[] Address
-    {
-        get { return __pbn__Address; }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private byte[] __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
-    public byte[] Signature
-    {
-        get { return __pbn__Signature; }
-        set { __pbn__Signature = value; }
-    }
-    public bool ShouldSerializeSignature() => __pbn__Signature != null;
-    public void ResetSignature() => __pbn__Signature = null;
-    private byte[] __pbn__Signature;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class SignIdentity : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"identity")]
-    public IdentityType Identity { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"challenge_hidden")]
-    public byte[] ChallengeHidden
-    {
-        get { return __pbn__ChallengeHidden; }
-        set { __pbn__ChallengeHidden = value; }
-    }
-    public bool ShouldSerializeChallengeHidden() => __pbn__ChallengeHidden != null;
-    public void ResetChallengeHidden() => __pbn__ChallengeHidden = null;
-    private byte[] __pbn__ChallengeHidden;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"challenge_visual")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string ChallengeVisual
-    {
-        get { return __pbn__ChallengeVisual ?? ""; }
-        set { __pbn__ChallengeVisual = value; }
-    }
-    public bool ShouldSerializeChallengeVisual() => __pbn__ChallengeVisual != null;
-    public void ResetChallengeVisual() => __pbn__ChallengeVisual = null;
-    private string __pbn__ChallengeVisual;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"ecdsa_curve_name")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string EcdsaCurveName
-    {
-        get { return __pbn__EcdsaCurveName ?? ""; }
-        set { __pbn__EcdsaCurveName = value; }
-    }
-    public bool ShouldSerializeEcdsaCurveName() => __pbn__EcdsaCurveName != null;
-    public void ResetEcdsaCurveName() => __pbn__EcdsaCurveName = null;
-    private string __pbn__EcdsaCurveName;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class SignedIdentity : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Address
-    {
-        get { return __pbn__Address ?? ""; }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private string __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"public_key")]
-    public byte[] PublicKey
-    {
-        get { return __pbn__PublicKey; }
-        set { __pbn__PublicKey = value; }
-    }
-    public bool ShouldSerializePublicKey() => __pbn__PublicKey != null;
-    public void ResetPublicKey() => __pbn__PublicKey = null;
-    private byte[] __pbn__PublicKey;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"signature")]
-    public byte[] Signature
-    {
-        get { return __pbn__Signature; }
-        set { __pbn__Signature = value; }
-    }
-    public bool ShouldSerializeSignature() => __pbn__Signature != null;
-    public void ResetSignature() => __pbn__Signature = null;
-    private byte[] __pbn__Signature;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class ApplyPolicies : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"policy")]
-    public global::System.Collections.Generic.List<PolicyType> Policies { get; } = new global::System.Collections.Generic.List<PolicyType>();
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class FlashHash : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    public uint Address
-    {
-        get { return __pbn__Address.GetValueOrDefault(); }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private uint? __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"length")]
-    public uint Length
-    {
-        get { return __pbn__Length.GetValueOrDefault(); }
-        set { __pbn__Length = value; }
-    }
-    public bool ShouldSerializeLength() => __pbn__Length != null;
-    public void ResetLength() => __pbn__Length = null;
-    private uint? __pbn__Length;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"challenge")]
-    public byte[] Challenge
-    {
-        get { return __pbn__Challenge; }
-        set { __pbn__Challenge = value; }
-    }
-    public bool ShouldSerializeChallenge() => __pbn__Challenge != null;
-    public void ResetChallenge() => __pbn__Challenge = null;
-    private byte[] __pbn__Challenge;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class FlashWrite : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    public uint Address
-    {
-        get { return __pbn__Address.GetValueOrDefault(); }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private uint? __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"data")]
-    public byte[] Data
-    {
-        get { return __pbn__Data; }
-        set { __pbn__Data = value; }
-    }
-    public bool ShouldSerializeData() => __pbn__Data != null;
-    public void ResetData() => __pbn__Data = null;
-    private byte[] __pbn__Data;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"erase")]
-    public bool Erase
-    {
-        get { return __pbn__Erase.GetValueOrDefault(); }
-        set { __pbn__Erase = value; }
-    }
-    public bool ShouldSerializeErase() => __pbn__Erase != null;
-    public void ResetErase() => __pbn__Erase = null;
-    private bool? __pbn__Erase;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class FlashHashResponse : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"data")]
-    public byte[] Data
-    {
-        get { return __pbn__Data; }
-        set { __pbn__Data = value; }
-    }
-    public bool ShouldSerializeData() => __pbn__Data != null;
-    public void ResetData() => __pbn__Data = null;
-    private byte[] __pbn__Data;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkFlashDump : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"address")]
-    public uint Address
-    {
-        get { return __pbn__Address.GetValueOrDefault(); }
-        set { __pbn__Address = value; }
-    }
-    public bool ShouldSerializeAddress() => __pbn__Address != null;
-    public void ResetAddress() => __pbn__Address = null;
-    private uint? __pbn__Address;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"length")]
-    public uint Length
-    {
-        get { return __pbn__Length.GetValueOrDefault(); }
-        set { __pbn__Length = value; }
-    }
-    public bool ShouldSerializeLength() => __pbn__Length != null;
-    public void ResetLength() => __pbn__Length = null;
-    private uint? __pbn__Length;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkFlashDumpResponse : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"data")]
-    public byte[] Data
-    {
-        get { return __pbn__Data; }
-        set { __pbn__Data = value; }
-    }
-    public bool ShouldSerializeData() => __pbn__Data != null;
-    public void ResetData() => __pbn__Data = null;
-    private byte[] __pbn__Data;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class SoftReset : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class FirmwareErase : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class FirmwareUpload : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"payload_hash", IsRequired = true)]
-    public byte[] PayloadHash { get; set; }
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"payload", IsRequired = true)]
-    public byte[] Payload { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkDecision : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"yes_no", IsRequired = true)]
-    public bool YesNo { get; set; }
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkGetState : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
 
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkState : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"layout")]
-    public byte[] Layout
-    {
-        get { return __pbn__Layout; }
-        set { __pbn__Layout = value; }
-    }
-    public bool ShouldSerializeLayout() => __pbn__Layout != null;
-    public void ResetLayout() => __pbn__Layout = null;
-    private byte[] __pbn__Layout;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"pin")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Pin
-    {
-        get { return __pbn__Pin ?? ""; }
-        set { __pbn__Pin = value; }
-    }
-    public bool ShouldSerializePin() => __pbn__Pin != null;
-    public void ResetPin() => __pbn__Pin = null;
-    private string __pbn__Pin;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"matrix")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Matrix
-    {
-        get { return __pbn__Matrix ?? ""; }
-        set { __pbn__Matrix = value; }
-    }
-    public bool ShouldSerializeMatrix() => __pbn__Matrix != null;
-    public void ResetMatrix() => __pbn__Matrix = null;
-    private string __pbn__Matrix;
-
-    [global::ProtoBuf.ProtoMember(4, Name = @"mnemonic")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Mnemonic
-    {
-        get { return __pbn__Mnemonic ?? ""; }
-        set { __pbn__Mnemonic = value; }
-    }
-    public bool ShouldSerializeMnemonic() => __pbn__Mnemonic != null;
-    public void ResetMnemonic() => __pbn__Mnemonic = null;
-    private string __pbn__Mnemonic;
-
-    [global::ProtoBuf.ProtoMember(5, Name = @"node")]
-    public HDNodeType Node { get; set; }
-
-    [global::ProtoBuf.ProtoMember(6, Name = @"passphrase_protection")]
-    public bool PassphraseProtection
-    {
-        get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
-        set { __pbn__PassphraseProtection = value; }
-    }
-    public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
-    public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
-    private bool? __pbn__PassphraseProtection;
-
-    [global::ProtoBuf.ProtoMember(7, Name = @"reset_word")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string ResetWord
-    {
-        get { return __pbn__ResetWord ?? ""; }
-        set { __pbn__ResetWord = value; }
-    }
-    public bool ShouldSerializeResetWord() => __pbn__ResetWord != null;
-    public void ResetResetWord() => __pbn__ResetWord = null;
-    private string __pbn__ResetWord;
-
-    [global::ProtoBuf.ProtoMember(8, Name = @"reset_entropy")]
-    public byte[] ResetEntropy
-    {
-        get { return __pbn__ResetEntropy; }
-        set { __pbn__ResetEntropy = value; }
-    }
-    public bool ShouldSerializeResetEntropy() => __pbn__ResetEntropy != null;
-    public void ResetResetEntropy() => __pbn__ResetEntropy = null;
-    private byte[] __pbn__ResetEntropy;
-
-    [global::ProtoBuf.ProtoMember(9, Name = @"recovery_fake_word")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string RecoveryFakeWord
-    {
-        get { return __pbn__RecoveryFakeWord ?? ""; }
-        set { __pbn__RecoveryFakeWord = value; }
-    }
-    public bool ShouldSerializeRecoveryFakeWord() => __pbn__RecoveryFakeWord != null;
-    public void ResetRecoveryFakeWord() => __pbn__RecoveryFakeWord = null;
-    private string __pbn__RecoveryFakeWord;
-
-    [global::ProtoBuf.ProtoMember(10, Name = @"recovery_word_pos")]
-    public uint RecoveryWordPos
-    {
-        get { return __pbn__RecoveryWordPos.GetValueOrDefault(); }
-        set { __pbn__RecoveryWordPos = value; }
-    }
-    public bool ShouldSerializeRecoveryWordPos() => __pbn__RecoveryWordPos != null;
-    public void ResetRecoveryWordPos() => __pbn__RecoveryWordPos = null;
-    private uint? __pbn__RecoveryWordPos;
-
-    [global::ProtoBuf.ProtoMember(11, Name = @"recovery_cipher")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string RecoveryCipher
-    {
-        get { return __pbn__RecoveryCipher ?? ""; }
-        set { __pbn__RecoveryCipher = value; }
-    }
-    public bool ShouldSerializeRecoveryCipher() => __pbn__RecoveryCipher != null;
-    public void ResetRecoveryCipher() => __pbn__RecoveryCipher = null;
-    private string __pbn__RecoveryCipher;
-
-    [global::ProtoBuf.ProtoMember(12, Name = @"recovery_auto_completed_word")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string RecoveryAutoCompletedWord
-    {
-        get { return __pbn__RecoveryAutoCompletedWord ?? ""; }
-        set { __pbn__RecoveryAutoCompletedWord = value; }
-    }
-    public bool ShouldSerializeRecoveryAutoCompletedWord() => __pbn__RecoveryAutoCompletedWord != null;
-    public void ResetRecoveryAutoCompletedWord() => __pbn__RecoveryAutoCompletedWord = null;
-    private string __pbn__RecoveryAutoCompletedWord;
-
-    [global::ProtoBuf.ProtoMember(13, Name = @"firmware_hash")]
-    public byte[] FirmwareHash
-    {
-        get { return __pbn__FirmwareHash; }
-        set { __pbn__FirmwareHash = value; }
-    }
-    public bool ShouldSerializeFirmwareHash() => __pbn__FirmwareHash != null;
-    public void ResetFirmwareHash() => __pbn__FirmwareHash = null;
-    private byte[] __pbn__FirmwareHash;
-
-    [global::ProtoBuf.ProtoMember(14, Name = @"storage_hash")]
-    public byte[] StorageHash
-    {
-        get { return __pbn__StorageHash; }
-        set { __pbn__StorageHash = value; }
-    }
-    public bool ShouldSerializeStorageHash() => __pbn__StorageHash != null;
-    public void ResetStorageHash() => __pbn__StorageHash = null;
-    private byte[] __pbn__StorageHash;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkStop : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkLog : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-    [global::ProtoBuf.ProtoMember(1, Name = @"level")]
-    public uint Level
-    {
-        get { return __pbn__Level.GetValueOrDefault(); }
-        set { __pbn__Level = value; }
-    }
-    public bool ShouldSerializeLevel() => __pbn__Level != null;
-    public void ResetLevel() => __pbn__Level = null;
-    private uint? __pbn__Level;
-
-    [global::ProtoBuf.ProtoMember(2, Name = @"bucket")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Bucket
-    {
-        get { return __pbn__Bucket ?? ""; }
-        set { __pbn__Bucket = value; }
-    }
-    public bool ShouldSerializeBucket() => __pbn__Bucket != null;
-    public void ResetBucket() => __pbn__Bucket = null;
-    private string __pbn__Bucket;
-
-    [global::ProtoBuf.ProtoMember(3, Name = @"text")]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string Text
-    {
-        get { return __pbn__Text ?? ""; }
-        set { __pbn__Text = value; }
+namespace KeepKey.Net.Contracts
+{
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Initialize : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GetFeatures : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Features : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"vendor")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Vendor
+        {
+            get { return __pbn__Vendor ?? ""; }
+            set { __pbn__Vendor = value; }
+        }
+        public bool ShouldSerializeVendor() => __pbn__Vendor != null;
+        public void ResetVendor() => __pbn__Vendor = null;
+        private string __pbn__Vendor;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"major_version")]
+        public uint MajorVersion
+        {
+            get { return __pbn__MajorVersion.GetValueOrDefault(); }
+            set { __pbn__MajorVersion = value; }
+        }
+        public bool ShouldSerializeMajorVersion() => __pbn__MajorVersion != null;
+        public void ResetMajorVersion() => __pbn__MajorVersion = null;
+        private uint? __pbn__MajorVersion;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"minor_version")]
+        public uint MinorVersion
+        {
+            get { return __pbn__MinorVersion.GetValueOrDefault(); }
+            set { __pbn__MinorVersion = value; }
+        }
+        public bool ShouldSerializeMinorVersion() => __pbn__MinorVersion != null;
+        public void ResetMinorVersion() => __pbn__MinorVersion = null;
+        private uint? __pbn__MinorVersion;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"patch_version")]
+        public uint PatchVersion
+        {
+            get { return __pbn__PatchVersion.GetValueOrDefault(); }
+            set { __pbn__PatchVersion = value; }
+        }
+        public bool ShouldSerializePatchVersion() => __pbn__PatchVersion != null;
+        public void ResetPatchVersion() => __pbn__PatchVersion = null;
+        private uint? __pbn__PatchVersion;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"bootloader_mode")]
+        public bool BootloaderMode
+        {
+            get { return __pbn__BootloaderMode.GetValueOrDefault(); }
+            set { __pbn__BootloaderMode = value; }
+        }
+        public bool ShouldSerializeBootloaderMode() => __pbn__BootloaderMode != null;
+        public void ResetBootloaderMode() => __pbn__BootloaderMode = null;
+        private bool? __pbn__BootloaderMode;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"device_id")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string DeviceId
+        {
+            get { return __pbn__DeviceId ?? ""; }
+            set { __pbn__DeviceId = value; }
+        }
+        public bool ShouldSerializeDeviceId() => __pbn__DeviceId != null;
+        public void ResetDeviceId() => __pbn__DeviceId = null;
+        private string __pbn__DeviceId;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"pin_protection")]
+        public bool PinProtection
+        {
+            get { return __pbn__PinProtection.GetValueOrDefault(); }
+            set { __pbn__PinProtection = value; }
+        }
+        public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
+        public void ResetPinProtection() => __pbn__PinProtection = null;
+        private bool? __pbn__PinProtection;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"passphrase_protection")]
+        public bool PassphraseProtection
+        {
+            get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
+            set { __pbn__PassphraseProtection = value; }
+        }
+        public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
+        public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
+        private bool? __pbn__PassphraseProtection;
+
+        [global::ProtoBuf.ProtoMember(9, Name = @"language")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Language
+        {
+            get { return __pbn__Language ?? ""; }
+            set { __pbn__Language = value; }
+        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"label")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Label
+        {
+            get { return __pbn__Label ?? ""; }
+            set { __pbn__Label = value; }
+        }
+        public bool ShouldSerializeLabel() => __pbn__Label != null;
+        public void ResetLabel() => __pbn__Label = null;
+        private string __pbn__Label;
+
+        [global::ProtoBuf.ProtoMember(11, Name = @"coins")]
+        public global::System.Collections.Generic.List<CoinType> Coins { get; } = new global::System.Collections.Generic.List<CoinType>();
+
+        [global::ProtoBuf.ProtoMember(12, Name = @"initialized")]
+        public bool Initialized
+        {
+            get { return __pbn__Initialized.GetValueOrDefault(); }
+            set { __pbn__Initialized = value; }
+        }
+        public bool ShouldSerializeInitialized() => __pbn__Initialized != null;
+        public void ResetInitialized() => __pbn__Initialized = null;
+        private bool? __pbn__Initialized;
+
+        [global::ProtoBuf.ProtoMember(13, Name = @"revision")]
+        public byte[] Revision
+        {
+            get { return __pbn__Revision; }
+            set { __pbn__Revision = value; }
+        }
+        public bool ShouldSerializeRevision() => __pbn__Revision != null;
+        public void ResetRevision() => __pbn__Revision = null;
+        private byte[] __pbn__Revision;
+
+        [global::ProtoBuf.ProtoMember(14, Name = @"bootloader_hash")]
+        public byte[] BootloaderHash
+        {
+            get { return __pbn__BootloaderHash; }
+            set { __pbn__BootloaderHash = value; }
+        }
+        public bool ShouldSerializeBootloaderHash() => __pbn__BootloaderHash != null;
+        public void ResetBootloaderHash() => __pbn__BootloaderHash = null;
+        private byte[] __pbn__BootloaderHash;
+
+        [global::ProtoBuf.ProtoMember(15, Name = @"imported")]
+        public bool Imported
+        {
+            get { return __pbn__Imported.GetValueOrDefault(); }
+            set { __pbn__Imported = value; }
+        }
+        public bool ShouldSerializeImported() => __pbn__Imported != null;
+        public void ResetImported() => __pbn__Imported = null;
+        private bool? __pbn__Imported;
+
+        [global::ProtoBuf.ProtoMember(16, Name = @"pin_cached")]
+        public bool PinCached
+        {
+            get { return __pbn__PinCached.GetValueOrDefault(); }
+            set { __pbn__PinCached = value; }
+        }
+        public bool ShouldSerializePinCached() => __pbn__PinCached != null;
+        public void ResetPinCached() => __pbn__PinCached = null;
+        private bool? __pbn__PinCached;
+
+        [global::ProtoBuf.ProtoMember(17, Name = @"passphrase_cached")]
+        public bool PassphraseCached
+        {
+            get { return __pbn__PassphraseCached.GetValueOrDefault(); }
+            set { __pbn__PassphraseCached = value; }
+        }
+        public bool ShouldSerializePassphraseCached() => __pbn__PassphraseCached != null;
+        public void ResetPassphraseCached() => __pbn__PassphraseCached = null;
+        private bool? __pbn__PassphraseCached;
+
+        [global::ProtoBuf.ProtoMember(18, Name = @"policies")]
+        public global::System.Collections.Generic.List<PolicyType> Policies { get; } = new global::System.Collections.Generic.List<PolicyType>();
+
+        [global::ProtoBuf.ProtoMember(21, Name = @"model")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Model
+        {
+            get { return __pbn__Model ?? ""; }
+            set { __pbn__Model = value; }
+        }
+        public bool ShouldSerializeModel() => __pbn__Model != null;
+        public void ResetModel() => __pbn__Model = null;
+        private string __pbn__Model;
+
+        [global::ProtoBuf.ProtoMember(22, Name = @"firmware_variant")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string FirmwareVariant
+        {
+            get { return __pbn__FirmwareVariant ?? ""; }
+            set { __pbn__FirmwareVariant = value; }
+        }
+        public bool ShouldSerializeFirmwareVariant() => __pbn__FirmwareVariant != null;
+        public void ResetFirmwareVariant() => __pbn__FirmwareVariant = null;
+        private string __pbn__FirmwareVariant;
+
+        [global::ProtoBuf.ProtoMember(23, Name = @"firmware_hash")]
+        public byte[] FirmwareHash
+        {
+            get { return __pbn__FirmwareHash; }
+            set { __pbn__FirmwareHash = value; }
+        }
+        public bool ShouldSerializeFirmwareHash() => __pbn__FirmwareHash != null;
+        public void ResetFirmwareHash() => __pbn__FirmwareHash = null;
+        private byte[] __pbn__FirmwareHash;
+
+        [global::ProtoBuf.ProtoMember(24, Name = @"no_backup")]
+        public bool NoBackup
+        {
+            get { return __pbn__NoBackup.GetValueOrDefault(); }
+            set { __pbn__NoBackup = value; }
+        }
+        public bool ShouldSerializeNoBackup() => __pbn__NoBackup != null;
+        public void ResetNoBackup() => __pbn__NoBackup = null;
+        private bool? __pbn__NoBackup;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GetCoinTable : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"start")]
+        public uint Start
+        {
+            get { return __pbn__Start.GetValueOrDefault(); }
+            set { __pbn__Start = value; }
+        }
+        public bool ShouldSerializeStart() => __pbn__Start != null;
+        public void ResetStart() => __pbn__Start = null;
+        private uint? __pbn__Start;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"end")]
+        public uint End
+        {
+            get { return __pbn__End.GetValueOrDefault(); }
+            set { __pbn__End = value; }
+        }
+        public bool ShouldSerializeEnd() => __pbn__End != null;
+        public void ResetEnd() => __pbn__End = null;
+        private uint? __pbn__End;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CoinTable : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"table")]
+        public global::System.Collections.Generic.List<CoinType> Tables { get; } = new global::System.Collections.Generic.List<CoinType>();
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"num_coins")]
+        public uint NumCoins
+        {
+            get { return __pbn__NumCoins.GetValueOrDefault(); }
+            set { __pbn__NumCoins = value; }
+        }
+        public bool ShouldSerializeNumCoins() => __pbn__NumCoins != null;
+        public void ResetNumCoins() => __pbn__NumCoins = null;
+        private uint? __pbn__NumCoins;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"chunk_size")]
+        public uint ChunkSize
+        {
+            get { return __pbn__ChunkSize.GetValueOrDefault(); }
+            set { __pbn__ChunkSize = value; }
+        }
+        public bool ShouldSerializeChunkSize() => __pbn__ChunkSize != null;
+        public void ResetChunkSize() => __pbn__ChunkSize = null;
+        private uint? __pbn__ChunkSize;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ClearSession : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ApplySettings : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"language")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Language
+        {
+            get { return __pbn__Language ?? ""; }
+            set { __pbn__Language = value; }
+        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"label")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Label
+        {
+            get { return __pbn__Label ?? ""; }
+            set { __pbn__Label = value; }
+        }
+        public bool ShouldSerializeLabel() => __pbn__Label != null;
+        public void ResetLabel() => __pbn__Label = null;
+        private string __pbn__Label;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"use_passphrase")]
+        public bool UsePassphrase
+        {
+            get { return __pbn__UsePassphrase.GetValueOrDefault(); }
+            set { __pbn__UsePassphrase = value; }
+        }
+        public bool ShouldSerializeUsePassphrase() => __pbn__UsePassphrase != null;
+        public void ResetUsePassphrase() => __pbn__UsePassphrase = null;
+        private bool? __pbn__UsePassphrase;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"auto_lock_delay_ms")]
+        public uint AutoLockDelayMs
+        {
+            get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
+            set { __pbn__AutoLockDelayMs = value; }
+        }
+        public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
+        public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
+        private uint? __pbn__AutoLockDelayMs;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"u2f_counter")]
+        public uint U2fCounter
+        {
+            get { return __pbn__U2fCounter.GetValueOrDefault(); }
+            set { __pbn__U2fCounter = value; }
+        }
+        public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
+        public void ResetU2fCounter() => __pbn__U2fCounter = null;
+        private uint? __pbn__U2fCounter;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ChangePin : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"remove")]
+        public bool Remove
+        {
+            get { return __pbn__Remove.GetValueOrDefault(); }
+            set { __pbn__Remove = value; }
+        }
+        public bool ShouldSerializeRemove() => __pbn__Remove != null;
+        public void ResetRemove() => __pbn__Remove = null;
+        private bool? __pbn__Remove;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Ping : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"message")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Message
+        {
+            get { return __pbn__Message ?? ""; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private string __pbn__Message;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"button_protection")]
+        public bool ButtonProtection
+        {
+            get { return __pbn__ButtonProtection.GetValueOrDefault(); }
+            set { __pbn__ButtonProtection = value; }
+        }
+        public bool ShouldSerializeButtonProtection() => __pbn__ButtonProtection != null;
+        public void ResetButtonProtection() => __pbn__ButtonProtection = null;
+        private bool? __pbn__ButtonProtection;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"pin_protection")]
+        public bool PinProtection
+        {
+            get { return __pbn__PinProtection.GetValueOrDefault(); }
+            set { __pbn__PinProtection = value; }
+        }
+        public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
+        public void ResetPinProtection() => __pbn__PinProtection = null;
+        private bool? __pbn__PinProtection;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"passphrase_protection")]
+        public bool PassphraseProtection
+        {
+            get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
+            set { __pbn__PassphraseProtection = value; }
+        }
+        public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
+        public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
+        private bool? __pbn__PassphraseProtection;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Success : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"message")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Message
+        {
+            get { return __pbn__Message ?? ""; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private string __pbn__Message;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Failure : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"code")]
+        [global::System.ComponentModel.DefaultValue(FailureType.FailureUnexpectedMessage)]
+        public FailureType Code
+        {
+            get { return __pbn__Code ?? FailureType.FailureUnexpectedMessage; }
+            set { __pbn__Code = value; }
+        }
+        public bool ShouldSerializeCode() => __pbn__Code != null;
+        public void ResetCode() => __pbn__Code = null;
+        private FailureType? __pbn__Code;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"message")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Message
+        {
+            get { return __pbn__Message ?? ""; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private string __pbn__Message;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ButtonRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"code")]
+        [global::System.ComponentModel.DefaultValue(ButtonRequestType.ButtonRequestOther)]
+        public ButtonRequestType Code
+        {
+            get { return __pbn__Code ?? ButtonRequestType.ButtonRequestOther; }
+            set { __pbn__Code = value; }
+        }
+        public bool ShouldSerializeCode() => __pbn__Code != null;
+        public void ResetCode() => __pbn__Code = null;
+        private ButtonRequestType? __pbn__Code;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"data")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Data
+        {
+            get { return __pbn__Data ?? ""; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private string __pbn__Data;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ButtonAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class PinMatrixRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"type")]
+        [global::System.ComponentModel.DefaultValue(PinMatrixRequestType.PinMatrixRequestTypeCurrent)]
+        public PinMatrixRequestType Type
+        {
+            get { return __pbn__Type ?? PinMatrixRequestType.PinMatrixRequestTypeCurrent; }
+            set { __pbn__Type = value; }
+        }
+        public bool ShouldSerializeType() => __pbn__Type != null;
+        public void ResetType() => __pbn__Type = null;
+        private PinMatrixRequestType? __pbn__Type;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class PinMatrixAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"pin", IsRequired = true)]
+        public string Pin { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Cancel : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class PassphraseRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class PassphraseAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"passphrase", IsRequired = true)]
+        public string Passphrase { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GetEntropy : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"size", IsRequired = true)]
+        public uint Size { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Entropy : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, IsRequired = true)]
+        public byte[] entropy { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GetPublicKey : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"ecdsa_curve_name")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string EcdsaCurveName
+        {
+            get { return __pbn__EcdsaCurveName ?? ""; }
+            set { __pbn__EcdsaCurveName = value; }
+        }
+        public bool ShouldSerializeEcdsaCurveName() => __pbn__EcdsaCurveName != null;
+        public void ResetEcdsaCurveName() => __pbn__EcdsaCurveName = null;
+        private string __pbn__EcdsaCurveName;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"show_display")]
+        public bool ShowDisplay
+        {
+            get { return __pbn__ShowDisplay.GetValueOrDefault(); }
+            set { __pbn__ShowDisplay = value; }
+        }
+        public bool ShouldSerializeShowDisplay() => __pbn__ShowDisplay != null;
+        public void ResetShowDisplay() => __pbn__ShowDisplay = null;
+        private bool? __pbn__ShowDisplay;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"script_type")]
+        [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
+        public InputScriptType ScriptType
+        {
+            get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
+            set { __pbn__ScriptType = value; }
+        }
+        public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
+        public void ResetScriptType() => __pbn__ScriptType = null;
+        private InputScriptType? __pbn__ScriptType;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class PublicKey : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"node", IsRequired = true)]
+        public HDNodeType Node { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"xpub")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Xpub
+        {
+            get { return __pbn__Xpub ?? ""; }
+            set { __pbn__Xpub = value; }
+        }
+        public bool ShouldSerializeXpub() => __pbn__Xpub != null;
+        public void ResetXpub() => __pbn__Xpub = null;
+        private string __pbn__Xpub;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class GetAddress : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"show_display")]
+        public bool ShowDisplay
+        {
+            get { return __pbn__ShowDisplay.GetValueOrDefault(); }
+            set { __pbn__ShowDisplay = value; }
+        }
+        public bool ShouldSerializeShowDisplay() => __pbn__ShowDisplay != null;
+        public void ResetShowDisplay() => __pbn__ShowDisplay = null;
+        private bool? __pbn__ShowDisplay;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"multisig")]
+        public MultisigRedeemScriptType Multisig { get; set; }
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"script_type")]
+        [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
+        public InputScriptType ScriptType
+        {
+            get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
+            set { __pbn__ScriptType = value; }
+        }
+        public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
+        public void ResetScriptType() => __pbn__ScriptType = null;
+        private InputScriptType? __pbn__ScriptType;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumGetAddress : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"show_display")]
+        public bool ShowDisplay
+        {
+            get { return __pbn__ShowDisplay.GetValueOrDefault(); }
+            set { __pbn__ShowDisplay = value; }
+        }
+        public bool ShouldSerializeShowDisplay() => __pbn__ShowDisplay != null;
+        public void ResetShowDisplay() => __pbn__ShowDisplay = null;
+        private bool? __pbn__ShowDisplay;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class Address : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, IsRequired = true)]
+        public string address { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumAddress : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address", IsRequired = true)]
+        public byte[] Address { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"address_str")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string AddressStr
+        {
+            get { return __pbn__AddressStr ?? ""; }
+            set { __pbn__AddressStr = value; }
+        }
+        public bool ShouldSerializeAddressStr() => __pbn__AddressStr != null;
+        public void ResetAddressStr() => __pbn__AddressStr = null;
+        private string __pbn__AddressStr;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class WipeDevice : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class LoadDevice : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"mnemonic")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Mnemonic
+        {
+            get { return __pbn__Mnemonic ?? ""; }
+            set { __pbn__Mnemonic = value; }
+        }
+        public bool ShouldSerializeMnemonic() => __pbn__Mnemonic != null;
+        public void ResetMnemonic() => __pbn__Mnemonic = null;
+        private string __pbn__Mnemonic;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"node")]
+        public HDNodeType Node { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"pin")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Pin
+        {
+            get { return __pbn__Pin ?? ""; }
+            set { __pbn__Pin = value; }
+        }
+        public bool ShouldSerializePin() => __pbn__Pin != null;
+        public void ResetPin() => __pbn__Pin = null;
+        private string __pbn__Pin;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"passphrase_protection")]
+        public bool PassphraseProtection
+        {
+            get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
+            set { __pbn__PassphraseProtection = value; }
+        }
+        public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
+        public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
+        private bool? __pbn__PassphraseProtection;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"language")]
+        [global::System.ComponentModel.DefaultValue(@"english")]
+        public string Language
+        {
+            get { return __pbn__Language ?? @"english"; }
+            set { __pbn__Language = value; }
+        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"label")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Label
+        {
+            get { return __pbn__Label ?? ""; }
+            set { __pbn__Label = value; }
+        }
+        public bool ShouldSerializeLabel() => __pbn__Label != null;
+        public void ResetLabel() => __pbn__Label = null;
+        private string __pbn__Label;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"skip_checksum")]
+        public bool SkipChecksum
+        {
+            get { return __pbn__SkipChecksum.GetValueOrDefault(); }
+            set { __pbn__SkipChecksum = value; }
+        }
+        public bool ShouldSerializeSkipChecksum() => __pbn__SkipChecksum != null;
+        public void ResetSkipChecksum() => __pbn__SkipChecksum = null;
+        private bool? __pbn__SkipChecksum;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"u2f_counter")]
+        public uint U2fCounter
+        {
+            get { return __pbn__U2fCounter.GetValueOrDefault(); }
+            set { __pbn__U2fCounter = value; }
+        }
+        public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
+        public void ResetU2fCounter() => __pbn__U2fCounter = null;
+        private uint? __pbn__U2fCounter;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ResetDevice : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"display_random")]
+        public bool DisplayRandom
+        {
+            get { return __pbn__DisplayRandom.GetValueOrDefault(); }
+            set { __pbn__DisplayRandom = value; }
+        }
+        public bool ShouldSerializeDisplayRandom() => __pbn__DisplayRandom != null;
+        public void ResetDisplayRandom() => __pbn__DisplayRandom = null;
+        private bool? __pbn__DisplayRandom;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"strength")]
+        [global::System.ComponentModel.DefaultValue(256)]
+        public uint Strength
+        {
+            get { return __pbn__Strength ?? 256; }
+            set { __pbn__Strength = value; }
+        }
+        public bool ShouldSerializeStrength() => __pbn__Strength != null;
+        public void ResetStrength() => __pbn__Strength = null;
+        private uint? __pbn__Strength;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"passphrase_protection")]
+        public bool PassphraseProtection
+        {
+            get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
+            set { __pbn__PassphraseProtection = value; }
+        }
+        public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
+        public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
+        private bool? __pbn__PassphraseProtection;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"pin_protection")]
+        public bool PinProtection
+        {
+            get { return __pbn__PinProtection.GetValueOrDefault(); }
+            set { __pbn__PinProtection = value; }
+        }
+        public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
+        public void ResetPinProtection() => __pbn__PinProtection = null;
+        private bool? __pbn__PinProtection;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"language")]
+        [global::System.ComponentModel.DefaultValue(@"english")]
+        public string Language
+        {
+            get { return __pbn__Language ?? @"english"; }
+            set { __pbn__Language = value; }
+        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"label")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Label
+        {
+            get { return __pbn__Label ?? ""; }
+            set { __pbn__Label = value; }
+        }
+        public bool ShouldSerializeLabel() => __pbn__Label != null;
+        public void ResetLabel() => __pbn__Label = null;
+        private string __pbn__Label;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"no_backup")]
+        public bool NoBackup
+        {
+            get { return __pbn__NoBackup.GetValueOrDefault(); }
+            set { __pbn__NoBackup = value; }
+        }
+        public bool ShouldSerializeNoBackup() => __pbn__NoBackup != null;
+        public void ResetNoBackup() => __pbn__NoBackup = null;
+        private bool? __pbn__NoBackup;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"auto_lock_delay_ms")]
+        public uint AutoLockDelayMs
+        {
+            get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
+            set { __pbn__AutoLockDelayMs = value; }
+        }
+        public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
+        public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
+        private uint? __pbn__AutoLockDelayMs;
+
+        [global::ProtoBuf.ProtoMember(9, Name = @"u2f_counter")]
+        public uint U2fCounter
+        {
+            get { return __pbn__U2fCounter.GetValueOrDefault(); }
+            set { __pbn__U2fCounter = value; }
+        }
+        public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
+        public void ResetU2fCounter() => __pbn__U2fCounter = null;
+        private uint? __pbn__U2fCounter;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EntropyRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EntropyAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"entropy")]
+        public byte[] Entropy
+        {
+            get { return __pbn__Entropy; }
+            set { __pbn__Entropy = value; }
+        }
+        public bool ShouldSerializeEntropy() => __pbn__Entropy != null;
+        public void ResetEntropy() => __pbn__Entropy = null;
+        private byte[] __pbn__Entropy;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class RecoveryDevice : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"word_count")]
+        public uint WordCount
+        {
+            get { return __pbn__WordCount.GetValueOrDefault(); }
+            set { __pbn__WordCount = value; }
+        }
+        public bool ShouldSerializeWordCount() => __pbn__WordCount != null;
+        public void ResetWordCount() => __pbn__WordCount = null;
+        private uint? __pbn__WordCount;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"passphrase_protection")]
+        public bool PassphraseProtection
+        {
+            get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
+            set { __pbn__PassphraseProtection = value; }
+        }
+        public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
+        public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
+        private bool? __pbn__PassphraseProtection;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"pin_protection")]
+        public bool PinProtection
+        {
+            get { return __pbn__PinProtection.GetValueOrDefault(); }
+            set { __pbn__PinProtection = value; }
+        }
+        public bool ShouldSerializePinProtection() => __pbn__PinProtection != null;
+        public void ResetPinProtection() => __pbn__PinProtection = null;
+        private bool? __pbn__PinProtection;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"language")]
+        [global::System.ComponentModel.DefaultValue(@"english")]
+        public string Language
+        {
+            get { return __pbn__Language ?? @"english"; }
+            set { __pbn__Language = value; }
+        }
+        public bool ShouldSerializeLanguage() => __pbn__Language != null;
+        public void ResetLanguage() => __pbn__Language = null;
+        private string __pbn__Language;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"label")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Label
+        {
+            get { return __pbn__Label ?? ""; }
+            set { __pbn__Label = value; }
+        }
+        public bool ShouldSerializeLabel() => __pbn__Label != null;
+        public void ResetLabel() => __pbn__Label = null;
+        private string __pbn__Label;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"enforce_wordlist")]
+        public bool EnforceWordlist
+        {
+            get { return __pbn__EnforceWordlist.GetValueOrDefault(); }
+            set { __pbn__EnforceWordlist = value; }
+        }
+        public bool ShouldSerializeEnforceWordlist() => __pbn__EnforceWordlist != null;
+        public void ResetEnforceWordlist() => __pbn__EnforceWordlist = null;
+        private bool? __pbn__EnforceWordlist;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"use_character_cipher")]
+        public bool UseCharacterCipher
+        {
+            get { return __pbn__UseCharacterCipher.GetValueOrDefault(); }
+            set { __pbn__UseCharacterCipher = value; }
+        }
+        public bool ShouldSerializeUseCharacterCipher() => __pbn__UseCharacterCipher != null;
+        public void ResetUseCharacterCipher() => __pbn__UseCharacterCipher = null;
+        private bool? __pbn__UseCharacterCipher;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"auto_lock_delay_ms")]
+        public uint AutoLockDelayMs
+        {
+            get { return __pbn__AutoLockDelayMs.GetValueOrDefault(); }
+            set { __pbn__AutoLockDelayMs = value; }
+        }
+        public bool ShouldSerializeAutoLockDelayMs() => __pbn__AutoLockDelayMs != null;
+        public void ResetAutoLockDelayMs() => __pbn__AutoLockDelayMs = null;
+        private uint? __pbn__AutoLockDelayMs;
+
+        [global::ProtoBuf.ProtoMember(9, Name = @"u2f_counter")]
+        public uint U2fCounter
+        {
+            get { return __pbn__U2fCounter.GetValueOrDefault(); }
+            set { __pbn__U2fCounter = value; }
+        }
+        public bool ShouldSerializeU2fCounter() => __pbn__U2fCounter != null;
+        public void ResetU2fCounter() => __pbn__U2fCounter = null;
+        private uint? __pbn__U2fCounter;
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"dry_run")]
+        public bool DryRun
+        {
+            get { return __pbn__DryRun.GetValueOrDefault(); }
+            set { __pbn__DryRun = value; }
+        }
+        public bool ShouldSerializeDryRun() => __pbn__DryRun != null;
+        public void ResetDryRun() => __pbn__DryRun = null;
+        private bool? __pbn__DryRun;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class WordRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class WordAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"word", IsRequired = true)]
+        public string Word { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CharacterRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"word_pos", IsRequired = true)]
+        public uint WordPos { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"character_pos", IsRequired = true)]
+        public uint CharacterPos { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CharacterAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"character")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Character
+        {
+            get { return __pbn__Character ?? ""; }
+            set { __pbn__Character = value; }
+        }
+        public bool ShouldSerializeCharacter() => __pbn__Character != null;
+        public void ResetCharacter() => __pbn__Character = null;
+        private string __pbn__Character;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"delete")]
+        public bool Delete
+        {
+            get { return __pbn__Delete.GetValueOrDefault(); }
+            set { __pbn__Delete = value; }
+        }
+        public bool ShouldSerializeDelete() => __pbn__Delete != null;
+        public void ResetDelete() => __pbn__Delete = null;
+        private bool? __pbn__Delete;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"done")]
+        public bool Done
+        {
+            get { return __pbn__Done.GetValueOrDefault(); }
+            set { __pbn__Done = value; }
+        }
+        public bool ShouldSerializeDone() => __pbn__Done != null;
+        public void ResetDone() => __pbn__Done = null;
+        private bool? __pbn__Done;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class SignMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"message", IsRequired = true)]
+        public byte[] Message { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"script_type")]
+        [global::System.ComponentModel.DefaultValue(InputScriptType.Spendaddress)]
+        public InputScriptType ScriptType
+        {
+            get { return __pbn__ScriptType ?? InputScriptType.Spendaddress; }
+            set { __pbn__ScriptType = value; }
+        }
+        public bool ShouldSerializeScriptType() => __pbn__ScriptType != null;
+        public void ResetScriptType() => __pbn__ScriptType = null;
+        private InputScriptType? __pbn__ScriptType;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class VerifyMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Address
+        {
+            get { return __pbn__Address ?? ""; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private string __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class MessageSignature : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Address
+        {
+            get { return __pbn__Address ?? ""; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private string __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EncryptMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"pubkey")]
+        public byte[] Pubkey
+        {
+            get { return __pbn__Pubkey; }
+            set { __pbn__Pubkey = value; }
+        }
+        public bool ShouldSerializePubkey() => __pbn__Pubkey != null;
+        public void ResetPubkey() => __pbn__Pubkey = null;
+        private byte[] __pbn__Pubkey;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"display_only")]
+        public bool DisplayOnly
+        {
+            get { return __pbn__DisplayOnly.GetValueOrDefault(); }
+            set { __pbn__DisplayOnly = value; }
+        }
+        public bool ShouldSerializeDisplayOnly() => __pbn__DisplayOnly != null;
+        public void ResetDisplayOnly() => __pbn__DisplayOnly = null;
+        private bool? __pbn__DisplayOnly;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EncryptedMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"nonce")]
+        public byte[] Nonce
+        {
+            get { return __pbn__Nonce; }
+            set { __pbn__Nonce = value; }
+        }
+        public bool ShouldSerializeNonce() => __pbn__Nonce != null;
+        public void ResetNonce() => __pbn__Nonce = null;
+        private byte[] __pbn__Nonce;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"hmac")]
+        public byte[] Hmac
+        {
+            get { return __pbn__Hmac; }
+            set { __pbn__Hmac = value; }
+        }
+        public bool ShouldSerializeHmac() => __pbn__Hmac != null;
+        public void ResetHmac() => __pbn__Hmac = null;
+        private byte[] __pbn__Hmac;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DecryptMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"nonce")]
+        public byte[] Nonce
+        {
+            get { return __pbn__Nonce; }
+            set { __pbn__Nonce = value; }
+        }
+        public bool ShouldSerializeNonce() => __pbn__Nonce != null;
+        public void ResetNonce() => __pbn__Nonce = null;
+        private byte[] __pbn__Nonce;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"hmac")]
+        public byte[] Hmac
+        {
+            get { return __pbn__Hmac; }
+            set { __pbn__Hmac = value; }
+        }
+        public bool ShouldSerializeHmac() => __pbn__Hmac != null;
+        public void ResetHmac() => __pbn__Hmac = null;
+        private byte[] __pbn__Hmac;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DecryptedMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"address")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Address
+        {
+            get { return __pbn__Address ?? ""; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private string __pbn__Address;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CipherKeyValue : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"key")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Key
+        {
+            get { return __pbn__Key ?? ""; }
+            set { __pbn__Key = value; }
+        }
+        public bool ShouldSerializeKey() => __pbn__Key != null;
+        public void ResetKey() => __pbn__Key = null;
+        private string __pbn__Key;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"value")]
+        public byte[] Value
+        {
+            get { return __pbn__Value; }
+            set { __pbn__Value = value; }
+        }
+        public bool ShouldSerializeValue() => __pbn__Value != null;
+        public void ResetValue() => __pbn__Value = null;
+        private byte[] __pbn__Value;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"encrypt")]
+        public bool Encrypt
+        {
+            get { return __pbn__Encrypt.GetValueOrDefault(); }
+            set { __pbn__Encrypt = value; }
+        }
+        public bool ShouldSerializeEncrypt() => __pbn__Encrypt != null;
+        public void ResetEncrypt() => __pbn__Encrypt = null;
+        private bool? __pbn__Encrypt;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"ask_on_encrypt")]
+        public bool AskOnEncrypt
+        {
+            get { return __pbn__AskOnEncrypt.GetValueOrDefault(); }
+            set { __pbn__AskOnEncrypt = value; }
+        }
+        public bool ShouldSerializeAskOnEncrypt() => __pbn__AskOnEncrypt != null;
+        public void ResetAskOnEncrypt() => __pbn__AskOnEncrypt = null;
+        private bool? __pbn__AskOnEncrypt;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"ask_on_decrypt")]
+        public bool AskOnDecrypt
+        {
+            get { return __pbn__AskOnDecrypt.GetValueOrDefault(); }
+            set { __pbn__AskOnDecrypt = value; }
+        }
+        public bool ShouldSerializeAskOnDecrypt() => __pbn__AskOnDecrypt != null;
+        public void ResetAskOnDecrypt() => __pbn__AskOnDecrypt = null;
+        private bool? __pbn__AskOnDecrypt;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"iv")]
+        public byte[] Iv
+        {
+            get { return __pbn__Iv; }
+            set { __pbn__Iv = value; }
+        }
+        public bool ShouldSerializeIv() => __pbn__Iv != null;
+        public void ResetIv() => __pbn__Iv = null;
+        private byte[] __pbn__Iv;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CipheredKeyValue : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"value")]
+        public byte[] Value
+        {
+            get { return __pbn__Value; }
+            set { __pbn__Value = value; }
+        }
+        public bool ShouldSerializeValue() => __pbn__Value != null;
+        public void ResetValue() => __pbn__Value = null;
+        private byte[] __pbn__Value;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EstimateTxSize : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"outputs_count", IsRequired = true)]
+        public uint OutputsCount { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"inputs_count", IsRequired = true)]
+        public uint InputsCount { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class TxSize : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint tx_size
+        {
+            get { return __pbn__tx_size.GetValueOrDefault(); }
+            set { __pbn__tx_size = value; }
+        }
+        public bool ShouldSerializetx_size() => __pbn__tx_size != null;
+        public void Resettx_size() => __pbn__tx_size = null;
+        private uint? __pbn__tx_size;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class SignTx : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"outputs_count", IsRequired = true)]
+        public uint OutputsCount { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"inputs_count", IsRequired = true)]
+        public uint InputsCount { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"coin_name")]
+        [global::System.ComponentModel.DefaultValue(@"Bitcoin")]
+        public string CoinName
+        {
+            get { return __pbn__CoinName ?? @"Bitcoin"; }
+            set { __pbn__CoinName = value; }
+        }
+        public bool ShouldSerializeCoinName() => __pbn__CoinName != null;
+        public void ResetCoinName() => __pbn__CoinName = null;
+        private string __pbn__CoinName;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"version")]
+        [global::System.ComponentModel.DefaultValue(1)]
+        public uint Version
+        {
+            get { return __pbn__Version ?? 1; }
+            set { __pbn__Version = value; }
+        }
+        public bool ShouldSerializeVersion() => __pbn__Version != null;
+        public void ResetVersion() => __pbn__Version = null;
+        private uint? __pbn__Version;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"lock_time")]
+        [global::System.ComponentModel.DefaultValue(0)]
+        public uint LockTime
+        {
+            get { return __pbn__LockTime ?? 0; }
+            set { __pbn__LockTime = value; }
+        }
+        public bool ShouldSerializeLockTime() => __pbn__LockTime != null;
+        public void ResetLockTime() => __pbn__LockTime = null;
+        private uint? __pbn__LockTime;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"expiry")]
+        public uint Expiry
+        {
+            get { return __pbn__Expiry.GetValueOrDefault(); }
+            set { __pbn__Expiry = value; }
+        }
+        public bool ShouldSerializeExpiry() => __pbn__Expiry != null;
+        public void ResetExpiry() => __pbn__Expiry = null;
+        private uint? __pbn__Expiry;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"overwintered")]
+        public bool Overwintered
+        {
+            get { return __pbn__Overwintered.GetValueOrDefault(); }
+            set { __pbn__Overwintered = value; }
+        }
+        public bool ShouldSerializeOverwintered() => __pbn__Overwintered != null;
+        public void ResetOverwintered() => __pbn__Overwintered = null;
+        private bool? __pbn__Overwintered;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"version_group_id")]
+        public uint VersionGroupId
+        {
+            get { return __pbn__VersionGroupId.GetValueOrDefault(); }
+            set { __pbn__VersionGroupId = value; }
+        }
+        public bool ShouldSerializeVersionGroupId() => __pbn__VersionGroupId != null;
+        public void ResetVersionGroupId() => __pbn__VersionGroupId = null;
+        private uint? __pbn__VersionGroupId;
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"branch_id")]
+        public uint BranchId
+        {
+            get { return __pbn__BranchId.GetValueOrDefault(); }
+            set { __pbn__BranchId = value; }
+        }
+        public bool ShouldSerializeBranchId() => __pbn__BranchId != null;
+        public void ResetBranchId() => __pbn__BranchId = null;
+        private uint? __pbn__BranchId;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class TxRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"request_type")]
+        [global::System.ComponentModel.DefaultValue(RequestType.Txinput)]
+        public RequestType RequestType
+        {
+            get { return __pbn__RequestType ?? RequestType.Txinput; }
+            set { __pbn__RequestType = value; }
+        }
+        public bool ShouldSerializeRequestType() => __pbn__RequestType != null;
+        public void ResetRequestType() => __pbn__RequestType = null;
+        private RequestType? __pbn__RequestType;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"details")]
+        public TxRequestDetailsType Details { get; set; }
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"serialized")]
+        public TxRequestSerializedType Serialized { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class TxAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"tx")]
+        public TransactionType Tx { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class RawTxAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"tx")]
+        public RawTransactionType Tx { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumSignTx : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"nonce")]
+        public byte[] Nonce
+        {
+            get { return __pbn__Nonce; }
+            set { __pbn__Nonce = value; }
+        }
+        public bool ShouldSerializeNonce() => __pbn__Nonce != null;
+        public void ResetNonce() => __pbn__Nonce = null;
+        private byte[] __pbn__Nonce;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"gas_price")]
+        public byte[] GasPrice
+        {
+            get { return __pbn__GasPrice; }
+            set { __pbn__GasPrice = value; }
+        }
+        public bool ShouldSerializeGasPrice() => __pbn__GasPrice != null;
+        public void ResetGasPrice() => __pbn__GasPrice = null;
+        private byte[] __pbn__GasPrice;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"gas_limit")]
+        public byte[] GasLimit
+        {
+            get { return __pbn__GasLimit; }
+            set { __pbn__GasLimit = value; }
+        }
+        public bool ShouldSerializeGasLimit() => __pbn__GasLimit != null;
+        public void ResetGasLimit() => __pbn__GasLimit = null;
+        private byte[] __pbn__GasLimit;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"to")]
+        public byte[] To
+        {
+            get { return __pbn__To; }
+            set { __pbn__To = value; }
+        }
+        public bool ShouldSerializeTo() => __pbn__To != null;
+        public void ResetTo() => __pbn__To = null;
+        private byte[] __pbn__To;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"value")]
+        public byte[] Value
+        {
+            get { return __pbn__Value; }
+            set { __pbn__Value = value; }
+        }
+        public bool ShouldSerializeValue() => __pbn__Value != null;
+        public void ResetValue() => __pbn__Value = null;
+        private byte[] __pbn__Value;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"data_initial_chunk")]
+        public byte[] DataInitialChunk
+        {
+            get { return __pbn__DataInitialChunk; }
+            set { __pbn__DataInitialChunk = value; }
+        }
+        public bool ShouldSerializeDataInitialChunk() => __pbn__DataInitialChunk != null;
+        public void ResetDataInitialChunk() => __pbn__DataInitialChunk = null;
+        private byte[] __pbn__DataInitialChunk;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"data_length")]
+        public uint DataLength
+        {
+            get { return __pbn__DataLength.GetValueOrDefault(); }
+            set { __pbn__DataLength = value; }
+        }
+        public bool ShouldSerializeDataLength() => __pbn__DataLength != null;
+        public void ResetDataLength() => __pbn__DataLength = null;
+        private uint? __pbn__DataLength;
+
+        [global::ProtoBuf.ProtoMember(9, Name = @"to_address_n")]
+        public uint[] ToAddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"address_type")]
+        [global::System.ComponentModel.DefaultValue(OutputAddressType.Spend)]
+        public OutputAddressType AddressType
+        {
+            get { return __pbn__AddressType ?? OutputAddressType.Spend; }
+            set { __pbn__AddressType = value; }
+        }
+        public bool ShouldSerializeAddressType() => __pbn__AddressType != null;
+        public void ResetAddressType() => __pbn__AddressType = null;
+        private OutputAddressType? __pbn__AddressType;
+
+        [global::ProtoBuf.ProtoMember(11, Name = @"exchange_type")]
+        public ExchangeType ExchangeType { get; set; }
+
+        [global::ProtoBuf.ProtoMember(12, Name = @"chain_id")]
+        public uint ChainId
+        {
+            get { return __pbn__ChainId.GetValueOrDefault(); }
+            set { __pbn__ChainId = value; }
+        }
+        public bool ShouldSerializeChainId() => __pbn__ChainId != null;
+        public void ResetChainId() => __pbn__ChainId = null;
+        private uint? __pbn__ChainId;
+
+        [global::ProtoBuf.ProtoMember(100, Name = @"token_value")]
+        public byte[] TokenValue
+        {
+            get { return __pbn__TokenValue; }
+            set { __pbn__TokenValue = value; }
+        }
+        public bool ShouldSerializeTokenValue() => __pbn__TokenValue != null;
+        public void ResetTokenValue() => __pbn__TokenValue = null;
+        private byte[] __pbn__TokenValue;
+
+        [global::ProtoBuf.ProtoMember(101, Name = @"token_to")]
+        public byte[] TokenTo
+        {
+            get { return __pbn__TokenTo; }
+            set { __pbn__TokenTo = value; }
+        }
+        public bool ShouldSerializeTokenTo() => __pbn__TokenTo != null;
+        public void ResetTokenTo() => __pbn__TokenTo = null;
+        private byte[] __pbn__TokenTo;
+
+        [global::ProtoBuf.ProtoMember(102, Name = @"token_shortcut")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string TokenShortcut
+        {
+            get { return __pbn__TokenShortcut ?? ""; }
+            set { __pbn__TokenShortcut = value; }
+        }
+        public bool ShouldSerializeTokenShortcut() => __pbn__TokenShortcut != null;
+        public void ResetTokenShortcut() => __pbn__TokenShortcut = null;
+        private string __pbn__TokenShortcut;
+
+        [global::ProtoBuf.ProtoMember(103, Name = @"tx_type")]
+        public uint TxType
+        {
+            get { return __pbn__TxType.GetValueOrDefault(); }
+            set { __pbn__TxType = value; }
+        }
+        public bool ShouldSerializeTxType() => __pbn__TxType != null;
+        public void ResetTxType() => __pbn__TxType = null;
+        private uint? __pbn__TxType;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumTxRequest : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"data_length")]
+        public uint DataLength
+        {
+            get { return __pbn__DataLength.GetValueOrDefault(); }
+            set { __pbn__DataLength = value; }
+        }
+        public bool ShouldSerializeDataLength() => __pbn__DataLength != null;
+        public void ResetDataLength() => __pbn__DataLength = null;
+        private uint? __pbn__DataLength;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature_v")]
+        public uint SignatureV
+        {
+            get { return __pbn__SignatureV.GetValueOrDefault(); }
+            set { __pbn__SignatureV = value; }
+        }
+        public bool ShouldSerializeSignatureV() => __pbn__SignatureV != null;
+        public void ResetSignatureV() => __pbn__SignatureV = null;
+        private uint? __pbn__SignatureV;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"signature_r")]
+        public byte[] SignatureR
+        {
+            get { return __pbn__SignatureR; }
+            set { __pbn__SignatureR = value; }
+        }
+        public bool ShouldSerializeSignatureR() => __pbn__SignatureR != null;
+        public void ResetSignatureR() => __pbn__SignatureR = null;
+        private byte[] __pbn__SignatureR;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"signature_s")]
+        public byte[] SignatureS
+        {
+            get { return __pbn__SignatureS; }
+            set { __pbn__SignatureS = value; }
+        }
+        public bool ShouldSerializeSignatureS() => __pbn__SignatureS != null;
+        public void ResetSignatureS() => __pbn__SignatureS = null;
+        private byte[] __pbn__SignatureS;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"hash")]
+        public byte[] Hash
+        {
+            get { return __pbn__Hash; }
+            set { __pbn__Hash = value; }
+        }
+        public bool ShouldSerializeHash() => __pbn__Hash != null;
+        public void ResetHash() => __pbn__Hash = null;
+        private byte[] __pbn__Hash;
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"signature_der")]
+        public byte[] SignatureDer
+        {
+            get { return __pbn__SignatureDer; }
+            set { __pbn__SignatureDer = value; }
+        }
+        public bool ShouldSerializeSignatureDer() => __pbn__SignatureDer != null;
+        public void ResetSignatureDer() => __pbn__SignatureDer = null;
+        private byte[] __pbn__SignatureDer;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumTxAck : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"data_chunk")]
+        public byte[] DataChunk
+        {
+            get { return __pbn__DataChunk; }
+            set { __pbn__DataChunk = value; }
+        }
+        public bool ShouldSerializeDataChunk() => __pbn__DataChunk != null;
+        public void ResetDataChunk() => __pbn__DataChunk = null;
+        private byte[] __pbn__DataChunk;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumSignMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address_n")]
+        public uint[] AddressNs { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"message", IsRequired = true)]
+        public byte[] Message { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumVerifyMessage : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public byte[] Address
+        {
+            get { return __pbn__Address; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private byte[] __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"message")]
+        public byte[] Message
+        {
+            get { return __pbn__Message; }
+            set { __pbn__Message = value; }
+        }
+        public bool ShouldSerializeMessage() => __pbn__Message != null;
+        public void ResetMessage() => __pbn__Message = null;
+        private byte[] __pbn__Message;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class EthereumMessageSignature : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public byte[] Address
+        {
+            get { return __pbn__Address; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private byte[] __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class SignIdentity : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"identity")]
+        public IdentityType Identity { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"challenge_hidden")]
+        public byte[] ChallengeHidden
+        {
+            get { return __pbn__ChallengeHidden; }
+            set { __pbn__ChallengeHidden = value; }
+        }
+        public bool ShouldSerializeChallengeHidden() => __pbn__ChallengeHidden != null;
+        public void ResetChallengeHidden() => __pbn__ChallengeHidden = null;
+        private byte[] __pbn__ChallengeHidden;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"challenge_visual")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ChallengeVisual
+        {
+            get { return __pbn__ChallengeVisual ?? ""; }
+            set { __pbn__ChallengeVisual = value; }
+        }
+        public bool ShouldSerializeChallengeVisual() => __pbn__ChallengeVisual != null;
+        public void ResetChallengeVisual() => __pbn__ChallengeVisual = null;
+        private string __pbn__ChallengeVisual;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"ecdsa_curve_name")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string EcdsaCurveName
+        {
+            get { return __pbn__EcdsaCurveName ?? ""; }
+            set { __pbn__EcdsaCurveName = value; }
+        }
+        public bool ShouldSerializeEcdsaCurveName() => __pbn__EcdsaCurveName != null;
+        public void ResetEcdsaCurveName() => __pbn__EcdsaCurveName = null;
+        private string __pbn__EcdsaCurveName;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class SignedIdentity : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Address
+        {
+            get { return __pbn__Address ?? ""; }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private string __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"public_key")]
+        public byte[] PublicKey
+        {
+            get { return __pbn__PublicKey; }
+            set { __pbn__PublicKey = value; }
+        }
+        public bool ShouldSerializePublicKey() => __pbn__PublicKey != null;
+        public void ResetPublicKey() => __pbn__PublicKey = null;
+        private byte[] __pbn__PublicKey;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"signature")]
+        public byte[] Signature
+        {
+            get { return __pbn__Signature; }
+            set { __pbn__Signature = value; }
+        }
+        public bool ShouldSerializeSignature() => __pbn__Signature != null;
+        public void ResetSignature() => __pbn__Signature = null;
+        private byte[] __pbn__Signature;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ApplyPolicies : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"policy")]
+        public global::System.Collections.Generic.List<PolicyType> Policies { get; } = new global::System.Collections.Generic.List<PolicyType>();
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FlashHash : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public uint Address
+        {
+            get { return __pbn__Address.GetValueOrDefault(); }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private uint? __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"length")]
+        public uint Length
+        {
+            get { return __pbn__Length.GetValueOrDefault(); }
+            set { __pbn__Length = value; }
+        }
+        public bool ShouldSerializeLength() => __pbn__Length != null;
+        public void ResetLength() => __pbn__Length = null;
+        private uint? __pbn__Length;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"challenge")]
+        public byte[] Challenge
+        {
+            get { return __pbn__Challenge; }
+            set { __pbn__Challenge = value; }
+        }
+        public bool ShouldSerializeChallenge() => __pbn__Challenge != null;
+        public void ResetChallenge() => __pbn__Challenge = null;
+        private byte[] __pbn__Challenge;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FlashWrite : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public uint Address
+        {
+            get { return __pbn__Address.GetValueOrDefault(); }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private uint? __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"data")]
+        public byte[] Data
+        {
+            get { return __pbn__Data; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private byte[] __pbn__Data;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"erase")]
+        public bool Erase
+        {
+            get { return __pbn__Erase.GetValueOrDefault(); }
+            set { __pbn__Erase = value; }
+        }
+        public bool ShouldSerializeErase() => __pbn__Erase != null;
+        public void ResetErase() => __pbn__Erase = null;
+        private bool? __pbn__Erase;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FlashHashResponse : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"data")]
+        public byte[] Data
+        {
+            get { return __pbn__Data; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private byte[] __pbn__Data;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkFlashDump : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"address")]
+        public uint Address
+        {
+            get { return __pbn__Address.GetValueOrDefault(); }
+            set { __pbn__Address = value; }
+        }
+        public bool ShouldSerializeAddress() => __pbn__Address != null;
+        public void ResetAddress() => __pbn__Address = null;
+        private uint? __pbn__Address;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"length")]
+        public uint Length
+        {
+            get { return __pbn__Length.GetValueOrDefault(); }
+            set { __pbn__Length = value; }
+        }
+        public bool ShouldSerializeLength() => __pbn__Length != null;
+        public void ResetLength() => __pbn__Length = null;
+        private uint? __pbn__Length;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkFlashDumpResponse : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"data")]
+        public byte[] Data
+        {
+            get { return __pbn__Data; }
+            set { __pbn__Data = value; }
+        }
+        public bool ShouldSerializeData() => __pbn__Data != null;
+        public void ResetData() => __pbn__Data = null;
+        private byte[] __pbn__Data;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class SoftReset : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FirmwareErase : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class FirmwareUpload : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"payload_hash", IsRequired = true)]
+        public byte[] PayloadHash { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"payload", IsRequired = true)]
+        public byte[] Payload { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkDecision : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"yes_no", IsRequired = true)]
+        public bool YesNo { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkGetState : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkState : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"layout")]
+        public byte[] Layout
+        {
+            get { return __pbn__Layout; }
+            set { __pbn__Layout = value; }
+        }
+        public bool ShouldSerializeLayout() => __pbn__Layout != null;
+        public void ResetLayout() => __pbn__Layout = null;
+        private byte[] __pbn__Layout;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"pin")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Pin
+        {
+            get { return __pbn__Pin ?? ""; }
+            set { __pbn__Pin = value; }
+        }
+        public bool ShouldSerializePin() => __pbn__Pin != null;
+        public void ResetPin() => __pbn__Pin = null;
+        private string __pbn__Pin;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"matrix")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Matrix
+        {
+            get { return __pbn__Matrix ?? ""; }
+            set { __pbn__Matrix = value; }
+        }
+        public bool ShouldSerializeMatrix() => __pbn__Matrix != null;
+        public void ResetMatrix() => __pbn__Matrix = null;
+        private string __pbn__Matrix;
+
+        [global::ProtoBuf.ProtoMember(4, Name = @"mnemonic")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Mnemonic
+        {
+            get { return __pbn__Mnemonic ?? ""; }
+            set { __pbn__Mnemonic = value; }
+        }
+        public bool ShouldSerializeMnemonic() => __pbn__Mnemonic != null;
+        public void ResetMnemonic() => __pbn__Mnemonic = null;
+        private string __pbn__Mnemonic;
+
+        [global::ProtoBuf.ProtoMember(5, Name = @"node")]
+        public HDNodeType Node { get; set; }
+
+        [global::ProtoBuf.ProtoMember(6, Name = @"passphrase_protection")]
+        public bool PassphraseProtection
+        {
+            get { return __pbn__PassphraseProtection.GetValueOrDefault(); }
+            set { __pbn__PassphraseProtection = value; }
+        }
+        public bool ShouldSerializePassphraseProtection() => __pbn__PassphraseProtection != null;
+        public void ResetPassphraseProtection() => __pbn__PassphraseProtection = null;
+        private bool? __pbn__PassphraseProtection;
+
+        [global::ProtoBuf.ProtoMember(7, Name = @"reset_word")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ResetWord
+        {
+            get { return __pbn__ResetWord ?? ""; }
+            set { __pbn__ResetWord = value; }
+        }
+        public bool ShouldSerializeResetWord() => __pbn__ResetWord != null;
+        public void ResetResetWord() => __pbn__ResetWord = null;
+        private string __pbn__ResetWord;
+
+        [global::ProtoBuf.ProtoMember(8, Name = @"reset_entropy")]
+        public byte[] ResetEntropy
+        {
+            get { return __pbn__ResetEntropy; }
+            set { __pbn__ResetEntropy = value; }
+        }
+        public bool ShouldSerializeResetEntropy() => __pbn__ResetEntropy != null;
+        public void ResetResetEntropy() => __pbn__ResetEntropy = null;
+        private byte[] __pbn__ResetEntropy;
+
+        [global::ProtoBuf.ProtoMember(9, Name = @"recovery_fake_word")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string RecoveryFakeWord
+        {
+            get { return __pbn__RecoveryFakeWord ?? ""; }
+            set { __pbn__RecoveryFakeWord = value; }
+        }
+        public bool ShouldSerializeRecoveryFakeWord() => __pbn__RecoveryFakeWord != null;
+        public void ResetRecoveryFakeWord() => __pbn__RecoveryFakeWord = null;
+        private string __pbn__RecoveryFakeWord;
+
+        [global::ProtoBuf.ProtoMember(10, Name = @"recovery_word_pos")]
+        public uint RecoveryWordPos
+        {
+            get { return __pbn__RecoveryWordPos.GetValueOrDefault(); }
+            set { __pbn__RecoveryWordPos = value; }
+        }
+        public bool ShouldSerializeRecoveryWordPos() => __pbn__RecoveryWordPos != null;
+        public void ResetRecoveryWordPos() => __pbn__RecoveryWordPos = null;
+        private uint? __pbn__RecoveryWordPos;
+
+        [global::ProtoBuf.ProtoMember(11, Name = @"recovery_cipher")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string RecoveryCipher
+        {
+            get { return __pbn__RecoveryCipher ?? ""; }
+            set { __pbn__RecoveryCipher = value; }
+        }
+        public bool ShouldSerializeRecoveryCipher() => __pbn__RecoveryCipher != null;
+        public void ResetRecoveryCipher() => __pbn__RecoveryCipher = null;
+        private string __pbn__RecoveryCipher;
+
+        [global::ProtoBuf.ProtoMember(12, Name = @"recovery_auto_completed_word")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string RecoveryAutoCompletedWord
+        {
+            get { return __pbn__RecoveryAutoCompletedWord ?? ""; }
+            set { __pbn__RecoveryAutoCompletedWord = value; }
+        }
+        public bool ShouldSerializeRecoveryAutoCompletedWord() => __pbn__RecoveryAutoCompletedWord != null;
+        public void ResetRecoveryAutoCompletedWord() => __pbn__RecoveryAutoCompletedWord = null;
+        private string __pbn__RecoveryAutoCompletedWord;
+
+        [global::ProtoBuf.ProtoMember(13, Name = @"firmware_hash")]
+        public byte[] FirmwareHash
+        {
+            get { return __pbn__FirmwareHash; }
+            set { __pbn__FirmwareHash = value; }
+        }
+        public bool ShouldSerializeFirmwareHash() => __pbn__FirmwareHash != null;
+        public void ResetFirmwareHash() => __pbn__FirmwareHash = null;
+        private byte[] __pbn__FirmwareHash;
+
+        [global::ProtoBuf.ProtoMember(14, Name = @"storage_hash")]
+        public byte[] StorageHash
+        {
+            get { return __pbn__StorageHash; }
+            set { __pbn__StorageHash = value; }
+        }
+        public bool ShouldSerializeStorageHash() => __pbn__StorageHash != null;
+        public void ResetStorageHash() => __pbn__StorageHash = null;
+        private byte[] __pbn__StorageHash;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkStop : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkLog : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, Name = @"level")]
+        public uint Level
+        {
+            get { return __pbn__Level.GetValueOrDefault(); }
+            set { __pbn__Level = value; }
+        }
+        public bool ShouldSerializeLevel() => __pbn__Level != null;
+        public void ResetLevel() => __pbn__Level = null;
+        private uint? __pbn__Level;
+
+        [global::ProtoBuf.ProtoMember(2, Name = @"bucket")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Bucket
+        {
+            get { return __pbn__Bucket ?? ""; }
+            set { __pbn__Bucket = value; }
+        }
+        public bool ShouldSerializeBucket() => __pbn__Bucket != null;
+        public void ResetBucket() => __pbn__Bucket = null;
+        private string __pbn__Bucket;
+
+        [global::ProtoBuf.ProtoMember(3, Name = @"text")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string Text
+        {
+            get { return __pbn__Text ?? ""; }
+            set { __pbn__Text = value; }
+        }
+        public bool ShouldSerializeText() => __pbn__Text != null;
+        public void ResetText() => __pbn__Text = null;
+        private string __pbn__Text;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class DebugLinkFillConfig : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum MessageType
+    {
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Initialize")]
+        MessageTypeInitialize = 0,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Ping")]
+        MessageTypePing = 1,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Success")]
+        MessageTypeSuccess = 2,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Failure")]
+        MessageTypeFailure = 3,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ChangePin")]
+        MessageTypeChangePin = 4,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_WipeDevice")]
+        MessageTypeWipeDevice = 5,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FirmwareErase")]
+        MessageTypeFirmwareErase = 6,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FirmwareUpload")]
+        MessageTypeFirmwareUpload = 7,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetEntropy")]
+        MessageTypeGetEntropy = 9,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Entropy")]
+        MessageTypeEntropy = 10,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetPublicKey")]
+        MessageTypeGetPublicKey = 11,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PublicKey")]
+        MessageTypePublicKey = 12,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_LoadDevice")]
+        MessageTypeLoadDevice = 13,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ResetDevice")]
+        MessageTypeResetDevice = 14,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignTx")]
+        MessageTypeSignTx = 15,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Features")]
+        MessageTypeFeatures = 17,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PinMatrixRequest")]
+        MessageTypePinMatrixRequest = 18,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PinMatrixAck")]
+        MessageTypePinMatrixAck = 19,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Cancel")]
+        MessageTypeCancel = 20,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_TxRequest")]
+        MessageTypeTxRequest = 21,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_TxAck")]
+        MessageTypeTxAck = 22,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CipherKeyValue")]
+        MessageTypeCipherKeyValue = 23,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ClearSession")]
+        MessageTypeClearSession = 24,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ApplySettings")]
+        MessageTypeApplySettings = 25,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ButtonRequest")]
+        MessageTypeButtonRequest = 26,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ButtonAck")]
+        MessageTypeButtonAck = 27,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetAddress")]
+        MessageTypeGetAddress = 29,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Address")]
+        MessageTypeAddress = 30,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EntropyRequest")]
+        MessageTypeEntropyRequest = 35,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EntropyAck")]
+        MessageTypeEntropyAck = 36,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignMessage")]
+        MessageTypeSignMessage = 38,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_VerifyMessage")]
+        MessageTypeVerifyMessage = 39,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_MessageSignature")]
+        MessageTypeMessageSignature = 40,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PassphraseRequest")]
+        MessageTypePassphraseRequest = 41,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PassphraseAck")]
+        MessageTypePassphraseAck = 42,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EstimateTxSize")]
+        MessageTypeEstimateTxSize = 43,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_TxSize")]
+        MessageTypeTxSize = 44,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_RecoveryDevice")]
+        MessageTypeRecoveryDevice = 45,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_WordRequest")]
+        MessageTypeWordRequest = 46,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_WordAck")]
+        MessageTypeWordAck = 47,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CipheredKeyValue")]
+        MessageTypeCipheredKeyValue = 48,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EncryptMessage")]
+        MessageTypeEncryptMessage = 49,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EncryptedMessage")]
+        MessageTypeEncryptedMessage = 50,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DecryptMessage")]
+        MessageTypeDecryptMessage = 51,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DecryptedMessage")]
+        MessageTypeDecryptedMessage = 52,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignIdentity")]
+        MessageTypeSignIdentity = 53,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignedIdentity")]
+        MessageTypeSignedIdentity = 54,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetFeatures")]
+        MessageTypeGetFeatures = 55,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumGetAddress")]
+        MessageTypeEthereumGetAddress = 56,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumAddress")]
+        MessageTypeEthereumAddress = 57,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumSignTx")]
+        MessageTypeEthereumSignTx = 58,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumTxRequest")]
+        MessageTypeEthereumTxRequest = 59,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumTxAck")]
+        MessageTypeEthereumTxAck = 60,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CharacterRequest")]
+        MessageTypeCharacterRequest = 80,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CharacterAck")]
+        MessageTypeCharacterAck = 81,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_RawTxAck")]
+        MessageTypeRawTxAck = 82,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ApplyPolicies")]
+        MessageTypeApplyPolicies = 83,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashHash")]
+        MessageTypeFlashHash = 84,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashWrite")]
+        MessageTypeFlashWrite = 85,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashHashResponse")]
+        MessageTypeFlashHashResponse = 86,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFlashDump")]
+        MessageTypeDebugLinkFlashDump = 87,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFlashDumpResponse")]
+        MessageTypeDebugLinkFlashDumpResponse = 88,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SoftReset")]
+        MessageTypeSoftReset = 89,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkDecision")]
+        MessageTypeDebugLinkDecision = 100,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkGetState")]
+        MessageTypeDebugLinkGetState = 101,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkState")]
+        MessageTypeDebugLinkState = 102,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkStop")]
+        MessageTypeDebugLinkStop = 103,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkLog")]
+        MessageTypeDebugLinkLog = 104,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFillConfig")]
+        MessageTypeDebugLinkFillConfig = 105,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetCoinTable")]
+        MessageTypeGetCoinTable = 106,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CoinTable")]
+        MessageTypeCoinTable = 107,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumSignMessage")]
+        MessageTypeEthereumSignMessage = 108,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumVerifyMessage")]
+        MessageTypeEthereumVerifyMessage = 109,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumMessageSignature")]
+        MessageTypeEthereumMessageSignature = 110,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosGetPublicKey")]
+        MessageTypeEosGetPublicKey = 600,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosPublicKey")]
+        MessageTypeEosPublicKey = 601,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosSignTx")]
+        MessageTypeEosSignTx = 602,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosTxActionRequest")]
+        MessageTypeEosTxActionRequest = 603,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosTxActionAck")]
+        MessageTypeEosTxActionAck = 604,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosSignedTx")]
+        MessageTypeEosSignedTx = 605,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoGetAddress")]
+        MessageTypeNanoGetAddress = 700,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoAddress")]
+        MessageTypeNanoAddress = 701,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoSignTx")]
+        MessageTypeNanoSignTx = 702,
+        [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoSignedTx")]
+        MessageTypeNanoSignedTx = 703,
     }
-    public bool ShouldSerializeText() => __pbn__Text != null;
-    public void ResetText() => __pbn__Text = null;
-    private string __pbn__Text;
-
-}
-
-[global::ProtoBuf.ProtoContract()]
-public partial class DebugLinkFillConfig : global::ProtoBuf.IExtensible
-{
-    private global::ProtoBuf.IExtension __pbn__extensionData;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-        => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-}
 
-[global::ProtoBuf.ProtoContract()]
-public enum MessageType
-{
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Initialize")]
-    MessageTypeInitialize = 0,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Ping")]
-    MessageTypePing = 1,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Success")]
-    MessageTypeSuccess = 2,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Failure")]
-    MessageTypeFailure = 3,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ChangePin")]
-    MessageTypeChangePin = 4,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_WipeDevice")]
-    MessageTypeWipeDevice = 5,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FirmwareErase")]
-    MessageTypeFirmwareErase = 6,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FirmwareUpload")]
-    MessageTypeFirmwareUpload = 7,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetEntropy")]
-    MessageTypeGetEntropy = 9,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Entropy")]
-    MessageTypeEntropy = 10,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetPublicKey")]
-    MessageTypeGetPublicKey = 11,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PublicKey")]
-    MessageTypePublicKey = 12,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_LoadDevice")]
-    MessageTypeLoadDevice = 13,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ResetDevice")]
-    MessageTypeResetDevice = 14,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignTx")]
-    MessageTypeSignTx = 15,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Features")]
-    MessageTypeFeatures = 17,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PinMatrixRequest")]
-    MessageTypePinMatrixRequest = 18,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PinMatrixAck")]
-    MessageTypePinMatrixAck = 19,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Cancel")]
-    MessageTypeCancel = 20,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_TxRequest")]
-    MessageTypeTxRequest = 21,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_TxAck")]
-    MessageTypeTxAck = 22,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CipherKeyValue")]
-    MessageTypeCipherKeyValue = 23,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ClearSession")]
-    MessageTypeClearSession = 24,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ApplySettings")]
-    MessageTypeApplySettings = 25,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ButtonRequest")]
-    MessageTypeButtonRequest = 26,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ButtonAck")]
-    MessageTypeButtonAck = 27,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetAddress")]
-    MessageTypeGetAddress = 29,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_Address")]
-    MessageTypeAddress = 30,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EntropyRequest")]
-    MessageTypeEntropyRequest = 35,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EntropyAck")]
-    MessageTypeEntropyAck = 36,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignMessage")]
-    MessageTypeSignMessage = 38,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_VerifyMessage")]
-    MessageTypeVerifyMessage = 39,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_MessageSignature")]
-    MessageTypeMessageSignature = 40,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PassphraseRequest")]
-    MessageTypePassphraseRequest = 41,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_PassphraseAck")]
-    MessageTypePassphraseAck = 42,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EstimateTxSize")]
-    MessageTypeEstimateTxSize = 43,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_TxSize")]
-    MessageTypeTxSize = 44,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_RecoveryDevice")]
-    MessageTypeRecoveryDevice = 45,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_WordRequest")]
-    MessageTypeWordRequest = 46,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_WordAck")]
-    MessageTypeWordAck = 47,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CipheredKeyValue")]
-    MessageTypeCipheredKeyValue = 48,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EncryptMessage")]
-    MessageTypeEncryptMessage = 49,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EncryptedMessage")]
-    MessageTypeEncryptedMessage = 50,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DecryptMessage")]
-    MessageTypeDecryptMessage = 51,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DecryptedMessage")]
-    MessageTypeDecryptedMessage = 52,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignIdentity")]
-    MessageTypeSignIdentity = 53,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SignedIdentity")]
-    MessageTypeSignedIdentity = 54,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetFeatures")]
-    MessageTypeGetFeatures = 55,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumGetAddress")]
-    MessageTypeEthereumGetAddress = 56,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumAddress")]
-    MessageTypeEthereumAddress = 57,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumSignTx")]
-    MessageTypeEthereumSignTx = 58,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumTxRequest")]
-    MessageTypeEthereumTxRequest = 59,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumTxAck")]
-    MessageTypeEthereumTxAck = 60,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CharacterRequest")]
-    MessageTypeCharacterRequest = 80,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CharacterAck")]
-    MessageTypeCharacterAck = 81,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_RawTxAck")]
-    MessageTypeRawTxAck = 82,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_ApplyPolicies")]
-    MessageTypeApplyPolicies = 83,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashHash")]
-    MessageTypeFlashHash = 84,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashWrite")]
-    MessageTypeFlashWrite = 85,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_FlashHashResponse")]
-    MessageTypeFlashHashResponse = 86,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFlashDump")]
-    MessageTypeDebugLinkFlashDump = 87,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFlashDumpResponse")]
-    MessageTypeDebugLinkFlashDumpResponse = 88,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_SoftReset")]
-    MessageTypeSoftReset = 89,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkDecision")]
-    MessageTypeDebugLinkDecision = 100,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkGetState")]
-    MessageTypeDebugLinkGetState = 101,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkState")]
-    MessageTypeDebugLinkState = 102,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkStop")]
-    MessageTypeDebugLinkStop = 103,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkLog")]
-    MessageTypeDebugLinkLog = 104,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_DebugLinkFillConfig")]
-    MessageTypeDebugLinkFillConfig = 105,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_GetCoinTable")]
-    MessageTypeGetCoinTable = 106,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_CoinTable")]
-    MessageTypeCoinTable = 107,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumSignMessage")]
-    MessageTypeEthereumSignMessage = 108,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumVerifyMessage")]
-    MessageTypeEthereumVerifyMessage = 109,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EthereumMessageSignature")]
-    MessageTypeEthereumMessageSignature = 110,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosGetPublicKey")]
-    MessageTypeEosGetPublicKey = 600,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosPublicKey")]
-    MessageTypeEosPublicKey = 601,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosSignTx")]
-    MessageTypeEosSignTx = 602,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosTxActionRequest")]
-    MessageTypeEosTxActionRequest = 603,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosTxActionAck")]
-    MessageTypeEosTxActionAck = 604,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_EosSignedTx")]
-    MessageTypeEosSignedTx = 605,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoGetAddress")]
-    MessageTypeNanoGetAddress = 700,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoAddress")]
-    MessageTypeNanoAddress = 701,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoSignTx")]
-    MessageTypeNanoSignTx = 702,
-    [global::ProtoBuf.ProtoEnum(Name = @"MessageType_NanoSignedTx")]
-    MessageTypeNanoSignedTx = 703,
 }
-
 #pragma warning restore
