@@ -1,4 +1,5 @@
 ﻿using Hardwarewallets.Net.AddressManagement;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace KeepKey.Net.XamarinFormsSample
@@ -24,7 +25,8 @@ namespace KeepKey.Net.XamarinFormsSample
             if (_IsDisplayed) return;
             _IsDisplayed = true;
 
-            KeepKeyManagerBroker = new KeepKeyManagerBroker(KeepKeyPinPad.GetPin, 2000);
+            //TODO: Put a passphrase page in place
+            KeepKeyManagerBroker = new KeepKeyManagerBroker(KeepKeyPinPad.GetPin, () => { return Task.FromResult("a"); }, 2000);
             var keepKeyManager = await KeepKeyManagerBroker.WaitForFirstTrezorAsync();
             var coinTable = await keepKeyManager.GetCoinTable();
             keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);

@@ -40,7 +40,7 @@ namespace KeepKeyTestApp
             //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
             WindowsHidDeviceFactory.Register();
 
-            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000);
+            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, 2000);
             var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
             var coinTable = await keepKeyManager.GetCoinTable();
             keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
@@ -104,6 +104,12 @@ namespace KeepKeyTestApp
         private static async Task<string> GetAddress(KeepKeyManager keepKeyManager, uint i)
         {
             return await keepKeyManager.GetAddressAsync(new BIP44AddressPath(true, 0, 0, false, i), false, false);
+        }
+
+        private static async Task<string> GetPassphrase()
+        {
+            Console.WriteLine("Enter passphrase: ");
+            return Console.ReadLine().Trim();
         }
 
         private static async Task<string> GetPin()

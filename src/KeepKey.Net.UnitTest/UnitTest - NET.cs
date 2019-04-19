@@ -19,7 +19,7 @@ namespace KeepKey.Net
             //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
             WindowsHidDeviceFactory.Register();
 
-            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, 2000);
+            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, 2000);
             var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
             await keepKeyManager.InitializeAsync();
             var coinTable = await keepKeyManager.GetCoinTable();
@@ -29,13 +29,23 @@ namespace KeepKey.Net
 
         private async Task<string> GetPin()
         {
+            return await Prompt("Pin");
+        }
+
+        private async Task<string> GetPassphrase()
+        {
+            return await Prompt("Passphrase");
+        }
+
+        private static async Task<string> Prompt(string prompt)
+        {
             var passwordExePath = Path.Combine(GetExecutingAssemblyDirectoryPath(), "Misc", "GetPassword.exe");
             if (!File.Exists(passwordExePath))
             {
                 throw new Exception($"The pin exe doesn't exist at passwordExePath {passwordExePath}");
             }
 
-            var process = Process.Start(passwordExePath);
+            var process = Process.Start(passwordExePath, prompt);
             process.WaitForExit();
             await Task.Delay(100);
             var pin = File.ReadAllText(Path.Combine(GetExecutingAssemblyDirectoryPath(), "pin.txt"));

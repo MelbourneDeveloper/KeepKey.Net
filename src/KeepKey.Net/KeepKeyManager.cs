@@ -33,10 +33,12 @@ namespace KeepKey.Net
         #region Protected Properties
         protected override string ContractNamespace => "KeepKey.Net.Contracts";
         protected override Type MessageTypeType => typeof(MessageType);
+
+        protected override bool? IsOldFirmware => false;
         #endregion
 
         #region Constructor
-        public KeepKeyManager(EnterPinArgs enterPinCallback, IDevice keepKeyDevice) : base(enterPinCallback, keepKeyDevice)
+        public KeepKeyManager(EnterPinArgs enterPinCallback, EnterPinArgs enterPassphraseCallback, IDevice keepKeyDevice) : base(enterPinCallback, enterPassphraseCallback, keepKeyDevice)
         {
         }
         #endregion
@@ -250,6 +252,16 @@ namespace KeepKey.Net
             }
 
             return coinInfos;
+        }
+
+        protected override bool IsPassphraseRequest(object response)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override Task<object> PassphraseAckAsync(string passPhrase)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
