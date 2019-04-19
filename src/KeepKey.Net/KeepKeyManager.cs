@@ -56,6 +56,18 @@ namespace KeepKey.Net
             return retVal;
         }
 
+        protected override async Task<object> PassphraseAckAsync(string passPhrase)
+        {
+            var retVal = await SendMessageAsync(new PassphraseAck { Passphrase = passPhrase });
+
+            if (retVal is Failure failure)
+            {
+                throw new FailureException<Failure>("Passphrase Attempt Failed.", failure);
+            }
+
+            return retVal;
+        }
+
         protected override async Task<object> ButtonAckAsync()
         {
             var retVal = await SendMessageAsync(new ButtonAck());
@@ -112,20 +124,13 @@ namespace KeepKey.Net
             return contractType;
         }
 
-        protected override bool IsButtonRequest(object response)
-        {
-            return response is ButtonRequest;
-        }
+        protected override bool IsButtonRequest(object response) => response is ButtonRequest;
 
-        protected override bool IsPinMatrixRequest(object response)
-        {
-            return response is PinMatrixRequest;
-        }
+        protected override bool IsPinMatrixRequest(object response) => response is PinMatrixRequest;
 
-        protected override bool IsInitialize(object response)
-        {
-            return response is Initialize;
-        }
+        protected override bool IsInitialize(object response) => response is Initialize;
+
+        protected override bool IsPassphraseRequest(object response) => response is PassphraseRequest;
 
         protected override void CheckForFailure(object returnMessage)
         {
@@ -252,16 +257,6 @@ namespace KeepKey.Net
             }
 
             return coinInfos;
-        }
-
-        protected override bool IsPassphraseRequest(object response)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override Task<object> PassphraseAckAsync(string passPhrase)
-        {
-            throw new NotImplementedException();
         }
         #endregion
     }

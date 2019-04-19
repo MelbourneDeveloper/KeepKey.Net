@@ -19,7 +19,7 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
     <PackageReleaseNotes>Upgrade protobuffer definitions and test with latest firmware. https://github.com/MelbourneDeveloper/KeepKey.Net/projects/1</PackageReleaseNotes>
     <AssemblyVersion>4.0.0.0</AssemblyVersion>
     <FileVersion>4.0.0.0</FileVersion>
-    <NoWarn>CA2007,IDE0010</NoWarn>
+    <NoWarn>CA2007,IDE0010,IDE0022</NoWarn>
     <CodeAnalysisRuleSet>CodeRules.ruleset</CodeAnalysisRuleSet> 
   </PropertyGroup>
 
