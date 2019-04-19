@@ -33,10 +33,12 @@ namespace KeepKey.Net
         #region Protected Properties
         protected override string ContractNamespace => "KeepKey.Net.Contracts";
         protected override Type MessageTypeType => typeof(MessageType);
+
+        protected override bool? IsOldFirmware => false;
         #endregion
 
         #region Constructor
-        public KeepKeyManager(EnterPinArgs enterPinCallback, IDevice keepKeyDevice) : base(enterPinCallback, keepKeyDevice)
+        public KeepKeyManager(EnterPinArgs enterPinCallback, EnterPinArgs enterPassphraseCallback, IDevice keepKeyDevice) : base(enterPinCallback, enterPassphraseCallback, keepKeyDevice)
         {
         }
         #endregion
@@ -49,6 +51,18 @@ namespace KeepKey.Net
             if (retVal is Failure failure)
             {
                 throw new FailureException<Failure>("PIN Attempt Failed.", failure);
+            }
+
+            return retVal;
+        }
+
+        protected override async Task<object> PassphraseAckAsync(string passPhrase)
+        {
+            var retVal = await SendMessageAsync(new PassphraseAck { Passphrase = passPhrase });
+
+            if (retVal is Failure failure)
+            {
+                throw new FailureException<Failure>("Passphrase Attempt Failed.", failure);
             }
 
             return retVal;
@@ -110,20 +124,13 @@ namespace KeepKey.Net
             return contractType;
         }
 
-        protected override bool IsButtonRequest(object response)
-        {
-            return response is ButtonRequest;
-        }
+        protected override bool IsButtonRequest(object response) => response is ButtonRequest;
 
-        protected override bool IsPinMatrixRequest(object response)
-        {
-            return response is PinMatrixRequest;
-        }
+        protected override bool IsPinMatrixRequest(object response) => response is PinMatrixRequest;
 
-        protected override bool IsInitialize(object response)
-        {
-            return response is Initialize;
-        }
+        protected override bool IsInitialize(object response) => response is Initialize;
+
+        protected override bool IsPassphraseRequest(object response) => response is PassphraseRequest;
 
         protected override void CheckForFailure(object returnMessage)
         {

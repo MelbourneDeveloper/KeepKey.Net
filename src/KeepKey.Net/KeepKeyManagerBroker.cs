@@ -10,7 +10,7 @@ namespace KeepKey.Net
     public class KeepKeyManagerBroker : TrezorManagerBrokerBase<KeepKeyManager, MessageType>, IDisposable
     {
         #region Constructor
-        public KeepKeyManagerBroker(EnterPinArgs enterPinArgs, int? pollInterval) : base(enterPinArgs, pollInterval, null)
+        public KeepKeyManagerBroker(EnterPinArgs enterPinArgs, EnterPinArgs enterPassphraseArgs, int? pollInterval) : base(enterPinArgs, enterPassphraseArgs, pollInterval, null)
         {
         }
         #endregion
@@ -33,7 +33,7 @@ namespace KeepKey.Net
             var dataHasExtraByteProperty = device.GetType().GetProperty("DataHasExtraByte");
             if (dataHasExtraByteProperty != null) dataHasExtraByteProperty.SetValue(device, false);
 
-            return new KeepKeyManager(EnterPinArgs, device);
+            return new KeepKeyManager(EnterPinArgs, EnterPassphraseArgs, device);
         }
         #endregion
     }
