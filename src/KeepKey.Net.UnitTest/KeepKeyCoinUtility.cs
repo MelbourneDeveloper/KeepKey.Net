@@ -1,12 +1,13 @@
 ﻿
 using Hardwarewallets.Net.AddressManagement;
 using KeepKey.Net.Contracts;
+using System;
 using System.Collections.Generic;
 using Trezor.Net;
 
 namespace KeepKey.Net
 {
-    public partial class KeepKeyCoinUtility : ICoinUtility
+    public class KeepKeyCoinUtility : ICoinUtility
     {
         #region Fields
         private readonly Dictionary<uint, CoinInfo> _CoinInfoByCoinType = new Dictionary<uint, CoinInfo>();
@@ -25,6 +26,8 @@ namespace KeepKey.Net
 
         public KeepKeyCoinUtility(IEnumerable<CoinType> coinTypes)
         {
+            if (coinTypes == null) throw new ArgumentNullException(nameof(coinTypes));
+
             foreach (var coinType in coinTypes)
             {
                 var coinTypeIndex = AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath);

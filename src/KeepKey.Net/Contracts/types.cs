@@ -2,10 +2,11 @@
 // Consider using 'partial classes' to extend these types
 // Input: types.proto
 
+#pragma warning disable
+
 namespace KeepKey.Net.Contracts
 {
 
-#pragma warning disable CS1591, CS0612, CS3021, IDE1006
     [global::ProtoBuf.ProtoContract()]
     public partial class HDNodeType : global::ProtoBuf.IExtensible
     {
@@ -123,28 +124,6 @@ namespace KeepKey.Net.Contracts
         public void ResetAddressTypeP2sh() => __pbn__AddressTypeP2sh = null;
         private uint? __pbn__AddressTypeP2sh;
 
-        [global::ProtoBuf.ProtoMember(6, Name = @"address_type_p2wpkh")]
-        [global::System.ComponentModel.DefaultValue(6)]
-        public uint AddressTypeP2wpkh
-        {
-            get { return __pbn__AddressTypeP2wpkh ?? 6; }
-            set { __pbn__AddressTypeP2wpkh = value; }
-        }
-        public bool ShouldSerializeAddressTypeP2wpkh() => __pbn__AddressTypeP2wpkh != null;
-        public void ResetAddressTypeP2wpkh() => __pbn__AddressTypeP2wpkh = null;
-        private uint? __pbn__AddressTypeP2wpkh;
-
-        [global::ProtoBuf.ProtoMember(7, Name = @"address_type_p2wsh")]
-        [global::System.ComponentModel.DefaultValue(10)]
-        public uint AddressTypeP2wsh
-        {
-            get { return __pbn__AddressTypeP2wsh ?? 10; }
-            set { __pbn__AddressTypeP2wsh = value; }
-        }
-        public bool ShouldSerializeAddressTypeP2wsh() => __pbn__AddressTypeP2wsh != null;
-        public void ResetAddressTypeP2wsh() => __pbn__AddressTypeP2wsh = null;
-        private uint? __pbn__AddressTypeP2wsh;
-
         [global::ProtoBuf.ProtoMember(8, Name = @"signed_message_header")]
         [global::System.ComponentModel.DefaultValue("")]
         public string SignedMessageHeader
@@ -196,16 +175,6 @@ namespace KeepKey.Net.Contracts
         public void ResetContractAddress() => __pbn__ContractAddress = null;
         private byte[] __pbn__ContractAddress;
 
-        [global::ProtoBuf.ProtoMember(15, Name = @"gas_limit")]
-        public byte[] GasLimit
-        {
-            get { return __pbn__GasLimit; }
-            set { __pbn__GasLimit = value; }
-        }
-        public bool ShouldSerializeGasLimit() => __pbn__GasLimit != null;
-        public void ResetGasLimit() => __pbn__GasLimit = null;
-        private byte[] __pbn__GasLimit;
-
         [global::ProtoBuf.ProtoMember(16, Name = @"xpub_magic")]
         [global::System.ComponentModel.DefaultValue(76067358)]
         public uint XpubMagic
@@ -216,17 +185,6 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeXpubMagic() => __pbn__XpubMagic != null;
         public void ResetXpubMagic() => __pbn__XpubMagic = null;
         private uint? __pbn__XpubMagic;
-
-        [global::ProtoBuf.ProtoMember(17, Name = @"xprv_magic")]
-        [global::System.ComponentModel.DefaultValue(76066276)]
-        public uint XprvMagic
-        {
-            get { return __pbn__XprvMagic ?? 76066276; }
-            set { __pbn__XprvMagic = value; }
-        }
-        public bool ShouldSerializeXprvMagic() => __pbn__XprvMagic != null;
-        public void ResetXprvMagic() => __pbn__XprvMagic = null;
-        private uint? __pbn__XprvMagic;
 
         [global::ProtoBuf.ProtoMember(18, Name = @"segwit")]
         public bool Segwit
@@ -291,16 +249,6 @@ namespace KeepKey.Net.Contracts
         public void ResetDecred() => __pbn__Decred = null;
         private bool? __pbn__Decred;
 
-        [global::ProtoBuf.ProtoMember(24, Name = @"version_group_id")]
-        public uint VersionGroupId
-        {
-            get { return __pbn__VersionGroupId.GetValueOrDefault(); }
-            set { __pbn__VersionGroupId = value; }
-        }
-        public bool ShouldSerializeVersionGroupId() => __pbn__VersionGroupId != null;
-        public void ResetVersionGroupId() => __pbn__VersionGroupId = null;
-        private uint? __pbn__VersionGroupId;
-
         [global::ProtoBuf.ProtoMember(25, Name = @"xpub_magic_segwit_p2sh")]
         public uint XpubMagicSegwitP2sh
         {
@@ -320,6 +268,17 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeXpubMagicSegwitNative() => __pbn__XpubMagicSegwitNative != null;
         public void ResetXpubMagicSegwitNative() => __pbn__XpubMagicSegwitNative = null;
         private uint? __pbn__XpubMagicSegwitNative;
+
+        [global::ProtoBuf.ProtoMember(27, Name = @"nanoaddr_prefix")]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string NanoaddrPrefix
+        {
+            get { return __pbn__NanoaddrPrefix ?? ""; }
+            set { __pbn__NanoaddrPrefix = value; }
+        }
+        public bool ShouldSerializeNanoaddrPrefix() => __pbn__NanoaddrPrefix != null;
+        public void ResetNanoaddrPrefix() => __pbn__NanoaddrPrefix = null;
+        private string __pbn__NanoaddrPrefix;
 
     }
 
@@ -617,6 +576,26 @@ namespace KeepKey.Net.Contracts
         public bool ShouldSerializeOverwintered() => __pbn__Overwintered != null;
         public void ResetOverwintered() => __pbn__Overwintered = null;
         private bool? __pbn__Overwintered;
+
+        [global::ProtoBuf.ProtoMember(12, Name = @"version_group_id")]
+        public uint VersionGroupId
+        {
+            get { return __pbn__VersionGroupId.GetValueOrDefault(); }
+            set { __pbn__VersionGroupId = value; }
+        }
+        public bool ShouldSerializeVersionGroupId() => __pbn__VersionGroupId != null;
+        public void ResetVersionGroupId() => __pbn__VersionGroupId = null;
+        private uint? __pbn__VersionGroupId;
+
+        [global::ProtoBuf.ProtoMember(13, Name = @"branch_id")]
+        public uint BranchId
+        {
+            get { return __pbn__BranchId.GetValueOrDefault(); }
+            set { __pbn__BranchId = value; }
+        }
+        public bool ShouldSerializeBranchId() => __pbn__BranchId != null;
+        public void ResetBranchId() => __pbn__BranchId = null;
+        private uint? __pbn__BranchId;
 
     }
 
@@ -1008,6 +987,16 @@ namespace KeepKey.Net.Contracts
         ButtonRequestApplyPolicies = 29,
         [global::ProtoBuf.ProtoEnum(Name = @"ButtonRequest_SignExchange")]
         ButtonRequestSignExchange = 30,
+        [global::ProtoBuf.ProtoEnum(Name = @"ButtonRequest_AutoLockDelayMs")]
+        ButtonRequestAutoLockDelayMs = 31,
+        [global::ProtoBuf.ProtoEnum(Name = @"ButtonRequest_U2FCounter")]
+        ButtonRequestU2FCounter = 32,
+        [global::ProtoBuf.ProtoEnum(Name = @"ButtonRequest_ConfirmEosAction")]
+        ButtonRequestConfirmEosAction = 33,
+        [global::ProtoBuf.ProtoEnum(Name = @"ButtonRequest_ConfirmEosBudget")]
+        ButtonRequestConfirmEosBudget = 34,
+        [global::ProtoBuf.ProtoEnum(Name = @"ButtonRequest_ConfirmMemo")]
+        ButtonRequestConfirmMemo = 35,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1021,36 +1010,6 @@ namespace KeepKey.Net.Contracts
         PinMatrixRequestTypeNewSecond = 3,
     }
 
-    //Comment out the code that doesn't compile
-    /*
-    public static class Extensions
-    {
-        public static bool GetWireIn(this global::EnumValueOptions obj)
-            => obj == null ? default : global::ProtoBuf.Extensible.GetValue<bool>(obj, 50002);
-
-        public static void SetWireIn(this global::google.protobuf.EnumValueOptions obj, bool value)
-            => global::ProtoBuf.Extensible.AppendValue<bool>(obj, 50002, value);
-
-        public static bool GetWireOut(this global::google.protobuf.EnumValueOptions obj)
-            => obj == null ? default : global::ProtoBuf.Extensible.GetValue<bool>(obj, 50003);
-
-        public static void SetWireOut(this global::google.protobuf.EnumValueOptions obj, bool value)
-            => global::ProtoBuf.Extensible.AppendValue<bool>(obj, 50003, value);
-
-        public static bool GetWireDebugIn(this global::google.protobuf.EnumValueOptions obj)
-            => obj == null ? default : global::ProtoBuf.Extensible.GetValue<bool>(obj, 50004);
-
-        public static void SetWireDebugIn(this global::google.protobuf.EnumValueOptions obj, bool value)
-            => global::ProtoBuf.Extensible.AppendValue<bool>(obj, 50004, value);
-
-        public static bool GetWireDebugOut(this global::google.protobuf.EnumValueOptions obj)
-            => obj == null ? default : global::ProtoBuf.Extensible.GetValue<bool>(obj, 50005);
-
-        public static void SetWireDebugOut(this global::google.protobuf.EnumValueOptions obj, bool value)
-            => global::ProtoBuf.Extensible.AppendValue<bool>(obj, 50005, value);
-
-    }
-        */
-#pragma warning restore CS1591, CS0612, CS3021, IDE1006
-
 }
+
+#pragma warning restore
