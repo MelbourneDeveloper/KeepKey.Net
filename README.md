@@ -1,6 +1,8 @@
 # KeepKey.Net
 Cross Platform C# Library for the KeepKey Cryptocurrency Hardwarewallet
 
+[Would you like to contribute?](https://christianfindlay.com/2019/04/28/calling-all-c-crypto-developers/)
+
 ## Quick Start
 
 - Clone the repo and open the solution
