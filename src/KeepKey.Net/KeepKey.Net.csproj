@@ -28,6 +28,12 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\CONTRIBUTING.md" Link="CONTRIBUTING.md" />
+    <None Include="..\..\LICENSE" Link="LICENSE" />
+    <None Include="..\..\README.md" Link="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.2" />
     <PackageReference Include="protobuf-net" Version="2.3.17" />
     <PackageReference Include="Trezor.Net" Version="4.1.0" />
