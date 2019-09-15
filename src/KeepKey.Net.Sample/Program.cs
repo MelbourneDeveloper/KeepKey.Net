@@ -1,4 +1,5 @@
-﻿using Hardwarewallets.Net.AddressManagement;
+﻿using Device.Net;
+using Hardwarewallets.Net.AddressManagement;
 using Hid.Net.Windows;
 using KeepKey.Net;
 using System;
@@ -35,10 +36,10 @@ namespace KeepKeyTestApp
         {
             //This only needs to be done once.
             //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
-            WindowsUsbDeviceFactory.Register();
+            WindowsUsbDeviceFactory.Register(new DebugLogger(), new DebugTracer());
 
             //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
-            WindowsHidDeviceFactory.Register();
+            WindowsHidDeviceFactory.Register(new DebugLogger(), new DebugTracer());
 
             var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, 2000);
             var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
