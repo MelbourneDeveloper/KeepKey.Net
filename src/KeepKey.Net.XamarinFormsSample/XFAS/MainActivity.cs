@@ -7,6 +7,7 @@ using Android.OS;
 using Android.Widget;
 using Device.Net;
 using System;
+using Usb.Net.Android;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -24,7 +25,7 @@ namespace KeepKey.Net.XamarinFormsSample.Droid
                 if (usbManager == null) throw new Exception("UsbManager is null");
 
                 //Register the factory for creating Usb devices. This only needs to be done once.
-                AndroidUsbDeviceFactory.Register(usbManager, base.ApplicationContext);
+                AndroidUsbDeviceFactory.Register(usbManager, base.ApplicationContext, new DebugLogger(), new DebugTracer());
 
                 TabLayoutResource = Resource.Layout.Tabbar;
                 ToolbarResource = Resource.Layout.Toolbar;

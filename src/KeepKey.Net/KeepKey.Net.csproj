@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>4.1.0</Version>
+    <Version>4.3.0</Version>
     <Description>A cross platform library for communicating with the KeepKey hardwarewallet
 
 Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for other platforms can be added with Hid.Net dependency injection</Description>
@@ -16,9 +16,9 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
     <PackageProjectUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</RepositoryUrl>
     <PackageTags>Hid USB Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey Cryptocurrency security</PackageTags>
-    <PackageReleaseNotes>Upgrade protobuffer definitions and test with latest firmware. https://github.com/MelbourneDeveloper/KeepKey.Net/projects/1</PackageReleaseNotes>
-    <AssemblyVersion>4.1.0.0</AssemblyVersion>
-    <FileVersion>4.1.0.0</FileVersion>
+    <PackageReleaseNotes>Upgrade for firmware 6.2.2. Device.Net compatibility fix. Switch to USB from Hid</PackageReleaseNotes>
+    <AssemblyVersion>4.3.0.0</AssemblyVersion>
+    <FileVersion>4.3.0.0</FileVersion>
     <NoWarn>CA2007,IDE0010,IDE0022</NoWarn>
     <CodeAnalysisRuleSet>CodeRules.ruleset</CodeAnalysisRuleSet> 
   </PropertyGroup>
@@ -34,9 +34,12 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.2" />
-    <PackageReference Include="protobuf-net" Version="2.3.17" />
-    <PackageReference Include="Trezor.Net" Version="4.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="protobuf-net" Version="2.4.0" />
+    <PackageReference Include="Trezor.Net" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

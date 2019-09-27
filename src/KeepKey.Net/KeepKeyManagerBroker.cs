@@ -19,9 +19,7 @@ namespace KeepKey.Net
         //Define the types of devices to search for. This particular device can be connected to via USB, or Hid
         protected override List<FilterDeviceDefinition> DeviceDefinitions { get; } = new List<FilterDeviceDefinition>
         {
-            new FilterDeviceDefinition{ DeviceType= DeviceType.Hid, VendorId= 0x2B24, ProductId=0x1, Label="KeepKey Hid Legacy Firmware"},
             new FilterDeviceDefinition{ DeviceType= DeviceType.Usb, VendorId= 0x2B24, ProductId=0x1, Label="Android Only USB Interface Legacy Firmware"},
-            new FilterDeviceDefinition{ DeviceType= DeviceType.Hid, VendorId= 0x2B24, ProductId=0x2, Label="KeepKey Hid"},
             new FilterDeviceDefinition{ DeviceType= DeviceType.Usb, VendorId= 0x2B24, ProductId=0x2, Label="Android Only USB Interface"}
         };
 
