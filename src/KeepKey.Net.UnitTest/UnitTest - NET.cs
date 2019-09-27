@@ -1,5 +1,4 @@
 ﻿using Device.Net;
-using Hid.Net.Windows;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -16,9 +15,6 @@ namespace KeepKey.Net
             //This only needs to be done once.
             //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
             WindowsUsbDeviceFactory.Register(new DebugLogger(), new DebugTracer());
-
-            //Register the factory for creating Hid devices. Trezor One Firmware 1.6.x
-            WindowsHidDeviceFactory.Register(new DebugLogger(), new DebugTracer());
 
             var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, 2000);
             var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
