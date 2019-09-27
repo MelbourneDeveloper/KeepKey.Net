@@ -39,7 +39,14 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="protobuf-net" Version="2.4.0" />
-    <PackageReference Include="Trezor.Net" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Device.Net\src\Device.Net\Device.Net.csproj" />
+    <ProjectReference Include="..\..\..\Device.Net\src\Hid.Net\Hid.Net.csproj" />
+    <ProjectReference Include="..\..\..\Device.Net\src\Usb.Net\Usb.Net.csproj" />
+    <ProjectReference Include="..\..\..\Hardwarewallets.Net\src\Hardwarewallets.Net\Hardwarewallets.Net.csproj" />
+    <ProjectReference Include="..\..\..\Trezor.Net\src\Trezor.Net\Trezor.Net.csproj" />
   </ItemGroup>
 
 </Project>
