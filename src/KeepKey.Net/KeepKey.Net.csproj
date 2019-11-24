@@ -24,7 +24,7 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\GitRepos\KeepKey.Net\NuGet\</OutputPath>
+    <OutputPath>..\..\KeepKey.Net\NuGet\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
