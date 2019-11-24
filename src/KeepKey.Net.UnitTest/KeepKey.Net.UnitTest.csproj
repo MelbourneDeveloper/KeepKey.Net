@@ -47,11 +47,11 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.2.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="CryptoCurrency.Net.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1cf63ed5a910bab2, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptoCurrency.Net.Base.2.0.0\lib\net46\CryptoCurrency.Net.Base.dll</HintPath>
+    </Reference>
     <Reference Include="Device.Net, Version=3.1.0.0, Culture=neutral, PublicKeyToken=7b6bc3f8fb80505e, processorArchitecture=MSIL">
       <HintPath>..\packages\Device.Net.3.1.0\lib\net45\Device.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Hardwarewallets.Net, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Hardwarewallets.Net.1.2.0\lib\net452\Hardwarewallets.Net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -163,12 +163,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KeepKey.Net\KeepKey.Net.csproj">
-      <Project>{01a2d0e3-55a8-4adb-b2aa-aa1c80785a42}</Project>
-      <Name>KeepKey.Net</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.4\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.4\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.4\analyzers\dotnet\cs\Humanizer.dll" />
@@ -178,6 +172,12 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.4\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.4\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.4\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KeepKey.Net\KeepKey.Net.csproj">
+      <Project>{01a2d0e3-55a8-4adb-b2aa-aa1c80785a42}</Project>
+      <Name>KeepKey.Net</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

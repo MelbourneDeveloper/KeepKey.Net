@@ -1,5 +1,5 @@
-﻿using Device.Net;
-using Hardwarewallets.Net.AddressManagement;
+﻿using CryptoCurrency.Net.Base.AddressManagement;
+using Device.Net;
 using Hid.Net.Windows;
 using KeepKey.Net;
 using System;

@@ -1,5 +1,4 @@
 ﻿using Device.Net;
-using Hardwarewallets.Net.AddressManagement;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

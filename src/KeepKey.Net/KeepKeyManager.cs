@@ -1,5 +1,5 @@
-﻿using Device.Net;
-using Hardwarewallets.Net.Model;
+﻿using CryptoCurrency.Net.Base.Abstractions.AddressManagement;
+using Device.Net;
 using KeepKey.Net.Contracts;
 using System;
 using System.Collections.Generic;
@@ -211,7 +211,7 @@ namespace KeepKey.Net
                             var sb = new StringBuilder();
                             foreach (var b in ethereumAddress.Address)
                             {
-                                sb.Append(b.ToString("X2").ToLower());
+                                _ = sb.Append(b.ToString("X2").ToLower());
                             }
 
                             var hexString = sb.ToString();

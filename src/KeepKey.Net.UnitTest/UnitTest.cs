@@ -1,5 +1,4 @@
-﻿using Hardwarewallets.Net;
-using Hardwarewallets.Net.AddressManagement;
+﻿using CryptoCurrency.Net.Base.AddressManagement;
 using KeepKey.Net.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NBitcoin;
