@@ -1,4 +1,5 @@
-﻿using Hid.Net.UWP;
+﻿
+using Device.Net;
 using Usb.Net.UWP;
 using app = KeepKey.Net.XamarinFormsSample.App;
 
@@ -10,8 +11,7 @@ namespace KeepKey.Net.XamarinFormsSample.UWP
         {
             InitializeComponent();
 
-            UWPHidDeviceFactory.Register();
-            UWPUsbDeviceFactory.Register();
+            UWPUsbDeviceFactory.Register(new DebugLogger(), new DebugTracer());
 
             LoadApplication(new app());
         }
