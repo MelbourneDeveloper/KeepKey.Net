@@ -27,6 +27,10 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
     <OutputPath>..\..\NuGet\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <OutputPath>..\..\NuGet\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Include="..\..\CONTRIBUTING.md" Link="CONTRIBUTING.md" />
     <None Include="..\..\LICENSE" Link="LICENSE" />
