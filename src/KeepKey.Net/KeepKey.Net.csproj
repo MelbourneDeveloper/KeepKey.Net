@@ -4,27 +4,23 @@
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>4.3.0</Version>
+    <Version>5.0.0-beta</Version>
     <Description>A cross platform library for communicating with the KeepKey hardwarewallet
 
 Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for other platforms can be added with Hid.Net dependency injection</Description>
     <PackageLicenseUrl>https://github.com/MelbourneDeveloper/KeepKey.Net/blob/master/LICENSE</PackageLicenseUrl>
-    <Copyright>Copyright (c) 2019 Christian Findlay</Copyright>
+    <Copyright>Copyright (c) 2021 Christian Findlay</Copyright>
     <LangVersion>latest</LangVersion>
     <Authors>Christian Findlay</Authors>
     <Company>Christian Findlay</Company>
     <PackageProjectUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MelbourneDeveloper/KeepKey.Net</RepositoryUrl>
     <PackageTags>Hid USB Trezor Hardwarewallet Bitcoin Ethereum SatoshiLabs KeepKey Cryptocurrency security</PackageTags>
-    <PackageReleaseNotes>Upgrade for firmware 6.2.2. Device.Net compatibility fix. Switch to USB from Hid</PackageReleaseNotes>
-    <AssemblyVersion>4.3.0.0</AssemblyVersion>
-    <FileVersion>4.3.0.0</FileVersion>
+    <PackageReleaseNotes>Upgrade to Device.Net 5.0</PackageReleaseNotes>
+    <AssemblyVersion>5.0.0.0</AssemblyVersion>
+    <FileVersion>5.0.0.0</FileVersion>
     <NoWarn>CA2007,IDE0010,IDE0022</NoWarn>
     <CodeAnalysisRuleSet>CodeRules.ruleset</CodeAnalysisRuleSet> 
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\GitRepos\KeepKey.Net\NuGet\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
