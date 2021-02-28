@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>4.3.0</Version>
@@ -34,12 +34,7 @@ Supports Android, UWP, .NET Core and .NET Framework with Hid.Net. Support for ot
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="protobuf-net" Version="2.4.0" />
-    <PackageReference Include="Trezor.Net" Version="4.3.0" />
+    <PackageReference Include="Trezor.Net" Version="5.0.0-beta" />
   </ItemGroup>
 
 </Project>

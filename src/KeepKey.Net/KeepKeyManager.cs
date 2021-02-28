@@ -1,6 +1,7 @@
 ﻿using Device.Net;
 using Hardwarewallets.Net.Model;
 using KeepKey.Net.Contracts;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,20 @@ namespace KeepKey.Net
         #endregion
 
         #region Constructor
-        public KeepKeyManager(EnterPinArgs enterPinCallback, EnterPinArgs enterPassphraseCallback, IDevice keepKeyDevice) : base(enterPinCallback, enterPassphraseCallback, keepKeyDevice)
+        public KeepKeyManager(
+            EnterPinArgs enterPinCallback,
+            EnterPinArgs enterPassphraseCallback,
+            IDevice keepKeyDevice,
+            ILogger<KeepKeyManager> logger = null,
+            ICoinUtility coinUtility = null)
+            :
+            base(
+                enterPinCallback,
+                enterPassphraseCallback,
+                keepKeyDevice,
+                logger,
+                coinUtility
+            )
         {
         }
         #endregion
@@ -48,36 +62,21 @@ namespace KeepKey.Net
         {
             var retVal = await SendMessageAsync(new PinMatrixAck { Pin = pin });
 
-            if (retVal is Failure failure)
-            {
-                throw new FailureException<Failure>("PIN Attempt Failed.", failure);
-            }
-
-            return retVal;
+            return retVal is Failure failure ? throw new FailureException<Failure>("PIN Attempt Failed.", failure) : retVal;
         }
 
         protected override async Task<object> PassphraseAckAsync(string passPhrase)
         {
             var retVal = await SendMessageAsync(new PassphraseAck { Passphrase = passPhrase });
 
-            if (retVal is Failure failure)
-            {
-                throw new FailureException<Failure>("Passphrase Attempt Failed.", failure);
-            }
-
-            return retVal;
+            return retVal is Failure failure ? throw new FailureException<Failure>("Passphrase Attempt Failed.", failure) : retVal;
         }
 
         protected override async Task<object> ButtonAckAsync()
         {
             var retVal = await SendMessageAsync(new ButtonAck());
 
-            if (retVal is Failure failure)
-            {
-                throw new FailureException<Failure>("PIN Attempt Failed.", failure);
-            }
-
-            return retVal;
+            return retVal is Failure failure ? throw new FailureException<Failure>("PIN Attempt Failed.", failure) : retVal;
         }
 
         protected override Type GetContractType(MessageType messageType, string typeName)
@@ -143,12 +142,7 @@ namespace KeepKey.Net
         protected override object GetEnumValue(string messageTypeString)
         {
             var isValid = Enum.TryParse(messageTypeString, out MessageType messageType);
-            if (!isValid)
-            {
-                throw new ManagerException($"{messageTypeString} is not a valid MessageType");
-            }
-
-            return messageType;
+            return !isValid ? throw new ManagerException($"{messageTypeString} is not a valid MessageType") : messageType;
         }
         #endregion
 
@@ -211,7 +205,7 @@ namespace KeepKey.Net
                             var sb = new StringBuilder();
                             foreach (var b in ethereumAddress.Address)
                             {
-                                sb.Append(b.ToString("X2").ToLower());
+                                _ = sb.Append(b.ToString("X2").ToLower());
                             }
 
                             var hexString = sb.ToString();
@@ -224,7 +218,7 @@ namespace KeepKey.Net
             }
             catch (Exception ex)
             {
-                Logger.Log("Error Getting KeepKey Address", LogSection, ex, LogLevel.Error);
+                Logger.LogError(ex, "Error Getting KeepKey Address");
                 throw;
             }
         }

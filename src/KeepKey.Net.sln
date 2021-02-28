@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeepKey.Net", "KeepKey.Net\KeepKey.Net.csproj", "{01A2D0E3-55A8-4ADB-B2AA-AA1C80785A42}"
 EndProject
@@ -18,6 +18,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepKey.Net.XamarinFormsSample.UWP", "KeepKey.Net.XamarinFormsSample\KeepKey.Net.XamarinFormsSample.UWP\KeepKey.Net.XamarinFormsSample.UWP.csproj", "{E228A094-964E-4CB1-9A35-4B52C20FEEA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepKey.Net.XamarinFormsSample.Android", "KeepKey.Net.XamarinFormsSample\XFAS\KeepKey.Net.XamarinFormsSample.Android.csproj", "{4FCAC043-E704-4AED-A371-077E50A67DA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10D6E757-1A50-43EB-B54C-E145C2E18119}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

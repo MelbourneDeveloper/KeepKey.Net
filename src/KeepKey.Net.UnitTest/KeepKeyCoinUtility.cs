@@ -20,8 +20,9 @@ namespace KeepKey.Net
         #region Public Methods
         public CoinInfo GetCoinInfo(uint coinNumber)
         {
-            if (!_CoinInfoByCoinType.TryGetValue(coinNumber, out var retVal)) throw new ManagerException($"No coin info for coin {coinNumber}");
-            return retVal;
+            return !_CoinInfoByCoinType.TryGetValue(coinNumber, out var retVal)
+                ? throw new ManagerException($"No coin info for coin {coinNumber}")
+                : retVal;
         }
 
         public KeepKeyCoinUtility(IEnumerable<CoinType> coinTypes)
