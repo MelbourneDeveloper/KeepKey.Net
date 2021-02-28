@@ -39,7 +39,8 @@ namespace KeepKey.Net
                 throw new Exception($"The pin exe doesn't exist at passwordExePath {passwordExePath}");
             }
 
-            var process = Process.Start(passwordExePath, prompt);
+            var processStartInfo = new ProcessStartInfo(passwordExePath, prompt) { UseShellExecute = true };
+            var process = Process.Start(processStartInfo);
             process.WaitForExit();
             await Task.Delay(100).ConfigureAwait(false);
             var pin = File.ReadAllText(Path.Combine(GetExecutingAssemblyDirectoryPath(), "pin.txt"));

@@ -19,7 +19,7 @@
 
 	<ItemGroup>
 		<None Update="Misc\GetPassword.exe">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 
