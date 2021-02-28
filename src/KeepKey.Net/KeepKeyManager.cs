@@ -27,6 +27,13 @@ namespace KeepKey.Net
         #endregion
 
         #region Public Properties
+        //Define the types of devices to search for. This particular device can be connected to via USB, or Hid
+        public static List<FilterDeviceDefinition> DeviceDefinitions { get; } = new List<FilterDeviceDefinition>
+        {
+            new FilterDeviceDefinition( vendorId: 0x2B24, productId:0x1, label:"Android Only USB Interface Legacy Firmware"),
+            new FilterDeviceDefinition( vendorId: 0x2B24, productId:0x2, label:"Android Only USB Interface")
+        };
+
         public override bool IsInitialized => Features != null;
         public Features Features { get; private set; }
         #endregion

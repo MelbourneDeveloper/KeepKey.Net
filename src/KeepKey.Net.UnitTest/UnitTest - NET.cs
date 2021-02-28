@@ -1,4 +1,4 @@
-﻿using Device.Net;
+﻿using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 using Usb.Net.Windows;
 
 #pragma warning disable CA2201 // Do not raise reserved exception types
+#pragma warning disable CA2000 // Dispose objects before losing scope
 
 namespace KeepKey.Net
 {
     public partial class UnitTest
     {
+        private static readonly ILoggerFactory _loggerFactory = LoggerFactory.Create(builder => _ = builder.AddDebug().SetMinimumLevel(LogLevel.Trace));
+
         private async Task<KeepKeyManager> ConnectAsync()
         {
-            //This only needs to be done once.
-            //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
-            WindowsUsbDeviceFactory.Register(new DebugLogger(), new DebugTracer());
+            var deviceFactory = KeepKeyManager.DeviceDefinitions.CreateWindowsUsbDeviceFactory();
 
-#pragma warning disable CA2000 // Dispose objects before losing scope
-            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, 2000);
-#pragma warning restore CA2000 // Dispose objects before losing scope
+            var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, deviceFactory, null, _loggerFactory, 2000);
             var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync().ConfigureAwait(false);
             await keepKeyManager.InitializeAsync().ConfigureAwait(false);
             var coinTable = await keepKeyManager.GetCoinTable().ConfigureAwait(false);

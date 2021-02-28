@@ -2,7 +2,6 @@
 using Hardwarewallets.Net.AddressManagement;
 using KeepKey.Net.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NBitcoin;
 using Nethereum.Hex.HexConvertors.Extensions;
 using Nethereum.RLP;
 using System;
@@ -195,7 +194,7 @@ namespace KeepKey.Net
                 GasLimit = 21000.ToBytesForRLPEncoding().ToHex().ToHexBytes(),
                 To = "689c56aef474df92d44a1b70850f808488f9769c".ToHexBytes(),
                 Value = BigInteger.Parse("10000000000000000000").ToBytesForRLPEncoding().ToHex().ToHexBytes(),
-                AddressNs = KeyPath.Parse("m/44'/60'/0'/0/0").Indexes,
+                AddressNs = AddressPathBase.Parse<BIP44AddressPath>("m/44'/60'/0'/0/0").ToArray(),
                 ChainId = 1
             };
             var transaction = await KeepKeyManager.SendMessageAsync<EthereumTxRequest, EthereumSignTx>(txMessage).ConfigureAwait(false);

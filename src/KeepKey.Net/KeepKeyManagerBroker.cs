@@ -1,7 +1,7 @@
 ﻿using Device.Net;
 using KeepKey.Net.Contracts;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using Trezor.Net;
 using Trezor.Net.Manager;
 
@@ -10,19 +10,24 @@ namespace KeepKey.Net
     public class KeepKeyManagerBroker : TrezorManagerBrokerBase<KeepKeyManager, MessageType>, IDisposable
     {
         #region Constructor
-        public KeepKeyManagerBroker(EnterPinArgs enterPinArgs, EnterPinArgs enterPassphraseArgs, int? pollInterval) : base(enterPinArgs, enterPassphraseArgs, pollInterval, null)
+        public KeepKeyManagerBroker(
+            EnterPinArgs enterPinArgs,
+            EnterPinArgs enterPassphraseArgs,
+            IDeviceFactory deviceFactory,
+            ICoinUtility coinUtility = null,
+            ILoggerFactory loggerFactory = null,
+            int? pollInterval = null) : base(
+                enterPinArgs,
+                enterPassphraseArgs,
+                pollInterval,
+                deviceFactory,
+                coinUtility,
+                loggerFactory)
         {
         }
         #endregion
 
         #region Protected Overrides
-        //Define the types of devices to search for. This particular device can be connected to via USB, or Hid
-        public List<FilterDeviceDefinition> DeviceDefinitions { get; } = new List<FilterDeviceDefinition>
-        {
-            new FilterDeviceDefinition( vendorId: 0x2B24, productId:0x1, label:"Android Only USB Interface Legacy Firmware"),
-            new FilterDeviceDefinition( vendorId: 0x2B24, productId:0x2, label:"Android Only USB Interface")
-        };
-
         protected override KeepKeyManager CreateTrezorManager(IDevice device)
         {
             if (device == null) throw new ArgumentNullException(nameof(device));

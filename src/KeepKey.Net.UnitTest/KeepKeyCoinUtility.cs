@@ -36,18 +36,11 @@ namespace KeepKey.Net
                 //Seems like there are some coins on the KeepKey with the wrong index. I.e. they are actually Ethereum?
                 if (_CoinInfoByCoinType.ContainsKey(coinTypeIndex)) continue;
 
-                AddressType addressType;
-
-                //TODO: Is this a good way to do this? How can we tell which coins are Bitcoin?
-                switch (coinType.AddressType)
+                var addressType = coinType.AddressType switch
                 {
-                    case 65535:
-                        addressType = AddressType.Ethereum;
-                        break;
-                    default:
-                        addressType = AddressType.Bitcoin;
-                        break;
-                }
+                    65535 => AddressType.Ethereum,
+                    _ => AddressType.Bitcoin,
+                };
 
                 _CoinInfoByCoinType.Add(coinTypeIndex, new CoinInfo(coinType.CoinName, addressType, !IsLegacy && coinType.Segwit, AddressUtilities.UnhardenNumber(coinType.Bip44AccountPath)));
             }
