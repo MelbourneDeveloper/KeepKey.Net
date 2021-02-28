@@ -12,6 +12,12 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Trezor.Net;
 
+#pragma warning disable CA1303 // Do not pass literals as localized parameters
+#pragma warning disable IDE0059 // Unnecessary assignment of a value
+#pragma warning disable IDE0010 // Add missing cases
+#pragma warning disable CA2201 // Do not raise reserved exception types
+#pragma warning disable CA1305 // Specify IFormatProvider
+
 namespace KeepKey.Net
 {
     [TestClass]
@@ -31,15 +37,12 @@ namespace KeepKey.Net
                 return;
             }
 
-            KeepKeyManager = await ConnectAsync();
+            KeepKeyManager = await ConnectAsync().ConfigureAwait(false);
         }
         #endregion
 
         #region Helpers
-        private static async Task<string> GetAddressAsync(uint index)
-        {
-            return await GetAddressAsync(0, false, index, false);
-        }
+        private static async Task<string> GetAddressAsync(uint index) => await GetAddressAsync(0, false, index, false).ConfigureAwait(false);
 
         /// <summary>
         /// Note assumes we are looking for non segwit legacy addresses
@@ -48,14 +51,14 @@ namespace KeepKey.Net
         {
             var coinInfo = KeepKeyManager.CoinUtility.GetCoinInfo(coinNumber);
             var addressPath = new BIP44AddressPath(!isLegacy && coinInfo.IsSegwit, coinNumber, 0, isChange, index);
-            var address = await KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display);
+            var address = await KeepKeyManager.GetAddressAsync(addressPath, isPublicKey, display).ConfigureAwait(false);
             Assert.IsNotNull(address);
             return address;
         }
 
         private static async Task DoGetAddress(uint i)
         {
-            var address = await GetAddressAsync(i);
+            var address = await GetAddressAsync(i).ConfigureAwait(false);
             _Addresses[i] = address;
         }
         #endregion
@@ -64,13 +67,13 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task DisplayBitcoinAddress()
         {
-            var address = await GetAddressAsync(0, false, 0, true);
+            var address = await GetAddressAsync(0, false, 0, true).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task GetBitcoinAddress()
         {
-            var address = await GetAddressAsync(0, false, 0, false);
+            var address = await GetAddressAsync(0, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
@@ -81,7 +84,7 @@ namespace KeepKey.Net
             //Get 10 addresses with all the trimming
             const int numberOfAddresses = 3;
             const int numberOfAccounts = 2;
-            var addresses = await addressManager.GetAddressesAsync(0, numberOfAddresses, numberOfAccounts, true, true);
+            var addresses = await addressManager.GetAddressesAsync(0, numberOfAddresses, numberOfAccounts, true, true).ConfigureAwait(false);
 
             Assert.IsTrue(addresses != null);
             Assert.IsTrue(addresses.Accounts != null);
@@ -96,65 +99,65 @@ namespace KeepKey.Net
         [TestMethod]
         public async Task GetBitcoinCashAddress()
         {
-            var address = await GetAddressAsync(145, false, 0, false);
+            var address = await GetAddressAsync(145, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task GetBitcoinGoldAddress()
         {
-            var address = await GetAddressAsync(156, false, 0, false);
+            var address = await GetAddressAsync(156, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task GetLitecoinAddress()
         {
-            var address = await GetAddressAsync(2, false, 0, false);
+            var address = await GetAddressAsync(2, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task GetDashAddress()
         {
-            var address = await GetAddressAsync(5, false, 0, false);
+            var address = await GetAddressAsync(5, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task GetDogeAddress()
         {
-            var address = await GetAddressAsync(3, false, 0, false);
+            var address = await GetAddressAsync(3, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task DisplayDogeAddress()
         {
-            var address = await GetAddressAsync(3, false, 0, true);
+            var address = await GetAddressAsync(3, false, 0, true).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task DisplayBitcoinCashAddress()
         {
             //Coin name must be specified when displaying the address for most coins
-            var address = await GetAddressAsync(145, false, 0, true);
+            var address = await GetAddressAsync(145, false, 0, true).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task DisplayEthereumAddress()
         {
             //Ethereum coins don't need the coin name
-            var address = await GetAddressAsync(60, false, 0, true);
+            var address = await GetAddressAsync(60, false, 0, true).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task GetEthereumAddress()
         {
             //Ethereum coins don't need the coin name
-            var address = await GetAddressAsync(60, false, 0, false);
+            var address = await GetAddressAsync(60, false, 0, false).ConfigureAwait(false);
         }
 
         [TestMethod]
         public async Task DisplayEthereumClassicAddress()
         {
             //Ethereum coins don't need the coin name
-            var address = await GetAddressAsync(61, false, 0, true);
+            var address = await GetAddressAsync(61, false, 0, true).ConfigureAwait(false);
         }
 
         [TestMethod]
@@ -167,11 +170,11 @@ namespace KeepKey.Net
                 tasks.Add(DoGetAddress(i));
             }
 
-            await Task.WhenAll(tasks);
+            await Task.WhenAll(tasks).ConfigureAwait(false);
 
             for (uint i = 0; i < 50; i++)
             {
-                var address = await GetAddressAsync(i);
+                var address = await GetAddressAsync(i).ConfigureAwait(false);
 
                 Console.WriteLine($"Index: {i} (No change) - Address: {address}");
 
@@ -195,7 +198,7 @@ namespace KeepKey.Net
                 AddressNs = KeyPath.Parse("m/44'/60'/0'/0/0").Indexes,
                 ChainId = 1
             };
-            var transaction = await KeepKeyManager.SendMessageAsync<EthereumTxRequest, EthereumSignTx>(txMessage);
+            var transaction = await KeepKeyManager.SendMessageAsync<EthereumTxRequest, EthereumSignTx>(txMessage).ConfigureAwait(false);
 
             Assert.AreEqual(transaction.SignatureR.Length, 32);
             Assert.AreEqual(transaction.SignatureS.Length, 32);
@@ -205,8 +208,8 @@ namespace KeepKey.Net
         public async Task GetCoinTable()
         {
             var coinTables = new List<CoinInfo>();
-            await GetAndInitialize();
-            var coinTable = await KeepKeyManager.GetCoinTable();
+            await GetAndInitialize().ConfigureAwait(false);
+            var coinTable = await KeepKeyManager.GetCoinTable().ConfigureAwait(false);
             KeepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
         }
 
@@ -214,7 +217,7 @@ namespace KeepKey.Net
         public async Task SignBitcoinTransactionAsync()
         {
             // initialize connection with device
-            await GetAndInitialize();
+            await GetAndInitialize().ConfigureAwait(false);
 
             //get address path for address in Trezor
             var addressPath = AddressPathBase.Parse<BIP44AddressPath>("m/49'/0'/0'/0/0").ToArray();
@@ -272,7 +275,7 @@ namespace KeepKey.Net
             var serializedTx = new List<byte>();
 
             // We send SignTx() to the Trezor and we wait him to send us Request
-            var request = await KeepKeyManager.SendMessageAsync<TxRequest, SignTx>(signTx);
+            var request = await KeepKeyManager.SendMessageAsync<TxRequest, SignTx>(signTx).ConfigureAwait(false);
 
             // We do loop here since we need to send over and over the same transactions to trezor because his 64 kilobytes memory
             // and he will sign chunks and return part of signed chunk in serialized manner, until we receive finall type of Txrequest TxFinished
@@ -283,7 +286,7 @@ namespace KeepKey.Net
                     case RequestType.Txinput:
                         {
                             //We send TxAck() with  TxInputs
-                            request = await KeepKeyManager.SendMessageAsync<TxRequest, TxAck>(txAck);
+                            request = await KeepKeyManager.SendMessageAsync<TxRequest, TxAck>(txAck).ConfigureAwait(false);
 
                             // Now we have to check every response is there any SerializedTx chunk 
                             if (request.Serialized != null)
@@ -297,7 +300,7 @@ namespace KeepKey.Net
                     case RequestType.Txoutput:
                         {
                             //We send TxAck()  with  TxOutputs
-                            request = await KeepKeyManager.SendMessageAsync<TxRequest, TxAck>(txAck);
+                            request = await KeepKeyManager.SendMessageAsync<TxRequest, TxAck>(txAck).ConfigureAwait(false);
 
                             // Now we have to check every response is there any SerializedTx chunk 
                             if (request.Serialized != null)

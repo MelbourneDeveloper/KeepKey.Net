@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Usb.Net.Windows;
 
+#pragma warning disable CA2201 // Do not raise reserved exception types
+
 namespace KeepKey.Net
 {
     public partial class UnitTest
@@ -16,23 +18,19 @@ namespace KeepKey.Net
             //Register the factory for creating Usb devices. Trezor One Firmware 1.7.x / Trezor Model T
             WindowsUsbDeviceFactory.Register(new DebugLogger(), new DebugTracer());
 
+#pragma warning disable CA2000 // Dispose objects before losing scope
             var keepKeyManagerBroker = new KeepKeyManagerBroker(GetPin, GetPassphrase, 2000);
-            var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync();
-            await keepKeyManager.InitializeAsync();
-            var coinTable = await keepKeyManager.GetCoinTable();
+#pragma warning restore CA2000 // Dispose objects before losing scope
+            var keepKeyManager = await keepKeyManagerBroker.WaitForFirstTrezorAsync().ConfigureAwait(false);
+            await keepKeyManager.InitializeAsync().ConfigureAwait(false);
+            var coinTable = await keepKeyManager.GetCoinTable().ConfigureAwait(false);
             keepKeyManager.CoinUtility = new KeepKeyCoinUtility(coinTable);
             return keepKeyManager;
         }
 
-        private async Task<string> GetPin()
-        {
-            return await Prompt("Pin");
-        }
+        private async Task<string> GetPin() => await Prompt("Pin").ConfigureAwait(false);
 
-        private async Task<string> GetPassphrase()
-        {
-            return await Prompt("Passphrase");
-        }
+        private async Task<string> GetPassphrase() => await Prompt("Passphrase").ConfigureAwait(false);
 
         private static async Task<string> Prompt(string prompt)
         {
@@ -44,7 +42,7 @@ namespace KeepKey.Net
 
             var process = Process.Start(passwordExePath, prompt);
             process.WaitForExit();
-            await Task.Delay(100);
+            await Task.Delay(100).ConfigureAwait(false);
             var pin = File.ReadAllText(Path.Combine(GetExecutingAssemblyDirectoryPath(), "pin.txt"));
             return pin;
         }
